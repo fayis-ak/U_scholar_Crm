@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uscholarcrm/utils/reshelper.dart';
 
@@ -10,6 +11,9 @@ const Color green = Color.fromARGB(248, 0, 255, 55);
 const Color black = Color.fromARGB(255, 0, 0, 0);
 
 const Color notificolor = Color.fromARGB(41, 157, 145, 1);
+const Color whiteshide = Color(0xffD9D9D9);
+
+const Color lightblack = Color(0xff706868);
 
 const Color selectedindex = Colors.amber;
 
@@ -48,13 +52,15 @@ class AppStyles {
     );
   }
 
-  static TextStyle Header(BuildContext context) {
-    final double dynamicFontSize = MediaQuery.of(context).size.width * 0.020;
+  static TextStyle Header(
+      {context, TextDecoration, required double, required Color}) {
+    // final double dynamicFontSize = MediaQuery.of(context).size.width * 0.020;
 
     return TextStyle(
-      fontSize: dynamicFontSize,
+      decoration: TextDecoration,
+      fontSize: double,
       fontWeight: FontWeight.bold,
-      color: Colors.black,
+      color: Color,
     );
   }
 }

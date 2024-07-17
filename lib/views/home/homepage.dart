@@ -6,6 +6,8 @@ import 'package:provider/provider.dart';
 import 'package:uscholarcrm/provider/controller.dart';
 import 'package:uscholarcrm/utils/constants.dart';
 import 'package:uscholarcrm/utils/reshelper.dart';
+import 'package:uscholarcrm/views/home/pages/dashboard.dart';
+import 'package:uscholarcrm/views/home/pages/newleads.dart';
 
 class DashBoard extends StatelessWidget {
   const DashBoard({super.key});
@@ -13,8 +15,8 @@ class DashBoard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<Widget> screen = [
-      screen1(),
-      screen2(),
+      Screen1(),
+      Newleads(),
       screen3(),
       screen4(),
       screen5(),
@@ -101,180 +103,6 @@ class DashBoard extends StatelessWidget {
   }
 }
 
-class screen1 extends StatelessWidget {
-  const screen1({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: MQ.wd(context) * .030,
-            vertical: MQ.wd(context) * .030,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                width: MQ.wd(context) * .20,
-                child: Row(
-                  children: [
-                    Icon(Icons.arrow_forward_ios_outlined),
-                    Icon(Icons.arrow_forward_ios_outlined),
-                    Text(
-                      'MAY 19,2022',
-                      style: TextStyle(
-                        fontSize: MQ.wd(context) * .010,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              Badge(
-                label: Text('5'),
-                child: Icon(Icons.notifications),
-                textColor: notificolor,
-                backgroundColor: green,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                    MQ.wd(context) * .010,
-                  ),
-                ),
-                width: MQ.wd(context) * .26,
-                child: textform(context),
-              ),
-              Container(
-                child: Row(
-                  children: [
-                    Icon(Icons.logout),
-                    Text('Logout'),
-                  ],
-                ),
-              )
-            ],
-          ),
-        ),
-        SizedBox(
-          height: MQ.ht(context) * .020,
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: MQ.wd(context) * .030,
-            vertical: MQ.wd(context) * .030,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Row(
-                children: [
-                  Container(
-                    width: MQ.wd(context) * .050,
-                    height: MQ.wd(context) * .050,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: black,
-                    ),
-                    child: SvgPicture.asset(
-                      'assets/icons/profile-2user.svg',
-                      height: 5,
-                      width: 5,
-                      fit: BoxFit.scaleDown,
-                    ),
-                  ),
-                  SizedBox(
-                    width: MQ.wd(context) * .005,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'TOTTAL LEAD',
-                        style: AppStyles.commonTextStyle(context),
-                      ),
-                      Text(
-                        '0000',
-                        style: AppStyles.Header(context),
-                      ),
-                      Text(
-                        '16 % This Month',
-                        style: AppStyles.commonTextStyle(context),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-              Row(
-                children: [
-                  Container(
-                    width: MQ.wd(context) * .050,
-                    height: MQ.wd(context) * .050,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: black,
-                    ),
-                    child: SvgPicture.asset(
-                      // 'assets/icons/profile-tick.svg',
-                      'assets/icons/profile-tick.svg',
-                      height: 5,
-                      width: 5,
-                      fit: BoxFit.scaleDown,
-                    ),
-                  ),
-                  SizedBox(
-                    width: MQ.wd(context) * .005,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('REGISTER'),
-                      Text('0000'),
-                      Text('16 % This Month'),
-                    ],
-                  )
-                ],
-              ),
-              Row(
-                children: [
-                  Container(
-                    width: MQ.wd(context) * .050,
-                    height: MQ.wd(context) * .050,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: black,
-                    ),
-                    child: SvgPicture.asset(
-                      // 'assets/icons/profile-tick.svg',
-                      'assets/icons/close.svg',
-                      height: 5,
-                      width: 5,
-                      fit: BoxFit.scaleDown,
-                    ),
-                  ),
-                  SizedBox(
-                    width: MQ.wd(context) * .005,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('DROPED'),
-                      Text('0000'),
-                      Text('16 % This Month'),
-                    ],
-                  )
-                ],
-              ),
-            ],
-          ),
-        )
-      ],
-    );
-  }
-}
-
 Widget textform(context) {
   return TextFormField(
     decoration: InputDecoration(
@@ -295,19 +123,6 @@ Widget textform(context) {
       ),
     ),
   );
-}
-
-class screen2 extends StatelessWidget {
-  const screen2({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text('screen 2'),
-      ),
-    );
-  }
 }
 
 class screen3 extends StatelessWidget {
