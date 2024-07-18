@@ -70,136 +70,11 @@ class Screen1 extends StatelessWidget {
             horizontal: MQ.wd(context) * .030,
             vertical: MQ.wd(context) * .030,
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Container(
-                    width: MQ.wd(context) * .050,
-                    height: MQ.wd(context) * .050,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: black,
-                    ),
-                    child: SvgPicture.asset(
-                      'assets/icons/profile-2user.svg',
-                      height: 5,
-                      width: 5,
-                      fit: BoxFit.scaleDown,
-                    ),
-                  ),
-                  SizedBox(
-                    width: MQ.wd(context) * .005,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'TOTTAL LEAD',
-                        style: AppStyles.commonTextStyle(context),
-                      ),
-                      Text(
-                        '0000',
-                        style: AppStyles.Header(
-                          Color: black,
-                          double: MQ.wd(context) * 0.020,
-                          context: context,
-                        ),
-                      ),
-                      Text(
-                        '16 % This Month',
-                        style: AppStyles.commonTextStyle(context),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-              Row(
-                children: [
-                  Container(
-                    width: MQ.wd(context) * .050,
-                    height: MQ.wd(context) * .050,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: black,
-                    ),
-                    child: SvgPicture.asset(
-                      'assets/icons/profile-tick.svg',
-                      height: 5,
-                      width: 5,
-                      fit: BoxFit.scaleDown,
-                    ),
-                  ),
-                  SizedBox(
-                    width: MQ.wd(context) * .005,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'REGISTER',
-                        style: AppStyles.commonTextStyle(context),
-                      ),
-                      Text(
-                        '0000',
-                        style: AppStyles.Header(
-                            Color: black,
-                            double: MQ.wd(context) * 0.020,
-                            context: context),
-                      ),
-                      Text(
-                        '16 % This Month',
-                        style: AppStyles.commonTextStyle(context),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-              Row(
-                children: [
-                  Container(
-                    width: MQ.wd(context) * .050,
-                    height: MQ.wd(context) * .050,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: black,
-                    ),
-                    child: SvgPicture.asset(
-                      // 'assets/icons/profile-tick.svg',
-                      'assets/icons/close.svg',
-                      height: 5,
-                      width: 5,
-                      fit: BoxFit.scaleDown,
-                    ),
-                  ),
-                  SizedBox(
-                    width: MQ.wd(context) * .005,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'DROPED',
-                        style: AppStyles.commonTextStyle(context),
-                      ),
-                      Text(
-                        '0000',
-                        style: AppStyles.Header(
-                            Color: black,
-                            double: MQ.wd(context) * 0.020,
-                            context: context),
-                      ),
-                      Text(
-                        '16 % This Month',
-                        style: AppStyles.commonTextStyle(context),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ],
-          ),
+          child: LeadForm(context),
+        ),
+        Divider(
+          thickness: 2,
+          color: black,
         ),
         SizedBox(
           height: MQ.ht(context) * .020,
@@ -220,7 +95,6 @@ class Screen1 extends StatelessWidget {
     );
   }
 }
-
 
 Widget container({context, required text}) {
   return Container(
@@ -275,5 +149,180 @@ Widget container({context, required text}) {
         ],
       ),
     ),
+  );
+}
+
+Widget LeadForm(BuildContext context) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Row(
+        children: [
+          Container(
+            width: MQ.wd(context) * .050,
+            height: MQ.wd(context) * .050,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: black,
+            ),
+            child: SvgPicture.asset(
+              'assets/icons/profile-2user.svg',
+              height: 5,
+              width: 5,
+              fit: BoxFit.scaleDown,
+            ),
+          ),
+          SizedBox(
+            width: MQ.wd(context) * .005,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'TOTTAL LEAD',
+                style: AppStyles.commonTextStyle(context),
+              ),
+              Text(
+                '0000',
+                style: AppStyles.Header(
+                  Color: black,
+                  double: MQ.wd(context) * 0.020,
+                  context: context,
+                ),
+              ),
+              Text(
+                '16 % This Month',
+                style: AppStyles.commonTextStyle(context),
+              ),
+            ],
+          )
+        ],
+      ),
+      Row(
+        children: [
+          Container(
+            width: MQ.wd(context) * .050,
+            height: MQ.wd(context) * .050,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: black,
+            ),
+            child: SvgPicture.asset(
+              'assets/icons/profile-tick.svg',
+              height: 5,
+              width: 5,
+              fit: BoxFit.scaleDown,
+            ),
+          ),
+          SizedBox(
+            width: MQ.wd(context) * .005,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'REGISTER',
+                style: AppStyles.commonTextStyle(context),
+              ),
+              Text(
+                '0000',
+                style: AppStyles.Header(
+                    Color: black,
+                    double: MQ.wd(context) * 0.020,
+                    context: context),
+              ),
+              Text(
+                '16 % This Month',
+                style: AppStyles.commonTextStyle(context),
+              ),
+            ],
+          )
+        ],
+      ),
+      Row(
+        children: [
+          Container(
+            width: MQ.wd(context) * .050,
+            height: MQ.wd(context) * .050,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: black,
+            ),
+            child: SvgPicture.asset(
+              // 'assets/icons/profile-tick.svg',
+              'assets/icons/close.svg',
+              height: 5,
+              width: 5,
+              fit: BoxFit.scaleDown,
+            ),
+          ),
+          SizedBox(
+            width: MQ.wd(context) * .005,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'DROPED',
+                style: AppStyles.commonTextStyle(context),
+              ),
+              Text(
+                '0000',
+                style: AppStyles.Header(
+                    Color: black,
+                    double: MQ.wd(context) * 0.020,
+                    context: context),
+              ),
+              Text(
+                '16 % This Month',
+                style: AppStyles.commonTextStyle(context),
+              ),
+            ],
+          )
+        ],
+      ),
+      Row(
+        children: [
+          Container(
+            width: MQ.wd(context) * .050,
+            height: MQ.wd(context) * .050,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: black,
+            ),
+            child: SvgPicture.asset(
+              'assets/icons/profile-2user.svg',
+              height: 5,
+              width: 5,
+              fit: BoxFit.scaleDown,
+            ),
+          ),
+          SizedBox(
+            width: MQ.wd(context) * .005,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'FOLLOW UP',
+                style: AppStyles.commonTextStyle(context),
+              ),
+              Text(
+                '0000',
+                style: AppStyles.Header(
+                  Color: black,
+                  double: MQ.wd(context) * 0.020,
+                  context: context,
+                ),
+              ),
+              Text(
+                '16 % This Month',
+                style: AppStyles.commonTextStyle(context),
+              ),
+            ],
+          )
+        ],
+      ),
+    ],
   );
 }

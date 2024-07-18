@@ -15,6 +15,10 @@ const Color whiteshide = Color(0xffD9D9D9);
 
 const Color lightblack = Color(0xff706868);
 
+const Color btcolor = Color(0xff16C098);
+
+const Color bttextcolor = Color(0xff00B087);
+
 const Color selectedindex = Colors.amber;
 
 List<String> drawertext = [

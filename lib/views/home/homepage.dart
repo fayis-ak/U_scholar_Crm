@@ -7,6 +7,7 @@ import 'package:uscholarcrm/provider/controller.dart';
 import 'package:uscholarcrm/utils/constants.dart';
 import 'package:uscholarcrm/utils/reshelper.dart';
 import 'package:uscholarcrm/views/home/pages/dashboard.dart';
+import 'package:uscholarcrm/views/home/pages/followpleads.dart';
 import 'package:uscholarcrm/views/home/pages/newleads.dart';
 
 class DashBoard extends StatelessWidget {
@@ -17,7 +18,7 @@ class DashBoard extends StatelessWidget {
     final List<Widget> screen = [
       Screen1(),
       Newleads(),
-      screen3(),
+      FollowupLeads(),
       screen4(),
       screen5(),
       screen6(),
@@ -37,8 +38,12 @@ class DashBoard extends StatelessWidget {
                 children: [
                   ListTile(
                     leading: CircleAvatar(),
-                    title: Text('WAHEED '),
-                    subtitle: Text('Satf'),
+                    title: Text(
+                      'WAHEED ',
+                      style: AppStyles.Header(
+                          double: MQ.wd(context) * .010, Color: white),
+                    ),
+                    subtitle: Text('Staff'),
                     trailing: IconButton(
                       onPressed: () {},
                       icon: Icon(Icons.more_vert_rounded),

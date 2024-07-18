@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:uscholarcrm/utils/constants.dart';
 import 'package:uscholarcrm/utils/reshelper.dart';
@@ -8,8 +7,8 @@ import 'package:uscholarcrm/views/auth/loggin.dart';
 import 'package:uscholarcrm/views/home/homepage.dart';
 import 'package:uscholarcrm/views/home/pages/dashboard.dart';
 
-class Newleads extends StatelessWidget {
-  const Newleads({super.key});
+class FollowupLeads extends StatelessWidget {
+  const FollowupLeads({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +60,7 @@ class Newleads extends StatelessWidget {
                     Text('Logout'),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -76,72 +75,6 @@ class Newleads extends StatelessWidget {
             child: LeadForm(context)),
         SizedBox(
           height: MQ.ht(context) * .020,
-        ),
-        Container(
-          width: MQ.wd(context) * 6,
-          height: MQ.ht(context) * .050,
-          color: black,
-          child: Row(
-            children: [
-              SizedBox(width: MQ.wd(context) * .15),
-              Text(
-                'Student Name',
-                style: AppStyles.Header(
-                  double: MQ.wd(context) * .010,
-                  Color: white,
-                ),
-              ),
-              SizedBox(width: MQ.wd(context) * .100),
-              Text(
-                'Mobile Number',
-                style: AppStyles.Header(
-                  double: MQ.wd(context) * .010,
-                  Color: white,
-                ),
-              ),
-              SizedBox(width: MQ.wd(context) * .110),
-              Text(
-                'Coundry',
-                style: AppStyles.Header(
-                  double: MQ.wd(context) * .010,
-                  Color: white,
-                ),
-              ),
-            ],
-          ),
-        ),
-        Expanded(
-          child: ListView.separated(
-            shrinkWrap: true,
-            itemCount: 20,
-            itemBuilder: (context, index) {
-              return Row(
-                children: [
-                  SizedBox(width: MQ.wd(context) * .020),
-                  Text('${index + 1}'),
-                  SizedBox(width: MQ.wd(context) * .120),
-                  Text('Waheeddfdfefefe'),
-                  SizedBox(width: MQ.wd(context) * .120),
-                  Text('*****50435'),
-                  SizedBox(width: MQ.wd(context) * .120),
-                  Text('Waheed'),
-                  SizedBox(width: MQ.wd(context) * .150),
-                  elevatedbt(
-                    backgroudcolor: btcolor.withOpacity(0.01),
-                    text: 'View',
-                    context: context,
-                    onpress: () {},
-                    textcolor: bttextcolor,
-                  ),
-                ],
-              );
-            },
-            separatorBuilder: (context, index) {
-              return SizedBox(
-                height: MQ.ht(context) * .050,
-              );
-            },
-          ),
         ),
       ],
     );
