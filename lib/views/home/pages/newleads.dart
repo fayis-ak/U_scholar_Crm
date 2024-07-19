@@ -7,6 +7,8 @@ import 'package:uscholarcrm/utils/reshelper.dart';
 import 'package:uscholarcrm/views/auth/loggin.dart';
 import 'package:uscholarcrm/views/home/homepage.dart';
 import 'package:uscholarcrm/views/home/pages/dashboard.dart';
+import 'package:uscholarcrm/views/widget/text.dart';
+import 'package:uscholarcrm/views/widget/textform.dart';
 
 class Newleads extends StatelessWidget {
   const Newleads({super.key});
@@ -52,7 +54,7 @@ class Newleads extends StatelessWidget {
                   ),
                 ),
                 width: MQ.wd(context) * .26,
-                child: textform(context),
+                child: Textformwidget(),
               ),
               Container(
                 child: Row(
@@ -84,13 +86,18 @@ class Newleads extends StatelessWidget {
           child: Row(
             children: [
               SizedBox(width: MQ.wd(context) * .15),
-              Text(
+              AppText(
                 'Student Name',
-                style: AppStyles.Header(
-                  double: MQ.wd(context) * .010,
-                  Color: white,
-                ),
+                size: MQ.wd(context) * .010,
+                color: white,
               ),
+              // Text(
+              //   'Student Name',
+              //   style: AppStyles.Header(
+              //     double: MQ.wd(context) * .010,
+              //     Color: white,
+              //   ),
+              // ),
               SizedBox(width: MQ.wd(context) * .100),
               Text(
                 'Mobile Number',
@@ -120,14 +127,14 @@ class Newleads extends StatelessWidget {
                   SizedBox(width: MQ.wd(context) * .020),
                   Text('${index + 1}'),
                   SizedBox(width: MQ.wd(context) * .120),
-                  Text('Waheeddfdfefefe'),
+                  AppText('Waheed'),
                   SizedBox(width: MQ.wd(context) * .120),
-                  Text('*****50435'),
+                  AppText('*****50435'),
                   SizedBox(width: MQ.wd(context) * .120),
-                  Text('Waheed'),
+                  AppText('UK,US,CANADA'),
                   SizedBox(width: MQ.wd(context) * .150),
                   elevatedbt(
-                    backgroudcolor: btcolor.withOpacity(0.01),
+                    backgroudcolor: Colors.white,
                     text: 'View',
                     context: context,
                     onpress: () {},

@@ -4,6 +4,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:uscholarcrm/utils/constants.dart';
 import 'package:uscholarcrm/utils/reshelper.dart';
 import 'package:uscholarcrm/views/home/homepage.dart';
+import 'package:uscholarcrm/views/widget/divider.dart';
+import 'package:uscholarcrm/views/widget/text.dart';
+import 'package:uscholarcrm/views/widget/textform.dart';
 
 class Screen1 extends StatelessWidget {
   const Screen1({super.key});
@@ -26,11 +29,11 @@ class Screen1 extends StatelessWidget {
                   children: [
                     Icon(Icons.arrow_forward_ios_outlined),
                     Icon(Icons.arrow_forward_ios_outlined),
-                    Text(
+                    AppText(
                       'MAY 19,2022',
                       style: TextStyle(
-                        fontSize: MQ.wd(context) * .010,
                         fontWeight: FontWeight.bold,
+                        fontSize: MQ.wd(context) * .010,
                       ),
                     )
                   ],
@@ -49,13 +52,13 @@ class Screen1 extends StatelessWidget {
                   ),
                 ),
                 width: MQ.wd(context) * .26,
-                child: textform(context),
+                child: Textformwidget(),
               ),
               Container(
                 child: Row(
                   children: [
                     Icon(Icons.logout),
-                    Text('Logout'),
+                    AppText('Logout'),
                   ],
                 ),
               )
@@ -72,10 +75,7 @@ class Screen1 extends StatelessWidget {
           ),
           child: LeadForm(context),
         ),
-        Divider(
-          thickness: 2,
-          color: black,
-        ),
+        divider(),
         SizedBox(
           height: MQ.ht(context) * .020,
         ),
@@ -112,7 +112,7 @@ Widget container({context, required text}) {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(text),
+              AppText(text),
               Container(
                 width: MQ.wd(context) * .010,
                 height: MQ.wd(context) * .010,
@@ -131,10 +131,10 @@ Widget container({context, required text}) {
           SizedBox(
             height: MQ.ht(context) * .005,
           ),
-          Text(
+          AppText(
             '00',
-            style: AppStyles.Header(
-                Color: black, double: MQ.wd(context) * 0.020, context: context),
+            color: black,
+            size: MQ.wd(context) * 0.020,
           ),
           Spacer(),
           Text(
@@ -178,18 +178,31 @@ Widget LeadForm(BuildContext context) {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // AppText(
+              //   'TOTTAL LEAD',
+              //   color: lightblack,
+              //   weight: FontWeight.bold,
+              //   size: MQ.wd(context) * 0.010,
+              // ),
               Text(
-                'TOTTAL LEAD',
+                'TOTAL LEAD',
                 style: AppStyles.commonTextStyle(context),
               ),
-              Text(
+
+              AppText(
                 '0000',
-                style: AppStyles.Header(
-                  Color: black,
-                  double: MQ.wd(context) * 0.020,
-                  context: context,
-                ),
+                color: black,
+                size: MQ.wd(context) * 0.020,
+                weight: FontWeight.bold,
               ),
+              // Text(
+              //   '0000',
+              //   style: AppStyles.Header(
+              //     Color: black,
+              //     double: MQ.wd(context) * 0.020,
+              //     context: context,
+              //   ),
+              // ),
               Text(
                 '16 % This Month',
                 style: AppStyles.commonTextStyle(context),
@@ -224,12 +237,11 @@ Widget LeadForm(BuildContext context) {
                 'REGISTER',
                 style: AppStyles.commonTextStyle(context),
               ),
-              Text(
+              AppText(
                 '0000',
-                style: AppStyles.Header(
-                    Color: black,
-                    double: MQ.wd(context) * 0.020,
-                    context: context),
+                color: black,
+                size: MQ.wd(context) * 0.020,
+                weight: FontWeight.bold,
               ),
               Text(
                 '16 % This Month',
@@ -266,12 +278,11 @@ Widget LeadForm(BuildContext context) {
                 'DROPED',
                 style: AppStyles.commonTextStyle(context),
               ),
-              Text(
+              AppText(
                 '0000',
-                style: AppStyles.Header(
-                    Color: black,
-                    double: MQ.wd(context) * 0.020,
-                    context: context),
+                color: black,
+                size: MQ.wd(context) * 0.020,
+                weight: FontWeight.bold,
               ),
               Text(
                 '16 % This Month',
@@ -307,13 +318,11 @@ Widget LeadForm(BuildContext context) {
                 'FOLLOW UP',
                 style: AppStyles.commonTextStyle(context),
               ),
-              Text(
+              AppText(
                 '0000',
-                style: AppStyles.Header(
-                  Color: black,
-                  double: MQ.wd(context) * 0.020,
-                  context: context,
-                ),
+                color: black,
+                size: MQ.wd(context) * 0.020,
+                weight: FontWeight.bold,
               ),
               Text(
                 '16 % This Month',

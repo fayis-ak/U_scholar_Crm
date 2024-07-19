@@ -9,6 +9,7 @@ import 'package:uscholarcrm/utils/reshelper.dart';
 import 'package:uscholarcrm/views/home/pages/dashboard.dart';
 import 'package:uscholarcrm/views/home/pages/followpleads.dart';
 import 'package:uscholarcrm/views/home/pages/newleads.dart';
+import 'package:uscholarcrm/views/widget/text.dart';
 
 class DashBoard extends StatelessWidget {
   const DashBoard({super.key});
@@ -38,12 +39,19 @@ class DashBoard extends StatelessWidget {
                 children: [
                   ListTile(
                     leading: CircleAvatar(),
-                    title: Text(
-                      'WAHEED ',
-                      style: AppStyles.Header(
-                          double: MQ.wd(context) * .010, Color: white),
+                    title: AppText(
+                      'WAHEED',
+                      color: white,
                     ),
-                    subtitle: Text('Staff'),
+                    // title: Text(
+                    //   'WAHEED ',
+                    //   style: AppStyles.Header(
+                    //       double: MQ.wd(context) * .010, Color: white),
+                    // ),
+                    subtitle: AppText(
+                      'staff',
+                      color: white,
+                    ),
                     trailing: IconButton(
                       onPressed: () {},
                       icon: Icon(Icons.more_vert_rounded),
@@ -77,7 +85,8 @@ class DashBoard extends StatelessWidget {
                             : Colors.black,
                         child: ListTile(
                           leading: icons[index],
-                          title: Text(drawertext[index]),
+                          title: AppText(drawertext[index]),
+                          //  Text(drawertext[index]),
                           titleTextStyle: TextStyle(
                             color: white,
                           ),
@@ -108,27 +117,7 @@ class DashBoard extends StatelessWidget {
   }
 }
 
-Widget textform(context) {
-  return TextFormField(
-    decoration: InputDecoration(
-      fillColor: Colors.grey.shade200,
-      filled: true,
-      hintText: 'Search here',
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(
-          MQ.wd(context) * .005,
-        ),
-        borderSide: BorderSide.none,
-      ),
-      suffixIcon: IconButton(
-        onPressed: () {},
-        icon: Icon(
-          Icons.search,
-        ),
-      ),
-    ),
-  );
-}
+
 
 class screen3 extends StatelessWidget {
   const screen3({super.key});

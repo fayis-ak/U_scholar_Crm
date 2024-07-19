@@ -6,6 +6,7 @@ import 'package:uscholarcrm/utils/reshelper.dart';
 import 'package:uscholarcrm/views/auth/loggin.dart';
 import 'package:uscholarcrm/views/home/homepage.dart';
 import 'package:uscholarcrm/views/home/pages/dashboard.dart';
+import 'package:uscholarcrm/views/widget/textform.dart';
 
 class FollowupLeads extends StatelessWidget {
   const FollowupLeads({super.key});
@@ -51,7 +52,7 @@ class FollowupLeads extends StatelessWidget {
                   ),
                 ),
                 width: MQ.wd(context) * .26,
-                child: textform(context),
+                child: Textformwidget(),
               ),
               Container(
                 child: Row(
