@@ -141,7 +141,7 @@ class LogginScreen extends StatelessWidget {
                                   Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => DashBoard(),
+                                        builder: (context) => HomePage(),
                                       ));
                                 },
                               ),

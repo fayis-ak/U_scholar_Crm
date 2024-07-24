@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'PublicSans',
         ),
         debugShowCheckedModeBanner: false,
-        home: DashBoard(),
+        home: HomePage(),
       ),
     );
   }

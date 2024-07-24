@@ -2,11 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
+import 'package:uscholarcrm/provider/controller.dart';
 import 'package:uscholarcrm/utils/constants.dart';
 import 'package:uscholarcrm/utils/reshelper.dart';
 import 'package:uscholarcrm/views/auth/loggin.dart';
 import 'package:uscholarcrm/views/home/homepage.dart';
 import 'package:uscholarcrm/views/home/pages/dashboard.dart';
+import 'package:uscholarcrm/views/home/pages/registreadlead.dart';
+import 'package:uscholarcrm/views/widget/container.dart';
 import 'package:uscholarcrm/views/widget/text.dart';
 import 'package:uscholarcrm/views/widget/textform.dart';
 
@@ -31,12 +35,10 @@ class Newleads extends StatelessWidget {
                   children: [
                     Icon(Icons.arrow_forward_ios_outlined),
                     Icon(Icons.arrow_forward_ios_outlined),
-                    Text(
+                    AppText(
+                      size: MQ.wd(context) * .015,
+                      weight: FontWeight.bold,
                       'MAY 19,2022',
-                      style: TextStyle(
-                        fontSize: MQ.wd(context) * .010,
-                        fontWeight: FontWeight.bold,
-                      ),
                     )
                   ],
                 ),
@@ -53,8 +55,19 @@ class Newleads extends StatelessWidget {
                     MQ.wd(context) * .010,
                   ),
                 ),
-                width: MQ.wd(context) * .26,
-                child: Textformwidget(),
+                width: MQ.wd(context) * 
+                .26,
+                child: Textformwidget(
+                     hint: 'Search here',
+                  color: Colors.grey.shade200,
+                  suffixicone: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.search,
+                    ),
+                  ),
+                  borderradius: MQ.wd(context) * .020,
+                ),
               ),
               Container(
                 child: Row(
@@ -73,7 +86,7 @@ class Newleads extends StatelessWidget {
         Padding(
             padding: EdgeInsets.symmetric(
               horizontal: MQ.wd(context) * .030,
-              vertical: MQ.wd(context) * .030,
+              vertical: MQ.wd(context) * .010,
             ),
             child: LeadForm(context)),
         SizedBox(
@@ -91,28 +104,17 @@ class Newleads extends StatelessWidget {
                 size: MQ.wd(context) * .010,
                 color: white,
               ),
-              // Text(
-              //   'Student Name',
-              //   style: AppStyles.Header(
-              //     double: MQ.wd(context) * .010,
-              //     Color: white,
-              //   ),
-              // ),
               SizedBox(width: MQ.wd(context) * .100),
-              Text(
+              AppText(
                 'Mobile Number',
-                style: AppStyles.Header(
-                  double: MQ.wd(context) * .010,
-                  Color: white,
-                ),
+                size: MQ.wd(context) * .010,
+                color: white,
               ),
               SizedBox(width: MQ.wd(context) * .110),
-              Text(
-                'Coundry',
-                style: AppStyles.Header(
-                  double: MQ.wd(context) * .010,
-                  Color: white,
-                ),
+              AppText(
+                'Country',
+                size: MQ.wd(context) * .010,
+                color: white,
               ),
             ],
           ),
@@ -120,27 +122,39 @@ class Newleads extends StatelessWidget {
         Expanded(
           child: ListView.separated(
             shrinkWrap: true,
-            itemCount: 20,
+            itemCount: 100,
             itemBuilder: (context, index) {
-              return Row(
-                children: [
-                  SizedBox(width: MQ.wd(context) * .020),
-                  Text('${index + 1}'),
-                  SizedBox(width: MQ.wd(context) * .120),
-                  AppText('Waheed'),
-                  SizedBox(width: MQ.wd(context) * .120),
-                  AppText('*****50435'),
-                  SizedBox(width: MQ.wd(context) * .120),
-                  AppText('UK,US,CANADA'),
-                  SizedBox(width: MQ.wd(context) * .150),
-                  elevatedbt(
-                    backgroudcolor: Colors.white,
-                    text: 'View',
-                    context: context,
-                    onpress: () {},
-                    textcolor: bttextcolor,
-                  ),
-                ],
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    SizedBox(width: MQ.wd(context) * .020),
+                    Container(
+                      width: 30,
+                      child: Text('${index + 1}'),
+                    ),
+                    SizedBox(width: MQ.wd(context) * .120),
+                    Expanded(child: AppText('Waheed ')),
+                    SizedBox(width: MQ.wd(context) * .050),
+                    Expanded(child: AppText('*****50435')),
+                    SizedBox(width: MQ.wd(context) * .050),
+                    Expanded(child: AppText('Kazakhstan')),
+                    SizedBox(width: MQ.wd(context) * .150),
+                    Consumer<Controller>(
+                      builder: (context, controller, child) {
+                        return elevatedbt(
+                          backgroudcolor: Colors.white,
+                          text: 'View',
+                          context: context,
+                          onpress: () {
+                            controller.setSelectedIndex(5);
+                          },
+                          textcolor: bttextcolor,
+                        );
+                      },
+                    )
+                  ],
+                ),
               );
             },
             separatorBuilder: (context, index) {
@@ -154,3 +168,16 @@ class Newleads extends StatelessWidget {
     );
   }
 }
+
+List<String> name = [
+  'Fathima',
+  'Waheed ',
+  'Muhamemd fayis',
+  'Ashraf',
+  'Anees',
+  'Muhammed Nihal',
+  'Shibili',
+  'Midlaj',
+  'Muhammed Nihal',
+  'Muhamemd fayis',
+];

@@ -1,22 +1,17 @@
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:uscholarcrm/provider/controller.dart';
 import 'package:uscholarcrm/utils/constants.dart';
 import 'package:uscholarcrm/utils/reshelper.dart';
-import 'package:uscholarcrm/views/auth/loggin.dart';
-import 'package:uscholarcrm/views/home/homepage.dart';
 import 'package:uscholarcrm/views/home/pages/dashboard.dart';
 import 'package:uscholarcrm/views/widget/container.dart';
+import 'package:uscholarcrm/views/widget/divider.dart';
 import 'package:uscholarcrm/views/widget/text.dart';
 import 'package:uscholarcrm/views/widget/textform.dart';
 
-class FollowupLeads extends StatelessWidget {
-  const FollowupLeads({super.key});
+class Registreadlead extends StatelessWidget {
+  const Registreadlead({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -59,8 +54,8 @@ class FollowupLeads extends StatelessWidget {
                 width: MQ.wd(context) * .26,
                 child: Textformwidget(
                      hint: 'Search here',
-                  color: Colors.grey.shade200,
-                  suffixicone: IconButton(
+                   color: Colors.grey.shade200,
+                 suffixicone: IconButton(
                     onPressed: () {},
                     icon: Icon(
                       Icons.search,
@@ -90,25 +85,7 @@ class FollowupLeads extends StatelessWidget {
           ),
           child: LeadForm(context),
         ),
-        SizedBox(
-          height: MQ.ht(context) * .020,
-        ),
-        Row(
-          children: [
-            sizedwd(
-              width: MQ.wd(context) * .020,
-            ),
-            AppText(
-              'Followup Leads',
-              size: MQ.wd(context) * .015,
-              weight: FontWeight.bold,
-              style: TextStyle(),
-            ),
-            sizedwd(
-              height: MQ.ht(context) * .020,
-            ),
-          ],
-        ),
+        divider(),
         Consumer<Controller>(
           builder: (context, controller, child) {
             return Expanded(
@@ -126,160 +103,154 @@ class FollowupLeads extends StatelessWidget {
                       child: ExpansionTile(
                         title: Padding(
                           padding: EdgeInsets.all(8.0),
-                          child: InkWell(
-                            onTap: () {
-                              // controller.selectItem(index);
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => UpdateForm(),
-                                ),
-                              );
-                            },
-                            child: Column(
-                              children: [
-                                Row(
-                                  children: [
-                                    ContainerWD(
-                                      width: MQ.wd(context) * .05,
-                                      height: MQ.ht(context) * .08,
-                                      child: CircleAvatar(
-                                        radius: 50,
-                                      ),
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  ContainerWD(
+                                    width: MQ.wd(context) * .05,
+                                    height: MQ.ht(context) * .08,
+                                    child: CircleAvatar(
+                                      radius: 50,
                                     ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        sizedwd(
-                                          height: MQ.ht(context) * .030,
-                                        ),
-                                        Row(
-                                          children: [
-                                            AppText(
-                                              'Waheed',
-                                              weight: FontWeight.bold,
-                                              size: MQ.wd(context) * .010,
-                                            ),
-                                            sizedwd(
-                                              width: MQ.wd(context) * .010,
-                                            ),
-                                            ContainerWD(
-                                              alignment: Alignment.center,
-                                              padding: EdgeInsets.all(
-                                                  MQ.wd(context) * .002),
-                                              height: MQ.ht(context) * .04,
-                                              colors: green,
-                                              borderradius:
-                                                  BorderRadius.circular(
-                                                MQ.wd(context) * .005,
-                                              ),
-                                              child: AppText(
-                                                'Lead priority Normal',
-                                                color: white,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        sizedwd(
-                                          height: MQ.ht(context) * .050,
-                                        ),
-
-                                        Row(
-                                          children: [
-                                            const Icon(Icons.call),
-                                            AppText('9497504365'),
-                                            VerticalDivider(
-                                              color: verticaldivider,
-                                              thickness: 1,
-                                            ),
-                                            Icon(Icons.location_on_outlined),
-                                            AppText('Nilabur'),
-                                            VerticalDivider(
-                                              color: verticaldivider,
-                                              thickness: 1,
-                                            ),
-                                            AppText('Create Date:01/01/2024'),
-                                            VerticalDivider(
-                                              color: verticaldivider,
-                                              thickness: 1,
-                                            ),
-                                            AppText(' Country :Singapore'),
-                                            sizedwd(
-                                                width: MQ.wd(context) * .050),
-                                            IconButton(
-                                              onPressed: () {},
-                                              icon: Icon(Icons.edit),
-                                            ),
-                                            IconButton(
-                                              onPressed: () {},
-                                              icon: Icon(Icons
-                                                  .remove_red_eye_outlined),
-                                            )
-                                          ],
-                                        ),
-
-                                        //
-                                        sizedwd(
-                                          height: MQ.ht(context) * .030,
-                                        ),
-                                        Row(
-                                          children: [
-                                            ContainerWD(
-                                              alignment: Alignment.center,
-                                              padding: EdgeInsets.all(
-                                                  MQ.wd(context) * .002),
-                                              height: MQ.ht(context) * .03,
-                                              colors: blue,
-                                              borderradius:
-                                                  BorderRadius.circular(
-                                                MQ.wd(context) * .001,
-                                              ),
-                                              child: AppText(
-                                                size: MQ.wd(context) * .008,
-                                                'Follow up',
-                                                color: white,
-                                              ),
-                                            ),
-                                            sizedwd(
-                                              width: MQ.wd(context) * .020,
-                                            ),
-                                            AppText(
-                                                'Lead Source :  Directly Entry'),
-
-                                            // IconButton(
-                                            //   onPressed: () {},
-                                            //   icon:
-                                            //       Icon(Icons.keyboard_arrow_down),
-                                            // ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                sizedwd(height: MQ.ht(context) * .020),
-                                if (controller.selectedIndex == index)
-                                  Stepper(
-                                    currentStep: 0,
-                                    onStepTapped: (step) {},
-                                    onStepContinue: () {},
-                                    onStepCancel: () {
-                                      controller.selectItem(index);
-                                    },
-                                    steps: [
-                                      Step(
-                                        title: Text('Step 1'),
-                                        content: Text('Content for Step 1'),
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      sizedwd(
+                                        height: MQ.ht(context) * .030,
                                       ),
-                                      Step(
-                                        title: Text('Step 2'),
-                                        content: Text('Content for Step 2'),
+                                      Row(
+                                        children: [
+                                          AppText(
+                                            'Waheed',
+                                            weight: FontWeight.bold,
+                                            size: MQ.wd(context) * .010,
+                                          ),
+                                          sizedwd(
+                                            width: MQ.wd(context) * .010,
+                                          ),
+                                          ContainerWD(
+                                            alignment: Alignment.center,
+                                            padding: EdgeInsets.all(
+                                                MQ.wd(context) * .002),
+                                            height: MQ.ht(context) * .04,
+                                            colors: green,
+                                            borderradius: BorderRadius.circular(
+                                              MQ.wd(context) * .005,
+                                            ),
+                                            child: AppText(
+                                              'Register',
+                                              color: white,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      sizedwd(
+                                        height: MQ.ht(context) * .050,
+                                      ),
+
+                                      Column(
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              const Icon(Icons.call),
+                                              AppText('9497504365'),
+                                              VerticalDivider(
+                                                color: verticaldivider,
+                                                thickness: 1,
+                                              ),
+                                              Icon(Icons.location_on_outlined),
+                                              AppText('Nilabur'),
+                                              VerticalDivider(
+                                                color: verticaldivider,
+                                                thickness: 1,
+                                              ),
+                                              AppText('Create Date:01/01/2024'),
+                                              VerticalDivider(
+                                                color: verticaldivider,
+                                                thickness: 1,
+                                              ),
+                                              AppText(' Country :Singapore'),
+                                              sizedwd(width: 80),
+                                              IconButton(
+                                                onPressed: () {},
+                                                icon: Icon(Icons.edit),
+                                              ),
+                                              IconButton(
+                                                onPressed: () {},
+                                                icon: Icon(Icons
+                                                    .remove_red_eye_outlined),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+
+                                      //
+                                      sizedwd(
+                                        height: MQ.ht(context) * .030,
+                                      ),
+                                      Row(
+                                        children: [
+                                          ContainerWD(
+                                            alignment: Alignment.center,
+                                            padding: EdgeInsets.all(
+                                                MQ.wd(context) * .002),
+                                            height: MQ.ht(context) * .03,
+                                            colors: blue,
+                                            borderradius: BorderRadius.circular(
+                                              MQ.wd(context) * .001,
+                                            ),
+                                            child: AppText(
+                                              size: MQ.wd(context) * .008,
+                                              'Register',
+                                              color: white,
+                                            ),
+                                          ),
+                                          sizedwd(
+                                            width: MQ.wd(context) * .020,
+                                          ),
+                                          AppText(
+                                              'Lead Source :  Directly Entry'),
+                                          sizedwd(
+                                            width: MQ.wd(context) * .5,
+                                          ),
+                                          // IconButton(
+                                          //   onPressed: () {},
+                                          //   icon:
+                                          //       Icon(Icons.keyboard_arrow_down),
+                                          // ),
+                                        ],
                                       ),
                                     ],
                                   ),
-                              ],
-                            ),
+                                ],
+                              ),
+                              sizedwd(height: MQ.ht(context) * .020),
+                              if (controller.selectedIndex == index)
+                                Stepper(
+                                  currentStep: 0,
+                                  onStepTapped: (step) {},
+                                  onStepContinue: () {},
+                                  onStepCancel: () {
+                                    controller.selectItem(index);
+                                  },
+                                  steps: [
+                                    Step(
+                                      title: Text('Step 1'),
+                                      content: Text('Content for Step 1'),
+                                    ),
+                                    Step(
+                                      title: Text('Step 2'),
+                                      content: Text('Content for Step 2'),
+                                    ),
+                                  ],
+                                ),
+                            ],
                           ),
                         ),
                         children: [
