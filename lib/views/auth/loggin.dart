@@ -134,12 +134,14 @@ class LogginScreen extends StatelessWidget {
                               width: double.infinity,
                               height: MQ.ht(context) * .060,
                               child: elevatedbt(
+                                textcolor: black,
+                                text: 'Login Now',
                                 context: context,
                                 onpress: () {
                                   Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => DashBoard(),
+                                        builder: (context) => HomePage(),
                                       ));
                                 },
                               ),
@@ -195,19 +197,28 @@ Widget textForm({
   );
 }
 
-Widget elevatedbt({required context, VoidCallback? onpress}) {
+Widget elevatedbt({
+  required context,
+  VoidCallback? onpress,
+  required String text,
+  backgroudcolor,
+  textcolor,
+}) {
   return ElevatedButton(
     style: ElevatedButton.styleFrom(
+      side: BorderSide(color: btcolor),
+      backgroundColor: backgroudcolor,
       shape: ContinuousRectangleBorder(
-          borderRadius: BorderRadius.circular(
-        MQ.wd(context) * .005,
-      )),
+        borderRadius: BorderRadius.circular(
+          MQ.wd(context) * .005,
+        ),
+      ),
     ),
     onPressed: onpress,
     child: Text(
-      'Login Now',
+      text,
       style: TextStyle(
-        color: black,
+        color: textcolor,
         fontSize: MQ.wd(context) * .010,
         fontWeight: FontWeight.bold,
       ),

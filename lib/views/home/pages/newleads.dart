@@ -1,9 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
+import 'package:uscholarcrm/provider/controller.dart';
 import 'package:uscholarcrm/utils/constants.dart';
 import 'package:uscholarcrm/utils/reshelper.dart';
+import 'package:uscholarcrm/views/auth/loggin.dart';
 import 'package:uscholarcrm/views/home/homepage.dart';
+import 'package:uscholarcrm/views/home/pages/dashboard.dart';
+import 'package:uscholarcrm/views/home/pages/registreadlead.dart';
+import 'package:uscholarcrm/views/widget/container.dart';
+import 'package:uscholarcrm/views/widget/text.dart';
+import 'package:uscholarcrm/views/widget/textform.dart';
 
 class Newleads extends StatelessWidget {
   const Newleads({super.key});
@@ -26,12 +35,10 @@ class Newleads extends StatelessWidget {
                   children: [
                     Icon(Icons.arrow_forward_ios_outlined),
                     Icon(Icons.arrow_forward_ios_outlined),
-                    Text(
+                    AppText(
+                      size: MQ.wd(context) * .015,
+                      weight: FontWeight.bold,
                       'MAY 19,2022',
-                      style: TextStyle(
-                        fontSize: MQ.wd(context) * .010,
-                        fontWeight: FontWeight.bold,
-                      ),
                     )
                   ],
                 ),
@@ -48,8 +55,19 @@ class Newleads extends StatelessWidget {
                     MQ.wd(context) * .010,
                   ),
                 ),
-                width: MQ.wd(context) * .26,
-                child: textform(context),
+                width: MQ.wd(context) * 
+                .26,
+                child: Textformwidget(
+                     hint: 'Search here',
+                  color: Colors.grey.shade200,
+                  suffixicone: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.search,
+                    ),
+                  ),
+                  borderradius: MQ.wd(context) * .020,
+                ),
               ),
               Container(
                 child: Row(
@@ -66,215 +84,100 @@ class Newleads extends StatelessWidget {
           height: MQ.ht(context) * .020,
         ),
         Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: MQ.wd(context) * .030,
-            vertical: MQ.wd(context) * .030,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Container(
-                    width: MQ.wd(context) * .050,
-                    height: MQ.wd(context) * .050,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: black,
-                    ),
-                    child: SvgPicture.asset(
-                      'assets/icons/profile-2user.svg',
-                      height: 5,
-                      width: 5,
-                      fit: BoxFit.scaleDown,
-                    ),
-                  ),
-                  SizedBox(
-                    width: MQ.wd(context) * .005,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'TOTTAL LEAD',
-                        style: AppStyles.commonTextStyle(context),
-                      ),
-                      Text(
-                        '0000',
-                        style: AppStyles.Header(
-                          Color: black,
-                          double: MQ.wd(context) * 0.020,
-                          context: context,
-                        ),
-                      ),
-                      Text(
-                        '16 % This Month',
-                        style: AppStyles.commonTextStyle(context),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-              Row(
-                children: [
-                  Container(
-                    width: MQ.wd(context) * .050,
-                    height: MQ.wd(context) * .050,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: black,
-                    ),
-                    child: SvgPicture.asset(
-                      'assets/icons/profile-tick.svg',
-                      height: 5,
-                      width: 5,
-                      fit: BoxFit.scaleDown,
-                    ),
-                  ),
-                  SizedBox(
-                    width: MQ.wd(context) * .005,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'REGISTER',
-                        style: AppStyles.commonTextStyle(context),
-                      ),
-                      Text(
-                        '0000',
-                        style: AppStyles.Header(
-                            Color: black,
-                            double: MQ.wd(context) * 0.020,
-                            context: context),
-                      ),
-                      Text(
-                        '16 % This Month',
-                        style: AppStyles.commonTextStyle(context),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-              Row(
-                children: [
-                  Container(
-                    width: MQ.wd(context) * .050,
-                    height: MQ.wd(context) * .050,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: black,
-                    ),
-                    child: SvgPicture.asset(
-                      // 'assets/icons/profile-tick.svg',
-                      'assets/icons/close.svg',
-                      height: 5,
-                      width: 5,
-                      fit: BoxFit.scaleDown,
-                    ),
-                  ),
-                  SizedBox(
-                    width: MQ.wd(context) * .005,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'DROPED',
-                        style: AppStyles.commonTextStyle(context),
-                      ),
-                      Text(
-                        '0000',
-                        style: AppStyles.Header(
-                            Color: black,
-                            double: MQ.wd(context) * 0.020,
-                            context: context),
-                      ),
-                      Text(
-                        '16 % This Month',
-                        style: AppStyles.commonTextStyle(context),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ],
-          ),
-        ),
+            padding: EdgeInsets.symmetric(
+              horizontal: MQ.wd(context) * .030,
+              vertical: MQ.wd(context) * .010,
+            ),
+            child: LeadForm(context)),
         SizedBox(
           height: MQ.ht(context) * .020,
         ),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: MQ.wd(context) * .010),
+        Container(
+          width: MQ.wd(context) * 6,
+          height: MQ.ht(context) * .050,
+          color: black,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              container(context: context, text: 'NEW LEADS'),
-              container(context: context, text: 'FOLLOWUP LEADS'),
-              container(context: context, text: 'REGISTER LEADS'),
-              container(context: context, text: 'CLOSER LEADS'),
+              SizedBox(width: MQ.wd(context) * .15),
+              AppText(
+                'Student Name',
+                size: MQ.wd(context) * .010,
+                color: white,
+              ),
+              SizedBox(width: MQ.wd(context) * .100),
+              AppText(
+                'Mobile Number',
+                size: MQ.wd(context) * .010,
+                color: white,
+              ),
+              SizedBox(width: MQ.wd(context) * .110),
+              AppText(
+                'Country',
+                size: MQ.wd(context) * .010,
+                color: white,
+              ),
             ],
           ),
-        )
+        ),
+        Expanded(
+          child: ListView.separated(
+            shrinkWrap: true,
+            itemCount: 100,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    SizedBox(width: MQ.wd(context) * .020),
+                    Container(
+                      width: 30,
+                      child: Text('${index + 1}'),
+                    ),
+                    SizedBox(width: MQ.wd(context) * .120),
+                    Expanded(child: AppText('Waheed ')),
+                    SizedBox(width: MQ.wd(context) * .050),
+                    Expanded(child: AppText('*****50435')),
+                    SizedBox(width: MQ.wd(context) * .050),
+                    Expanded(child: AppText('Kazakhstan')),
+                    SizedBox(width: MQ.wd(context) * .150),
+                    Consumer<Controller>(
+                      builder: (context, controller, child) {
+                        return elevatedbt(
+                          backgroudcolor: Colors.white,
+                          text: 'View',
+                          context: context,
+                          onpress: () {
+                            controller.setSelectedIndex(5);
+                          },
+                          textcolor: bttextcolor,
+                        );
+                      },
+                    )
+                  ],
+                ),
+              );
+            },
+            separatorBuilder: (context, index) {
+              return SizedBox(
+                height: MQ.ht(context) * .050,
+              );
+            },
+          ),
+        ),
       ],
     );
- 
   }
 }
 
-
-Widget container({context, required text}) {
-  return Container(
-    width: MQ.wd(context) * .18,
-    height: MQ.ht(context) * .20,
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(MQ.wd(context) * .005),
-      color: whiteshide,
-    ),
-    child: Padding(
-      padding: EdgeInsets.all(MQ.wd(context) * .010),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(text),
-              Container(
-                width: MQ.wd(context) * .010,
-                height: MQ.wd(context) * .010,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: black,
-                ),
-                child: Icon(
-                  Icons.question_mark,
-                  size: MQ.wd(context) * .010,
-                  color: white,
-                ),
-              )
-            ],
-          ),
-          SizedBox(
-            height: MQ.ht(context) * .005,
-          ),
-          Text(
-            '00',
-            style: AppStyles.Header(
-                Color: black, double: MQ.wd(context) * 0.020, context: context),
-          ),
-          Spacer(),
-          Text(
-            'View Details',
-            style: AppStyles.Header(
-              Color: lightblack,
-              double: MQ.wd(context) * 0.010,
-              context: context,
-              TextDecoration: TextDecoration.underline,
-            ),
-          ),
-        ],
-      ),
-    ),
-  );
-}
+List<String> name = [
+  'Fathima',
+  'Waheed ',
+  'Muhamemd fayis',
+  'Ashraf',
+  'Anees',
+  'Muhammed Nihal',
+  'Shibili',
+  'Midlaj',
+  'Muhammed Nihal',
+  'Muhamemd fayis',
+];

@@ -23,14 +23,14 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'CRM',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: white),
           useMaterial3: true,
           fontFamily: 'PublicSans',
         ),
         debugShowCheckedModeBanner: false,
-        home: DashBoard(),
+        home: HomePage(),
       ),
     );
   }
