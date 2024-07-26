@@ -7,6 +7,7 @@ import 'package:uscholarcrm/provider/controller.dart';
 import 'package:uscholarcrm/utils/constants.dart';
 import 'package:uscholarcrm/utils/reshelper.dart';
 import 'package:uscholarcrm/views/home/pages/addlead.dart';
+import 'package:uscholarcrm/views/home/pages/attendence.dart';
 import 'package:uscholarcrm/views/home/pages/leadform.dart';
 import 'package:uscholarcrm/views/home/pages/canceledlead.dart';
 import 'package:uscholarcrm/views/home/pages/dashboard.dart';
@@ -32,8 +33,10 @@ class HomePage extends StatelessWidget {
       TottalLead(),
       LeadsForm(),
       CanceledLead(),
+       Attendence(),
       Report(),
       Support(),
+     
       AddLead(),
     ];
     return Scaffold(
@@ -61,8 +64,106 @@ class HomePage extends StatelessWidget {
                       color: white,
                     ),
                     trailing: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        ///////////////////////
+                        ///
+
+                        ///////////////////////////////////////////
+                      },
                       icon: Icon(Icons.more_vert_rounded),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      // popup menu button
+                      showMenu(
+                        color: selectedindex,
+                        context: context,
+                        position: RelativeRect.fromLTRB(5, 5, 5, 10),
+                        items: <PopupMenuEntry>[
+                          PopupMenuItem(
+                            child: Row(
+                              children: [
+                                Row(
+                                  children: [
+                                    Icon(Icons.calendar_month_rounded,
+                                        color: white),
+                                    Text(
+                                      'Calender',
+                                      style: TextStyle(color: white),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            onTap: () {
+                              // Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //       builder: (context) =>
+                              //           Hrcalenderpage(),
+                              //     ));
+                            },
+                            value: 'data',
+                          ),
+                          PopupMenuItem(
+                            child: Row(
+                              children: [
+                                Row(
+                                  children: [
+                                    Icon(Icons.currency_rupee_sharp,
+                                        color: white),
+                                    Text(
+                                      ' Add Salery',
+                                      style: TextStyle(color: white),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            value: 'data',
+                            onTap: () {
+                              // Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //       builder: (context) => HrAddSalery(),
+                              //     ));
+                            },
+                          ),
+                          //   PopupMenuItem(
+                          //     child: Row(
+                          //       children: [
+                          //         Row(
+                          //           children: [
+                          //             Icon(Icons.settings,
+                          //                 color: colours.white),
+                          //             Text(
+                          //               'Settings',
+                          //               style: TextStyle(
+                          //                   color: colours.white),
+                          //             ),
+                          //           ],
+                          //         ),
+                          //       ],
+                          //     ),
+                          //     value: 'data',
+                          //     onTap: () {
+                          //       Navigator.push(
+                          //           context,
+                          //           MaterialPageRoute(
+                          //             builder: (context) =>
+                          //                 Settings(),
+                          //           ));
+                          //     },
+                          //   ),
+                        ],
+                      );
+
+                      print('click popup menu');
+                    },
+                    child: Icon(
+                      Icons.grid_view_rounded,
+                      color: white,
                     ),
                   ),
                   SizedBox(

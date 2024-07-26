@@ -50,6 +50,8 @@ class Report extends StatelessWidget {
                 ),
                 width: MQ.wd(context) * .26,
                 child: Textformwidget(
+                   hintcolor: black,
+                   leftpadding: MQ.wd(context) * .020,
                      hint: 'Search here',
                    color: Colors.grey.shade200,
                   suffixicone: IconButton(

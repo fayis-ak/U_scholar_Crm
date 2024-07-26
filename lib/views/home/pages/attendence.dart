@@ -5,10 +5,11 @@ import 'package:uscholarcrm/utils/reshelper.dart';
 import 'package:uscholarcrm/views/home/pages/dashboard.dart';
 import 'package:uscholarcrm/views/widget/divider.dart';
 import 'package:uscholarcrm/views/widget/text.dart';
-import 'package:uscholarcrm/views/widget/textform.dart';
 
-class Support extends StatelessWidget {
-  const Support({super.key});
+import '../../widget/textform.dart';
+
+class Attendence extends StatelessWidget {
+  const Attendence({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -50,9 +51,9 @@ class Support extends StatelessWidget {
                 ),
                 width: MQ.wd(context) * .26,
                 child: Textformwidget(
-                   hintcolor: black,
-                   leftpadding: MQ.wd(context) * .020,
-                     hint: 'Search here',
+                  hintcolor: black,
+                  leftpadding: MQ.wd(context) * .020,
+                  hint: 'Search here',
                   color: Colors.grey.shade200,
                   suffixicone: IconButton(
                     onPressed: () {},

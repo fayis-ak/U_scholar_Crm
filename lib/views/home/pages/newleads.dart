@@ -24,41 +24,23 @@ class Newleads extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(
             horizontal: MQ.wd(context) * .030,
-            vertical: MQ.wd(context) * .030,
+            vertical: MQ.wd(context) * .020,
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Container(
-                width: MQ.wd(context) * .20,
-                child: Row(
-                  children: [
-                    Icon(Icons.arrow_forward_ios_outlined),
-                    Icon(Icons.arrow_forward_ios_outlined),
-                    AppText(
-                      size: MQ.wd(context) * .015,
-                      weight: FontWeight.bold,
-                      'MAY 19,2022',
-                    )
-                  ],
-                ),
-              ),
-              Badge(
-                label: Text('5'),
-                child: Icon(Icons.notifications),
-                textColor: notificolor,
-                backgroundColor: green,
-              ),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(
                     MQ.wd(context) * .010,
                   ),
                 ),
-                width: MQ.wd(context) * 
-                .26,
+                width: MQ.wd(context) * .20,
+                height: MQ.ht(context) * .05,
                 child: Textformwidget(
-                     hint: 'Search here',
+                   hintcolor: black,
+                   leftpadding: MQ.wd(context) * .020,
+                  hint: 'Search here',
                   color: Colors.grey.shade200,
                   suffixicone: IconButton(
                     onPressed: () {},
@@ -69,19 +51,11 @@ class Newleads extends StatelessWidget {
                   borderradius: MQ.wd(context) * .020,
                 ),
               ),
-              Container(
-                child: Row(
-                  children: [
-                    Icon(Icons.logout),
-                    Text('Logout'),
-                  ],
-                ),
-              )
             ],
           ),
         ),
         SizedBox(
-          height: MQ.ht(context) * .020,
+          height: MQ.ht(context) * .050,
         ),
         Padding(
             padding: EdgeInsets.symmetric(
@@ -90,12 +64,12 @@ class Newleads extends StatelessWidget {
             ),
             child: LeadForm(context)),
         SizedBox(
-          height: MQ.ht(context) * .020,
+          height: MQ.ht(context) * .050,
         ),
-        Container(
+        ContainerWD(
           width: MQ.wd(context) * 6,
           height: MQ.ht(context) * .050,
-          color: black,
+          colors: black,
           child: Row(
             children: [
               SizedBox(width: MQ.wd(context) * .15),

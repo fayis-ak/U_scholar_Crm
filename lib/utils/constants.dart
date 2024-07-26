@@ -21,6 +21,9 @@ const Color red = Color(0xffFF0202);
 const Color verticaldivider = Color(0xff8D8181);
 const Color blue = Color(0xff3E4DD1);
 
+//  controller
+TextEditingController callingdate = TextEditingController(text: '14/10/2024');
+
 List<String> drawertext = [
   'Dashboard',
   'New Leads',
@@ -29,9 +32,25 @@ List<String> drawertext = [
   'Total Leads',
   'Leads Form',
   'Cancelled Leads',
+  'Attendence',
   'Report',
   'Support',
-  'Add Lead'
+  'Add Lead',
+];
+
+List<String> country = [
+  'United State',
+  'America',
+  'Washington',
+  'iNdia',
+  'Paris',
+];
+
+List<String> leadstatus = [
+  'Followup',
+  'Cancel',
+  'Note Connect',
+  'Register',
 ];
 
 List<String> Study = [
@@ -39,6 +58,13 @@ List<String> Study = [
   '+2',
   'DEGREE',
   'PG',
+];
+
+List<String> leadpirority = [
+  'HOT',
+  'WARM',
+  'COLD',
+  'FEATURE',
 ];
 
 List<Icon> icons = [
@@ -51,6 +77,7 @@ List<Icon> icons = [
   Icon(Icons.cancel_presentation_outlined),
   Icon(Icons.report_gmailerrorred),
   Icon(Icons.support_agent),
+  Icon(Icons.abc),
   Icon(Icons.add_box_outlined),
 ];
 
@@ -78,12 +105,24 @@ class AppStyles {
   }
 }
 
-Widget sizedwd({
-  double? width,
-  double? height,
-}) {
-  return SizedBox(
-    width: width,
-    height: height,
-  );
+class sizedwd extends StatelessWidget {
+  final double? width;
+  final double? height;
+  final Widget? child;
+
+  const sizedwd({
+    super.key,
+    this.width,
+    this.height,
+    this.child,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: width,
+      height: height,
+      child: child,
+    );
+  }
 }

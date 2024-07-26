@@ -51,9 +51,11 @@ class CanceledLead extends StatelessWidget {
                 ),
                 width: MQ.wd(context) * .26,
                 child: Textformwidget(
-                     hint: 'Search here',
+                  hintcolor: black,
+                  leftpadding: MQ.wd(context) * .020,
+                  hint: 'Search here',
                   color: Colors.grey.shade200,
-                 suffixicone: IconButton(
+                  suffixicone: IconButton(
                     onPressed: () {},
                     icon: Icon(
                       Icons.search,

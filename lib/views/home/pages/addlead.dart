@@ -1,17 +1,20 @@
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uscholarcrm/utils/constants.dart';
 import 'package:uscholarcrm/utils/reshelper.dart';
 import 'package:uscholarcrm/views/home/pages/dashboard.dart';
+import 'package:uscholarcrm/views/widget/container.dart';
 import 'package:uscholarcrm/views/widget/divider.dart';
 import 'package:uscholarcrm/views/widget/text.dart';
 import 'package:uscholarcrm/views/widget/textform.dart';
 
 class AddLead extends StatelessWidget {
-  const AddLead({super.key});
-
+  AddLead({super.key});
+  String? selectedValue;
   @override
   Widget build(BuildContext context) {
+    final TextEditingController textEditingController = TextEditingController();
     return Column(
       children: [
         Padding(
@@ -50,6 +53,8 @@ class AddLead extends StatelessWidget {
                 ),
                 width: MQ.wd(context) * .26,
                 child: Textformwidget(
+                  hintcolor: black,
+                  leftpadding: MQ.wd(context) * .020,
                   hint: 'Search here',
                   color: Colors.grey.shade200,
                   suffixicone: IconButton(
@@ -83,7 +88,180 @@ class AddLead extends StatelessWidget {
           child: LeadForm(context),
         ),
         divider(),
+        sizedwd(
+          height: MQ.ht(context) * .030,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(
+                left: MQ.wd(context) * .030,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  AppText(
+                    'Student Name',
+                    color: textgrey,
+                    size: MQ.wd(context) * .01,
+                  ),
+                  sizedwd(
+                    height: MQ.ht(context) * .005,
+                  ),
+                  sizedwd(
+                    width: MQ.wd(context) * .3,
+                    child: Textformwidget(
+                      color: white,
+                      borderSide: BorderSide(color: textgrey),
+                      leftpadding: MQ.wd(context) * .010,
+                    ),
+                  ),
+                  sizedwd(
+                    height: MQ.ht(context) * .030,
+                  ),
+                  AppText(
+                    ' Mobile Number',
+                    color: textgrey,
+                    size: MQ.wd(context) * .01,
+                  ),
+                  sizedwd(
+                    height: MQ.ht(context) * .005,
+                  ),
+                  sizedwd(
+                    width: MQ.wd(context) * .3,
+                    child: Textformwidget(
+                      color: white,
+                      borderSide: BorderSide(color: textgrey),
+                      leftpadding: MQ.wd(context) * .010,
+                    ),
+                  ),
+                  sizedwd(
+                    height: MQ.wd(context) * .020,
+                  ),
+                  AppText(
+                    'Country',
+                    color: textgrey,
+                    size: MQ.wd(context) * .012,
+                  ),
+                  sizedwd(height: MQ.ht(context) * .010),
+                  ContainerWD(
+                    height: MQ.ht(context) * .06,
+                    colors: white,
+                    border: Border.all(
+                      color: textgrey,
+                    ),
+                    borderradius: BorderRadius.circular(10),
+                    width: MQ.wd(context) * .3,
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton2<String>(
+                        isExpanded: true,
+                        hint: Text(
+                          selectedValue ?? 'Select Country',
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Theme.of(context).hintColor,
+                          ),
+                        ),
+                        items: country
+                            .toSet()
+                            .map((item) => DropdownMenuItem(
+                                  value: item,
+                                  child: Text(
+                                    item,
+                                    style: const TextStyle(
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ))
+                            .toList(),
+                        value: country.contains(selectedValue)
+                            ? selectedValue
+                            : null,
+                        onChanged: (value) {
+                          // setState(() {
+                          //   selectedValue = value;
+
+                          //   log(selectedValue.toString());
+                          // });
+                        },
+                        buttonStyleData: const ButtonStyleData(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 16,
+                          ),
+                          height: 40,
+                          width: 200,
+                        ),
+                        dropdownStyleData: const DropdownStyleData(
+                          maxHeight: 200,
+                        ),
+                        menuItemStyleData: const MenuItemStyleData(
+                          height: 40,
+                        ),
+                        dropdownSearchData: DropdownSearchData(
+                          searchController: textEditingController,
+                          searchInnerWidgetHeight: 50,
+                          searchInnerWidget: Container(
+                            height: 50,
+                            padding: const EdgeInsets.only(
+                              top: 8,
+                              bottom: 4,
+                              right: 8,
+                              left: 8,
+                            ),
+                            child: TextFormField(
+                              expands: true,
+                              maxLines: null,
+                              controller: textEditingController,
+                              decoration: InputDecoration(
+                                isDense: true,
+                                contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 10,
+                                  vertical: 8,
+                                ),
+                                hintText: 'Search Country...',
+                                hintStyle: const TextStyle(fontSize: 12),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                            ),
+                          ),
+                          searchMatchFn: (item, searchValue) {
+                            return item.value.toString().contains(searchValue);
+                          },
+                        ),
+                        onMenuStateChange: (isOpen) {
+                          if (!isOpen) {
+                            textEditingController.clear();
+                          }
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       ],
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

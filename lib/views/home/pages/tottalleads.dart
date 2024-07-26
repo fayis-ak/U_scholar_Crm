@@ -19,39 +19,22 @@ class TottalLead extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(
             horizontal: MQ.wd(context) * .030,
-            vertical: MQ.wd(context) * .030,
+            vertical: MQ.wd(context) * .020,
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Container(
-                width: MQ.wd(context) * .20,
-                child: Row(
-                  children: [
-                    Icon(Icons.arrow_forward_ios_outlined),
-                    Icon(Icons.arrow_forward_ios_outlined),
-                    AppText(
-                      size: MQ.wd(context) * .015,
-                      weight: FontWeight.bold,
-                      'MAY 19,2022',
-                    )
-                  ],
-                ),
-              ),
-              Badge(
-                label: Text('5'),
-                child: Icon(Icons.notifications),
-                textColor: notificolor,
-                backgroundColor: green,
-              ),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(
                     MQ.wd(context) * .010,
                   ),
                 ),
-                width: MQ.wd(context) * .26,
+                width: MQ.wd(context) * .20,
+                height: MQ.ht(context) * .05,
                 child: Textformwidget(
+                  hintcolor: black,
+                  leftpadding: MQ.wd(context) * .020,
                   hint: 'Search here',
                   color: Colors.grey.shade200,
                   suffixicone: IconButton(
@@ -63,20 +46,12 @@ class TottalLead extends StatelessWidget {
                   borderradius: MQ.wd(context) * .020,
                 ),
               ),
-              Container(
-                child: Row(
-                  children: [
-                    Icon(Icons.logout),
-                    Text('Logout'),
-                  ],
-                ),
-              ),
             ],
           ),
         ),
-        SizedBox(
-          height: MQ.ht(context) * .020,
-        ),
+        // SizedBox(
+        //   height: MQ.ht(context) * .010,
+        // ),
         Padding(
           padding: EdgeInsets.symmetric(
             horizontal: MQ.wd(context) * .030,
@@ -96,6 +71,7 @@ class TottalLead extends StatelessWidget {
               return Padding(
                 padding: EdgeInsets.all(8.0),
                 child: ContainerWD(
+                  borderradius: BorderRadius.circular(MQ.wd(context) * .005),
                   colors: greyshide,
                   child: ExpansionTile(
                     title: Padding(
