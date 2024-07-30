@@ -23,18 +23,18 @@ class Registreadlead extends StatelessWidget {
             vertical: MQ.wd(context) * .030,
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                    MQ.wd(context) * .010,
-                  ),
+              logo(context),
+              ContainerWD(
+                borderradius: BorderRadius.circular(
+                  MQ.wd(context) * .010,
                 ),
-                width: MQ.wd(context) * .26,
+                width: MQ.wd(context) * .20,
+                height: MQ.ht(context) * .05,
                 child: Textformwidget(
-                   hintcolor: black,
-                   leftpadding: MQ.wd(context) * .020,
+                  hintcolor: black,
+                  leftpadding: MQ.wd(context) * .020,
                   hint: 'Search here',
                   color: Colors.grey.shade200,
                   suffixicone: IconButton(

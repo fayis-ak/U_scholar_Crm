@@ -12,18 +12,21 @@ class ContainerWD extends StatelessWidget {
   final AlignmentGeometry? alignment;
   final BoxBorder? border;
   final Function()? onclick;
+  final BoxShape boxshape;
 
-  const ContainerWD(
-      {super.key,
-      this.width,
-      this.height,
-      this.borderradius,
-      this.child,
-      this.colors,
-      this.padding,
-      this.alignment,
-      this.border,
-      this.onclick});
+  const ContainerWD({
+    super.key,
+    this.width,
+    this.height,
+    this.borderradius,
+    this.child,
+    this.colors,
+    this.padding,
+    this.alignment,
+    this.border,
+    this.onclick,
+    this.boxshape = BoxShape.rectangle,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +41,7 @@ class ContainerWD extends StatelessWidget {
           border: border,
           borderRadius: borderradius,
           color: colors,
+          shape: boxshape,
         ),
         child: child,
       ),

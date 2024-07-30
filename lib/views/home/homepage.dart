@@ -15,8 +15,10 @@ import 'package:uscholarcrm/views/home/pages/followpleads.dart';
 import 'package:uscholarcrm/views/home/pages/newleads.dart';
 import 'package:uscholarcrm/views/home/pages/registreadlead.dart';
 import 'package:uscholarcrm/views/home/pages/report.dart';
+import 'package:uscholarcrm/views/home/pages/studentstatus.dart';
 import 'package:uscholarcrm/views/home/pages/support.dart';
 import 'package:uscholarcrm/views/home/pages/tottalleads.dart';
+import 'package:uscholarcrm/views/home/pages/updateform.dart';
 import 'package:uscholarcrm/views/widget/container.dart';
 import 'package:uscholarcrm/views/widget/text.dart';
 
@@ -28,22 +30,21 @@ class HomePage extends StatelessWidget {
     final List<Widget> screen = [
       DashBoard(),
       Newleads(),
-      FollowupLeads(),
+      Consumer<Controller>(
+        builder: (context, controller, child) =>
+            controller.isclick ? UpdateForm() : FollowupLeads(),
+      ),
+
       Registreadlead(),
       TottalLead(),
       LeadsForm(),
       CanceledLead(),
-       Attendence(),
+      Attendence(),
       Report(),
       Support(),
-     
-      AddLead(),
+      StudentStatus(),
     ];
     return Scaffold(
-      drawer: Drawer(
-        backgroundColor: Colors.red,
-        child: Text('data'),
-      ),
       body: Row(
         children: [
           Container(
@@ -64,12 +65,7 @@ class HomePage extends StatelessWidget {
                       color: white,
                     ),
                     trailing: IconButton(
-                      onPressed: () {
-                        ///////////////////////
-                        ///
-
-                        ///////////////////////////////////////////
-                      },
+                      onPressed: () {},
                       icon: Icon(Icons.more_vert_rounded),
                     ),
                   ),
@@ -205,17 +201,6 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-class UpdateForm extends StatelessWidget {
-  const UpdateForm({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [AppText('Update form')],
     );
   }
 }

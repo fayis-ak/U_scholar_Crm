@@ -11,6 +11,7 @@ import 'package:uscholarcrm/utils/reshelper.dart';
 import 'package:uscholarcrm/views/auth/loggin.dart';
 import 'package:uscholarcrm/views/home/homepage.dart';
 import 'package:uscholarcrm/views/home/pages/dashboard.dart';
+import 'package:uscholarcrm/views/home/pages/updateform.dart';
 import 'package:uscholarcrm/views/widget/container.dart';
 import 'package:uscholarcrm/views/widget/text.dart';
 import 'package:uscholarcrm/views/widget/textform.dart';
@@ -20,6 +21,7 @@ class FollowupLeads extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Provider.of<Controller>(context);
     return Column(
       children: [
         Padding(
@@ -28,17 +30,17 @@ class FollowupLeads extends StatelessWidget {
             vertical: MQ.wd(context) * .030,
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                    MQ.wd(context) * .010,
-                  ),
+              logo(context),
+              ContainerWD(
+                borderradius: BorderRadius.circular(
+                  MQ.wd(context) * .010,
                 ),
-                width: MQ.wd(context) * .26,
+                width: MQ.wd(context) * .20,
+                height: MQ.ht(context) * .05,
                 child: Textformwidget(
-                   hintcolor: black,
+                  hintcolor: black,
                   leftpadding: MQ.wd(context) * .020,
                   hint: 'Search here',
                   color: Colors.grey.shade200,
@@ -83,331 +85,347 @@ class FollowupLeads extends StatelessWidget {
             ),
           ],
         ),
-        Consumer<Controller>(
-          builder: (context, controller, child) {
-            return Expanded(
-              child: ListView.separated(
-                shrinkWrap: true,
-                itemCount: 5,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ContainerWD(
-                      colors: greyshide,
-                      borderradius: BorderRadius.circular(
-                        MQ.wd(context) * .005,
-                      ),
-                      child: ExpansionTile(
-                        title: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: InkWell(
-                            onTap: () {
-                              // controller.selectItem(index);
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => UpdateForm(),
-                                ),
-                              );
-                            },
-                            child: Column(
-                              children: [
-                                Row(
+        if (controller.isclick == false)
+          Expanded(
+            child: Consumer<Controller>(
+              builder: (context, controller, child) {
+                return Expanded(
+                  child: ListView.separated(
+                    shrinkWrap: true,
+                    itemCount: 5,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ContainerWD(
+                          colors: greyshide,
+                          borderradius: BorderRadius.circular(
+                            MQ.wd(context) * .005,
+                          ),
+                          child: ExpansionTile(
+                            title: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: InkWell(
+                                onTap: () {
+                                  // controller.selectItem(index);
+
+                                  // controller.isConformclick();
+                                  // Navigator.push(
+                                  //   context,
+                                  //   MaterialPageRoute(
+                                  //     builder: (context) => UpdateForm(),
+                                  //   ),
+                                  // );
+
+                                  // controller.isclick = false;
+                                  controller.isConformclick();
+
+                                  print(
+                                      '=====================================${controller.isclick}=================================================');
+                                },
+                                child: Column(
                                   children: [
-                                    ContainerWD(
-                                      width: MQ.wd(context) * .05,
-                                      height: MQ.ht(context) * .08,
-                                      child: CircleAvatar(
-                                        radius: 50,
-                                      ),
-                                    ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                    Row(
                                       children: [
-                                        sizedwd(
-                                          height: MQ.ht(context) * .030,
+                                        ContainerWD(
+                                          width: MQ.wd(context) * .05,
+                                          height: MQ.ht(context) * .08,
+                                          child: CircleAvatar(
+                                            radius: 50,
+                                          ),
                                         ),
-                                        Row(
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
-                                            AppText(
-                                              'Waheed',
-                                              weight: FontWeight.bold,
-                                              size: MQ.wd(context) * .010,
+                                            sizedwd(
+                                              height: MQ.ht(context) * .030,
+                                            ),
+                                            Row(
+                                              children: [
+                                                AppText(
+                                                  'Waheed',
+                                                  weight: FontWeight.bold,
+                                                  size: MQ.wd(context) * .010,
+                                                ),
+                                                sizedwd(
+                                                  width: MQ.wd(context) * .010,
+                                                ),
+                                                ContainerWD(
+                                                  alignment: Alignment.center,
+                                                  padding: EdgeInsets.all(
+                                                      MQ.wd(context) * .002),
+                                                  height: MQ.ht(context) * .04,
+                                                  colors: green,
+                                                  borderradius:
+                                                      BorderRadius.circular(
+                                                    MQ.wd(context) * .005,
+                                                  ),
+                                                  child: AppText(
+                                                    'Lead priority Normal',
+                                                    color: white,
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                             sizedwd(
-                                              width: MQ.wd(context) * .010,
+                                              height: MQ.ht(context) * .050,
                                             ),
-                                            ContainerWD(
-                                              alignment: Alignment.center,
-                                              padding: EdgeInsets.all(
-                                                  MQ.wd(context) * .002),
-                                              height: MQ.ht(context) * .04,
-                                              colors: green,
-                                              borderradius:
-                                                  BorderRadius.circular(
-                                                MQ.wd(context) * .005,
-                                              ),
-                                              child: AppText(
-                                                'Lead priority Normal',
-                                                color: white,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        sizedwd(
-                                          height: MQ.ht(context) * .050,
-                                        ),
 
-                                        Row(
-                                          children: [
-                                            const Icon(Icons.call),
-                                            AppText('9497504365'),
-                                            VerticalDivider(
-                                              color: verticaldivider,
-                                              thickness: 1,
+                                            Row(
+                                              children: [
+                                                const Icon(Icons.call),
+                                                AppText('9497504365'),
+                                                VerticalDivider(
+                                                  color: verticaldivider,
+                                                  thickness: 1,
+                                                ),
+                                                Icon(
+                                                    Icons.location_on_outlined),
+                                                AppText('Nilabur'),
+                                                VerticalDivider(
+                                                  color: verticaldivider,
+                                                  thickness: 1,
+                                                ),
+                                                AppText(
+                                                    'Create Date:01/01/2024'),
+                                                VerticalDivider(
+                                                  color: verticaldivider,
+                                                  thickness: 1,
+                                                ),
+                                                AppText(' Country :Singapore'),
+                                                sizedwd(
+                                                    width:
+                                                        MQ.wd(context) * .050),
+                                                IconButton(
+                                                  onPressed: () {},
+                                                  icon: Icon(Icons.edit),
+                                                ),
+                                                IconButton(
+                                                  onPressed: () {},
+                                                  icon: Icon(Icons
+                                                      .remove_red_eye_outlined),
+                                                )
+                                              ],
                                             ),
-                                            Icon(Icons.location_on_outlined),
-                                            AppText('Nilabur'),
-                                            VerticalDivider(
-                                              color: verticaldivider,
-                                              thickness: 1,
-                                            ),
-                                            AppText('Create Date:01/01/2024'),
-                                            VerticalDivider(
-                                              color: verticaldivider,
-                                              thickness: 1,
-                                            ),
-                                            AppText(' Country :Singapore'),
+
+                                            //
                                             sizedwd(
-                                                width: MQ.wd(context) * .050),
-                                            IconButton(
-                                              onPressed: () {},
-                                              icon: Icon(Icons.edit),
+                                              height: MQ.ht(context) * .030,
                                             ),
-                                            IconButton(
-                                              onPressed: () {},
-                                              icon: Icon(Icons
-                                                  .remove_red_eye_outlined),
-                                            )
-                                          ],
-                                        ),
+                                            Row(
+                                              children: [
+                                                ContainerWD(
+                                                  alignment: Alignment.center,
+                                                  padding: EdgeInsets.all(
+                                                      MQ.wd(context) * .002),
+                                                  height: MQ.ht(context) * .03,
+                                                  colors: blue,
+                                                  borderradius:
+                                                      BorderRadius.circular(
+                                                    MQ.wd(context) * .001,
+                                                  ),
+                                                  child: AppText(
+                                                    size: MQ.wd(context) * .008,
+                                                    'Follow up',
+                                                    color: white,
+                                                  ),
+                                                ),
+                                                sizedwd(
+                                                  width: MQ.wd(context) * .020,
+                                                ),
+                                                AppText(
+                                                    'Lead Source :  Directly Entry'),
 
-                                        //
-                                        sizedwd(
-                                          height: MQ.ht(context) * .030,
-                                        ),
-                                        Row(
-                                          children: [
-                                            ContainerWD(
-                                              alignment: Alignment.center,
-                                              padding: EdgeInsets.all(
-                                                  MQ.wd(context) * .002),
-                                              height: MQ.ht(context) * .03,
-                                              colors: blue,
-                                              borderradius:
-                                                  BorderRadius.circular(
-                                                MQ.wd(context) * .001,
-                                              ),
-                                              child: AppText(
-                                                size: MQ.wd(context) * .008,
-                                                'Follow up',
-                                                color: white,
-                                              ),
+                                                // IconButton(
+                                                //   onPressed: () {},
+                                                //   icon:
+                                                //       Icon(Icons.keyboard_arrow_down),
+                                                // ),
+                                              ],
                                             ),
-                                            sizedwd(
-                                              width: MQ.wd(context) * .020,
-                                            ),
-                                            AppText(
-                                                'Lead Source :  Directly Entry'),
-
-                                            // IconButton(
-                                            //   onPressed: () {},
-                                            //   icon:
-                                            //       Icon(Icons.keyboard_arrow_down),
-                                            // ),
                                           ],
                                         ),
                                       ],
                                     ),
+                                    sizedwd(height: MQ.ht(context) * .020),
+                                    if (controller.selectedIndex == index)
+                                      Stepper(
+                                        currentStep: 0,
+                                        onStepTapped: (step) {},
+                                        onStepContinue: () {},
+                                        onStepCancel: () {
+                                          controller.selectItem(index);
+                                        },
+                                        steps: [
+                                          Step(
+                                            title: Text('Step 1'),
+                                            content: Text('Content for Step 1'),
+                                          ),
+                                          Step(
+                                            title: Text('Step 2'),
+                                            content: Text('Content for Step 2'),
+                                          ),
+                                        ],
+                                      ),
                                   ],
                                 ),
-                                sizedwd(height: MQ.ht(context) * .020),
-                                if (controller.selectedIndex == index)
-                                  Stepper(
-                                    currentStep: 0,
-                                    onStepTapped: (step) {},
-                                    onStepContinue: () {},
-                                    onStepCancel: () {
-                                      controller.selectItem(index);
-                                    },
-                                    steps: [
-                                      Step(
-                                        title: Text('Step 1'),
-                                        content: Text('Content for Step 1'),
-                                      ),
-                                      Step(
-                                        title: Text('Step 2'),
-                                        content: Text('Content for Step 2'),
-                                      ),
-                                    ],
-                                  ),
-                              ],
+                              ),
                             ),
-                          ),
-                        ),
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.all(
-                              MQ.wd(context) * .050,
-                            ),
-                            child: Column(
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    ContainerWD(
-                                      alignment: Alignment.center,
-                                      width: MQ.wd(context) * .05,
-                                      height: MQ.ht(context) * .05,
-                                      child: AppText(Study[0]),
-                                      colors: whiteshide,
-                                      borderradius: BorderRadius.circular(
-                                        MQ.wd(context) * .005,
-                                      ),
-                                    ),
-                                    ContainerWD(
-                                      alignment: Alignment.center,
-                                      width: MQ.wd(context) * .05,
-                                      height: MQ.ht(context) * .05,
-                                      child: AppText(Study[1]),
-                                      colors: whiteshide,
-                                      borderradius: BorderRadius.circular(
-                                        MQ.wd(context) * .005,
-                                      ),
-                                    ),
-                                    ContainerWD(
-                                      alignment: Alignment.center,
-                                      width: MQ.wd(context) * .05,
-                                      height: MQ.ht(context) * .05,
-                                      borderradius: BorderRadius.circular(
-                                        MQ.wd(context) * .005,
-                                      ),
-                                      child: AppText(Study[2]),
-                                      colors: whiteshide,
-                                    ),
-                                    ContainerWD(
-                                      alignment: Alignment.center,
-                                      width: MQ.wd(context) * .05,
-                                      height: MQ.ht(context) * .05,
-                                      borderradius: BorderRadius.circular(
-                                        MQ.wd(context) * .005,
-                                      ),
-                                      child: AppText(Study[3]),
-                                      colors: whiteshide,
-                                    ),
-                                  ],
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.all(
+                                  MQ.wd(context) * .050,
                                 ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                child: Column(
                                   children: [
-                                    ContainerWD(
-                                      alignment: Alignment.center,
-                                      width: MQ.wd(context) * .05,
-                                      height: MQ.ht(context) * .05,
-                                      child: AppText(
-                                        '10%',
-                                        size: MQ.wd(context) * .015,
-                                      ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        ContainerWD(
+                                          alignment: Alignment.center,
+                                          width: MQ.wd(context) * .05,
+                                          height: MQ.ht(context) * .05,
+                                          child: AppText(Study[0]),
+                                          colors: whiteshide,
+                                          borderradius: BorderRadius.circular(
+                                            MQ.wd(context) * .005,
+                                          ),
+                                        ),
+                                        ContainerWD(
+                                          alignment: Alignment.center,
+                                          width: MQ.wd(context) * .05,
+                                          height: MQ.ht(context) * .05,
+                                          child: AppText(Study[1]),
+                                          colors: whiteshide,
+                                          borderradius: BorderRadius.circular(
+                                            MQ.wd(context) * .005,
+                                          ),
+                                        ),
+                                        ContainerWD(
+                                          alignment: Alignment.center,
+                                          width: MQ.wd(context) * .05,
+                                          height: MQ.ht(context) * .05,
+                                          borderradius: BorderRadius.circular(
+                                            MQ.wd(context) * .005,
+                                          ),
+                                          child: AppText(Study[2]),
+                                          colors: whiteshide,
+                                        ),
+                                        ContainerWD(
+                                          alignment: Alignment.center,
+                                          width: MQ.wd(context) * .05,
+                                          height: MQ.ht(context) * .05,
+                                          borderradius: BorderRadius.circular(
+                                            MQ.wd(context) * .005,
+                                          ),
+                                          child: AppText(Study[3]),
+                                          colors: whiteshide,
+                                        ),
+                                      ],
                                     ),
-                                    ContainerWD(
-                                      alignment: Alignment.center,
-                                      width: MQ.wd(context) * .05,
-                                      height: MQ.ht(context) * .05,
-                                      child: AppText(
-                                        '20%',
-                                        size: MQ.wd(context) * .015,
-                                      ),
-                                    ),
-                                    ContainerWD(
-                                      alignment: Alignment.center,
-                                      width: MQ.wd(context) * .05,
-                                      height: MQ.ht(context) * .05,
-                                      child: AppText(
-                                        '30%',
-                                        size: MQ.wd(context) * .015,
-                                      ),
-                                    ),
-                                    ContainerWD(
-                                      alignment: Alignment.center,
-                                      width: MQ.wd(context) * .05,
-                                      height: MQ.ht(context) * .05,
-                                      child: AppText(
-                                        '40%',
-                                        size: MQ.wd(context) * .015,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                sizedwd(
-                                  height: MQ.ht(context) * .050,
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    ContainerWD(
-                                      alignment: Alignment.center,
-                                      width: MQ.wd(context) * .09,
-                                      height: MQ.ht(context) * .05,
-                                      borderradius: BorderRadius.circular(
-                                        MQ.wd(context) * .005,
-                                      ),
-                                      child: AppText('Work Experience'),
-                                      colors: whiteshide,
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        ContainerWD(
+                                          alignment: Alignment.center,
+                                          width: MQ.wd(context) * .05,
+                                          height: MQ.ht(context) * .05,
+                                          child: AppText(
+                                            '10%',
+                                            size: MQ.wd(context) * .015,
+                                          ),
+                                        ),
+                                        ContainerWD(
+                                          alignment: Alignment.center,
+                                          width: MQ.wd(context) * .05,
+                                          height: MQ.ht(context) * .05,
+                                          child: AppText(
+                                            '20%',
+                                            size: MQ.wd(context) * .015,
+                                          ),
+                                        ),
+                                        ContainerWD(
+                                          alignment: Alignment.center,
+                                          width: MQ.wd(context) * .05,
+                                          height: MQ.ht(context) * .05,
+                                          child: AppText(
+                                            '30%',
+                                            size: MQ.wd(context) * .015,
+                                          ),
+                                        ),
+                                        ContainerWD(
+                                          alignment: Alignment.center,
+                                          width: MQ.wd(context) * .05,
+                                          height: MQ.ht(context) * .05,
+                                          child: AppText(
+                                            '40%',
+                                            size: MQ.wd(context) * .015,
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                     sizedwd(
-                                      width: MQ.wd(context) * .030,
+                                      height: MQ.ht(context) * .050,
                                     ),
-                                    AppText('1 Year Experience'),
-                                  ],
-                                ),
-                                Column(
-                                  children: [
-                                    ListTile(
-                                      leading: AppText(
-                                        '\u2022',
-                                        size: MQ.wd(context) * .020,
-                                      ),
-                                      title: AppText('Plus Two Pass'),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        ContainerWD(
+                                          alignment: Alignment.center,
+                                          width: MQ.wd(context) * .09,
+                                          height: MQ.ht(context) * .05,
+                                          borderradius: BorderRadius.circular(
+                                            MQ.wd(context) * .005,
+                                          ),
+                                          child: AppText('Work Experience'),
+                                          colors: whiteshide,
+                                        ),
+                                        sizedwd(
+                                          width: MQ.wd(context) * .030,
+                                        ),
+                                        AppText('1 Year Experience'),
+                                      ],
                                     ),
-                                    ListTile(
-                                      leading: AppText(
-                                        '\u2022',
-                                        size: MQ.wd(context) * .020,
-                                      ),
-                                      title: AppText('No '),
+                                    Column(
+                                      children: [
+                                        ListTile(
+                                          leading: AppText(
+                                            '\u2022',
+                                            size: MQ.wd(context) * .020,
+                                          ),
+                                          title: AppText('Plus Two Pass'),
+                                        ),
+                                        ListTile(
+                                          leading: AppText(
+                                            '\u2022',
+                                            size: MQ.wd(context) * .020,
+                                          ),
+                                          title: AppText('No '),
+                                        )
+                                      ],
                                     )
                                   ],
-                                )
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  );
-                },
-                separatorBuilder: (context, index) {
-                  return sizedwd(
-                    height: MQ.ht(context) * .030,
-                  );
-                },
-              ),
-            );
-          },
-        ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                    separatorBuilder: (context, index) {
+                      return sizedwd(
+                        height: MQ.ht(context) * .030,
+                      );
+                    },
+                  ),
+                );
+              },
+            ),
+          ),
+        if (controller.isclick == true) Expanded(child: UpdateForm())
       ],
     );
   }

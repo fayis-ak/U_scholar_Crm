@@ -21,35 +21,15 @@ class CanceledLead extends StatelessWidget {
             vertical: MQ.wd(context) * .030,
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
+              logo(context),
+              ContainerWD(
+                borderradius: BorderRadius.circular(
+                  MQ.wd(context) * .010,
+                ),
                 width: MQ.wd(context) * .20,
-                child: Row(
-                  children: [
-                    Icon(Icons.arrow_forward_ios_outlined),
-                    Icon(Icons.arrow_forward_ios_outlined),
-                    AppText(
-                      size: MQ.wd(context) * .015,
-                      weight: FontWeight.bold,
-                      'MAY 19,2022',
-                    )
-                  ],
-                ),
-              ),
-              Badge(
-                label: Text('5'),
-                child: Icon(Icons.notifications),
-                textColor: notificolor,
-                backgroundColor: green,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                    MQ.wd(context) * .010,
-                  ),
-                ),
-                width: MQ.wd(context) * .26,
+                height: MQ.ht(context) * .05,
                 child: Textformwidget(
                   hintcolor: black,
                   leftpadding: MQ.wd(context) * .020,
@@ -62,14 +42,6 @@ class CanceledLead extends StatelessWidget {
                     ),
                   ),
                   borderradius: MQ.wd(context) * .020,
-                ),
-              ),
-              Container(
-                child: Row(
-                  children: [
-                    Icon(Icons.logout),
-                    Text('Logout'),
-                  ],
                 ),
               ),
             ],

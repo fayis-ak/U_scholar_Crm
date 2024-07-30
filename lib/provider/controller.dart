@@ -38,11 +38,25 @@ class Controller with ChangeNotifier {
     notifyListeners();
   }
 
-bool? isconform = false;
+  bool? isconform = false;
 
   void isconformclick() {
     isconform = true;
     notifyListeners();
   }
 
+  bool isclick = false;
+
+  void isConformclick() {
+    isclick = true;
+    notifyListeners();
+  }
+
+  void backbutton() {
+    isclick = false;
+    notifyListeners();
+  }
+
+
+  
 }

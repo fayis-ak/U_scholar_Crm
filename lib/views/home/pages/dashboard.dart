@@ -16,6 +16,7 @@ class DashBoard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Provider.of<Controller>(context);
     return Column(
       children: [
         Padding(
@@ -26,10 +27,14 @@ class DashBoard extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+              logo(context),
               Container(
                 width: MQ.wd(context) * .20,
                 child: Row(
                   children: [
+                    sizedwd(
+                      width: MQ.wd(context) * .010,
+                    ),
                     Icon(
                       Icons.arrow_forward_ios_outlined,
                     ),
@@ -44,11 +49,20 @@ class DashBoard extends StatelessWidget {
                   ],
                 ),
               ),
-              Badge(
-                label: Text('5'),
-                child: Icon(Icons.notifications),
-                textColor: notificolor,
-                backgroundColor: green,
+              Consumer<Controller>(
+                builder: (context, controller, child) {
+                  return Badge(
+                    label: Text('5'),
+                    child: IconButton(
+                      icon: Icon(Icons.notifications),
+                      onPressed: () {
+                        controller.isConformclick();
+                      },
+                    ),
+                    textColor: notificolor,
+                    backgroundColor: green,
+                  );
+                },
               ),
               Container(
                 decoration: BoxDecoration(
@@ -57,20 +71,19 @@ class DashBoard extends StatelessWidget {
                   ),
                 ),
                 width: MQ.wd(context) * .26,
-                  child: Textformwidget(
-                     hintcolor: black,
-                     leftpadding: MQ.wd(context) * .020,
-                       hint: 'Search here',
-                     color: Colors.grey.shade200,
-                    suffixicone: IconButton(
+                child: Textformwidget(
+                  hintcolor: black,
+                  leftpadding: MQ.wd(context) * .020,
+                  hint: 'Search here',
+                  color: Colors.grey.shade200,
+                  suffixicone: IconButton(
                     onPressed: () {},
                     icon: Icon(
                       Icons.search,
                     ),
-                    
                   ),
-                    borderradius: MQ.wd(context) * .020,
-                  ),
+                  borderradius: MQ.wd(context) * .020,
+                ),
               ),
               Container(
                 child: Row(
@@ -97,18 +110,20 @@ class DashBoard extends StatelessWidget {
         SizedBox(
           height: MQ.ht(context) * .020,
         ),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: MQ.wd(context) * .010),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              container(context: context, text: 'NEW LEADS', index: 1),
-              container(context: context, text: 'FOLLOWUP LEADS', index: 2),
-              container(context: context, text: 'REGISTER LEADS', index: 3),
-              container(context: context, text: 'CLOSER LEADS', index: 4),
-            ],
+        if (controller.isclick == false)
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: MQ.wd(context) * .010),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                container(context: context, text: 'NEW LEADS', index: 1),
+                container(context: context, text: 'FOLLOWUP LEADS', index: 2),
+                container(context: context, text: 'REGISTER LEADS', index: 3),
+                container(context: context, text: 'CLOSER LEADS', index: 4),
+              ],
+            ),
           ),
-        )
+        if (controller.isclick == true) Expanded(child: NotificationScreen())
       ],
     );
   }
@@ -348,4 +363,79 @@ Widget LeadForm(BuildContext context) {
       ),
     ],
   );
+}
+
+class NotificationScreen extends StatelessWidget {
+  const NotificationScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final controller = Provider.of<Controller>(context);
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Row(
+            children: [
+              IconButton(
+                onPressed: () {
+                  controller.backbutton();
+                },
+                icon: Icon(Icons.arrow_back),
+              )
+            ],
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: MQ.wd(context) * .020,
+            ),
+            child: ListView.separated(
+              shrinkWrap: true,
+              physics: BouncingScrollPhysics(),
+              itemCount: 20,
+              itemBuilder: (context, index) {
+                return Column(
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.star_border),
+                        sizedwd(
+                          width: MQ.wd(context) * .020,
+                        ),
+                        AppText(
+                          'waheed',
+                          weight: FontWeight.bold,
+                        ),
+                        sizedwd(
+                          width: MQ.wd(context) * .020,
+                        ),
+                        AppText(
+                          'This Student Document IS Note Fill Please Fill The Form Then Sumbit',
+                          color: verticaldivider,
+                        ),
+                        Spacer(),
+                        AppText(
+                          '4 jan',
+                          weight: FontWeight.bold,
+                        ),
+                      ],
+                    ),
+                  ],
+                );
+              },
+              separatorBuilder: (context, index) {
+                return Column(
+                  children: [
+                    sizedwd(
+                      height: MQ.ht(context) * .030,
+                    ),
+                    divider(),
+                  ],
+                );
+              },
+            ),
+          )
+        ],
+      ),
+    );
+  }
 }

@@ -1,22 +1,30 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:uscholarcrm/utils/reshelper.dart';
 
 const Color white = Color.fromARGB(255, 255, 255, 255);
 const Color whitegrey = Color.fromARGB(248, 248, 248, 1);
 const Color green = Color.fromARGB(248, 0, 255, 55);
+const Color greenlight = Color(0xff3AAC8D);
 const Color black = Color.fromARGB(255, 0, 0, 0);
 const Color notificolor = Color.fromARGB(41, 157, 145, 1);
 const Color whiteshide = Color(0xffD9D9D9);
 const Color lightblack = Color(0xff706868);
 const Color btcolor = Color(0xff16C098);
 const Color bttextcolor = Color(0xff00B087);
+const Color bluehigh = Color(0xff379BFD);
+const Color blueshide = Color(0xffF4FCFD);
+const Color vluemidium = Color(0xffFE6F4FF);
+
 const Color selectedindex = Colors.amber;
+const Color orangelight = Color(0xffFAC78A);
 const Color greyshide = Color(0xffF3F3F3);
 
 const Color textgrey = Color(0xff9197B3);
 
 const Color red = Color(0xffFF0202);
+const Color redshide = Color(0xffF1ECFF);
 
 const Color verticaldivider = Color(0xff8D8181);
 const Color blue = Color(0xff3E4DD1);
@@ -35,7 +43,8 @@ List<String> drawertext = [
   'Attendence',
   'Report',
   'Support',
-  'Add Lead',
+  // 'Add Lead',
+  'Student Status'
 ];
 
 List<String> country = [
@@ -75,11 +84,25 @@ List<Icon> icons = [
   Icon(Icons.leaderboard),
   Icon(Icons.addchart_sharp),
   Icon(Icons.cancel_presentation_outlined),
+  Icon(Icons.calendar_month),
   Icon(Icons.report_gmailerrorred),
   Icon(Icons.support_agent),
-  Icon(Icons.abc),
-  Icon(Icons.add_box_outlined),
+  // Icon(Icons.add_box_outlined),
+  Icon(Icons.star_outline_sharp),
 ];
+
+Widget logo(BuildContext context) {
+  return Container(
+    width: MQ.wd(context) * .050,
+    height: MQ.wd(context) * .050,
+    decoration: BoxDecoration(),
+    child: SvgPicture.asset(
+      'assets/image/logo.svg',
+      height: 5,
+      width: 5,
+    ),
+  );
+}
 
 class AppStyles {
   static TextStyle commonTextStyle(BuildContext context) {

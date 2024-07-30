@@ -45,13 +45,12 @@ class AddLead extends StatelessWidget {
                 textColor: notificolor,
                 backgroundColor: green,
               ),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                    MQ.wd(context) * .010,
-                  ),
+              ContainerWD(
+                borderradius: BorderRadius.circular(
+                  MQ.wd(context) * .010,
                 ),
-                width: MQ.wd(context) * .26,
+                width: MQ.wd(context) * .20,
+                height: MQ.ht(context) * .05,
                 child: Textformwidget(
                   hintcolor: black,
                   leftpadding: MQ.wd(context) * .020,
@@ -248,20 +247,3 @@ class AddLead extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

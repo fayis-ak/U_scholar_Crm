@@ -22,13 +22,12 @@ class TottalLead extends StatelessWidget {
             vertical: MQ.wd(context) * .020,
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                    MQ.wd(context) * .010,
-                  ),
+              logo(context),
+              ContainerWD(
+                borderradius: BorderRadius.circular(
+                  MQ.wd(context) * .010,
                 ),
                 width: MQ.wd(context) * .20,
                 height: MQ.ht(context) * .05,
