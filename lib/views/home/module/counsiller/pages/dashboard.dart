@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:uscholarcrm/provider/controller.dart';
 import 'package:uscholarcrm/utils/constants.dart';
 import 'package:uscholarcrm/utils/reshelper.dart';
-import 'package:uscholarcrm/views/home/pages/newleads.dart';
+ 
 import 'package:uscholarcrm/views/widget/divider.dart';
 import 'package:uscholarcrm/views/widget/text.dart';
 import 'package:uscholarcrm/views/widget/textform.dart';
@@ -27,6 +27,20 @@ class DashBoard extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+              LayoutBuilder(
+                builder: (context, constraints) {
+                  if (MediaQuery.of(context).size.width < 768) {
+                    return IconButton(
+                      onPressed: () {
+                        controller.scaffoldKey.currentState!.openDrawer();
+                      },
+                      icon: Icon(Icons.dehaze),
+                    );
+                  } else {
+                    return Container();
+                  }
+                },
+              ),
               logo(context),
               Container(
                 width: MQ.wd(context) * .20,
@@ -37,9 +51,11 @@ class DashBoard extends StatelessWidget {
                     ),
                     Icon(
                       Icons.arrow_forward_ios_outlined,
+                      size: MQ.wd(context) * .02,
                     ),
                     Icon(
                       Icons.arrow_forward_ios_outlined,
+                      size: MQ.wd(context) * .02,
                     ),
                     AppText(
                       size: MQ.wd(context) * .015,
@@ -154,6 +170,7 @@ Widget container({context, required text, required index}) {
                     AppText(
                       text,
                       weight: FontWeight.bold,
+                      size: MQ.wd(context) * .010,
                     ),
                     Container(
                       width: MQ.wd(context) * .010,

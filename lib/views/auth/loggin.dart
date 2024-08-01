@@ -3,10 +3,14 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:uscholarcrm/utils/constants.dart';
 
 import 'package:uscholarcrm/utils/reshelper.dart';
-import 'package:uscholarcrm/views/home/homepage.dart';
+
+import 'package:uscholarcrm/views/home/module/homepage.dart';
+import 'package:uscholarcrm/views/widget/elevatedbutton.dart';
+import 'package:uscholarcrm/views/widget/text.dart';
 
 class LogginScreen extends StatelessWidget {
   FocusNode myFocusNode = new FocusNode();
@@ -14,6 +18,7 @@ class LogginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String? selectedvalue;
     return Scaffold(
         body: Column(
       children: [
@@ -24,10 +29,12 @@ class LogginScreen extends StatelessWidget {
           child: Row(
             children: [
               Container(
-                width: MQ.wd(context) * .4,
-                height: MQ.ht(context) * .6,
-                // color: Colors.red,
-              ),
+                  width: MQ.wd(context) * .4,
+                  height: MQ.ht(context) * .6,
+                  // color: Colors.red,
+                  child: SvgPicture.asset(
+                    'assets/image/logo.svg',
+                  )),
               SizedBox(
                 width: MQ.wd(context) * .080,
               ),
@@ -52,6 +59,38 @@ class LogginScreen extends StatelessWidget {
                         ),
                         child: Column(
                           children: [
+                            Tooltip(
+                              message: 'Selecte Module',
+                              textAlign: TextAlign.center,
+                              child: Align(
+                                alignment: Alignment.topRight,
+                                child: sizedwd(
+                                  width: MQ.wd(context) * .110,
+                                  child: DropdownButtonFormField<String>(
+                                    icon: Icon(Icons.grid_view_rounded),
+                                    dropdownColor: black,
+                                    style: TextStyle(color: white),
+                                    decoration: InputDecoration(
+                                      border: InputBorder.none,
+                                    ),
+                                    value: selectedvalue,
+                                    items: module
+                                        .map(
+                                          (e) => DropdownMenuItem(
+                                            child: AppText(
+                                              e.toString(),
+                                            ),
+                                            value: e,
+                                          ),
+                                        )
+                                        .toList(),
+                                    onChanged: (value) {
+                                      selectedvalue = value;
+                                    },
+                                  ),
+                                ),
+                              ),
+                            ),
                             Text(
                               'Welcome',
                               style: TextStyle(
@@ -133,19 +172,28 @@ class LogginScreen extends StatelessWidget {
                             SizedBox(
                               width: double.infinity,
                               height: MQ.ht(context) * .060,
-                              child: elevatedbt(
+                              child: ElevatedbuttonWd(
                                 textcolor: black,
                                 text: 'Login Now',
-                                context: context,
                                 onpress: () {
-                                  Navigator.pushReplacement(
+                                  if (selectedvalue == 'Counsiller') {
+                                    Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) => HomePage(),
-                                      ));
+                                      ),
+                                    );
+                                  } else if (selectedvalue == 'Documentation') {
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => Document(),
+                                      ),
+                                    );
+                                  }
                                 },
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
@@ -197,31 +245,15 @@ Widget textForm({
   );
 }
 
-Widget elevatedbt({
-  required context,
-  VoidCallback? onpress,
-  required String text,
-  backgroudcolor,
-  textcolor,
-}) {
-  return ElevatedButton(
-    style: ElevatedButton.styleFrom(
-      side: BorderSide(color: btcolor),
-      backgroundColor: backgroudcolor,
-      shape: ContinuousRectangleBorder(
-        borderRadius: BorderRadius.circular(
-          MQ.wd(context) * .005,
-        ),
-      ),
-    ),
-    onPressed: onpress,
-    child: Text(
-      text,
-      style: TextStyle(
-        color: textcolor,
-        fontSize: MQ.wd(context) * .010,
-        fontWeight: FontWeight.bold,
-      ),
-    ),
-  );
+class Document extends StatelessWidget {
+  const Document({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        AppText('document '),
+      ],
+    );
+  }
 }

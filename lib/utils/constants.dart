@@ -1,7 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
+import 'package:uscholarcrm/provider/controller.dart';
 import 'package:uscholarcrm/utils/reshelper.dart';
+import 'package:uscholarcrm/views/home/module/counsiller/pages/attendence.dart';
+import 'package:uscholarcrm/views/home/module/counsiller/pages/canceledlead.dart';
+import 'package:uscholarcrm/views/home/module/counsiller/pages/dashboard.dart';
+import 'package:uscholarcrm/views/home/module/counsiller/pages/followpleads.dart';
+import 'package:uscholarcrm/views/home/module/counsiller/pages/leadform.dart';
+import 'package:uscholarcrm/views/home/module/counsiller/pages/newleads.dart';
+import 'package:uscholarcrm/views/home/module/counsiller/pages/registreadlead.dart';
+import 'package:uscholarcrm/views/home/module/counsiller/pages/registreddetails.dart';
+import 'package:uscholarcrm/views/home/module/counsiller/pages/report.dart';
+import 'package:uscholarcrm/views/home/module/counsiller/pages/studentstatus.dart';
+import 'package:uscholarcrm/views/home/module/counsiller/pages/support.dart';
+import 'package:uscholarcrm/views/home/module/counsiller/pages/tottalleads.dart';
+import 'package:uscholarcrm/views/home/module/counsiller/pages/updateform.dart';
 
 const Color white = Color.fromARGB(255, 255, 255, 255);
 const Color whitegrey = Color.fromARGB(248, 248, 248, 1);
@@ -17,7 +32,7 @@ const Color bluehigh = Color(0xff379BFD);
 const Color blueshide = Color(0xffF4FCFD);
 const Color vluemidium = Color(0xffFE6F4FF);
 
-const Color selectedindex = Colors.amber;
+const Color selectedindex = Color(0xff00EBD5);
 const Color orangelight = Color(0xffFAC78A);
 const Color greyshide = Color(0xffF3F3F3);
 
@@ -47,6 +62,26 @@ List<String> drawertext = [
   'Student Status'
 ];
 
+final List<Widget> screen = [
+  DashBoard(),
+  Newleads(),
+  Consumer<Controller>(
+    builder: (context, controller, child) =>
+        controller.isclick ? UpdateForm() : FollowupLeads(),
+  ),
+  Consumer<Controller>(
+    builder: (context, controller, child) =>
+        controller.isclick ? RegistreadDetails() : Registreadlead(),
+  ),
+  TottalLead(),
+  LeadsForm(),
+  CanceledLead(),
+  Attendence(),
+  Report(),
+  Support(),
+  StudentStatus(),
+];
+
 List<String> country = [
   'United State',
   'America',
@@ -74,6 +109,14 @@ List<String> leadpirority = [
   'WARM',
   'COLD',
   'FEATURE',
+];
+
+List<String> module = [
+  'Counsiller',
+  'Documentation',
+  'Application',
+  'Admin',
+  ''
 ];
 
 List<Icon> icons = [

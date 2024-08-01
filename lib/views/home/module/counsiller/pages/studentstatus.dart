@@ -4,12 +4,15 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:uscholarcrm/utils/constants.dart';
 import 'package:uscholarcrm/utils/reshelper.dart';
-import 'package:uscholarcrm/views/home/pages/dashboard.dart';
+import 'package:uscholarcrm/views/home/module/counsiller/pages/dashboard.dart';
+ 
 import 'package:uscholarcrm/views/widget/container.dart';
 import 'package:uscholarcrm/views/widget/divider.dart';
 import 'package:uscholarcrm/views/widget/text.dart';
 
-import '../../widget/textform.dart';
+import '../../../../widget/textform.dart';
+
+ 
 
 class StudentStatus extends StatelessWidget {
   const StudentStatus({super.key});

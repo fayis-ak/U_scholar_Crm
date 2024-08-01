@@ -9,9 +9,9 @@ import 'package:uscholarcrm/provider/controller.dart';
 import 'package:uscholarcrm/utils/constants.dart';
 import 'package:uscholarcrm/utils/reshelper.dart';
 import 'package:uscholarcrm/views/auth/loggin.dart';
-import 'package:uscholarcrm/views/home/homepage.dart';
-import 'package:uscholarcrm/views/home/pages/dashboard.dart';
-import 'package:uscholarcrm/views/home/pages/updateform.dart';
+import 'package:uscholarcrm/views/home/module/counsiller/pages/dashboard.dart';
+import 'package:uscholarcrm/views/home/module/counsiller/pages/updateform.dart';
+ 
 import 'package:uscholarcrm/views/widget/container.dart';
 import 'package:uscholarcrm/views/widget/text.dart';
 import 'package:uscholarcrm/views/widget/textform.dart';
@@ -95,7 +95,7 @@ class FollowupLeads extends StatelessWidget {
                     itemCount: 5,
                     itemBuilder: (context, index) {
                       return Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: EdgeInsets.all(MQ.wd(context) * .008),
                         child: ContainerWD(
                           colors: greyshide,
                           borderradius: BorderRadius.circular(
@@ -103,7 +103,7 @@ class FollowupLeads extends StatelessWidget {
                           ),
                           child: ExpansionTile(
                             title: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(MQ.wd(context) * .008),
                               child: InkWell(
                                 onTap: () {
                                   // controller.selectItem(index);
@@ -130,7 +130,7 @@ class FollowupLeads extends StatelessWidget {
                                           width: MQ.wd(context) * .05,
                                           height: MQ.ht(context) * .08,
                                           child: CircleAvatar(
-                                            radius: 50,
+                                            radius: MQ.wd(context) * .02,
                                           ),
                                         ),
                                         Column(
@@ -194,8 +194,8 @@ class FollowupLeads extends StatelessWidget {
                                                 ),
                                                 AppText(' Country :Singapore'),
                                                 sizedwd(
-                                                    width:
-                                                        MQ.wd(context) * .050),
+                                                  width: MQ.wd(context) * .050,
+                                                ),
                                                 IconButton(
                                                   onPressed: () {},
                                                   icon: Icon(Icons.edit),
@@ -217,7 +217,8 @@ class FollowupLeads extends StatelessWidget {
                                                 ContainerWD(
                                                   alignment: Alignment.center,
                                                   padding: EdgeInsets.all(
-                                                      MQ.wd(context) * .002),
+                                                    MQ.wd(context) * .002,
+                                                  ),
                                                   height: MQ.ht(context) * .03,
                                                   colors: blue,
                                                   borderradius:

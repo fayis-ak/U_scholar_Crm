@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:uscholarcrm/views/home/module/counsiller/pages/registreddetails.dart';
 
 class Controller with ChangeNotifier {
+  final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
+
   // side bar screen change
   int selectedindex = 0;
   int _selectedPriority = -1;
@@ -57,6 +60,18 @@ class Controller with ChangeNotifier {
     notifyListeners();
   }
 
+  // navigation rail
 
-  
+  int selectedrailindex = 0;
+
+  // doc add
+  List<Widget> docadd = [];
+
+  void addDoc() {
+    docadd.add(DocAddWidget(
+      docname: 'ff',
+      Doc: docadd,
+    ));
+    notifyListeners();
+  }
 }

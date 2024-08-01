@@ -4,7 +4,8 @@ import 'package:provider/provider.dart';
 import 'package:uscholarcrm/provider/controller.dart';
 import 'package:uscholarcrm/utils/constants.dart';
 import 'package:uscholarcrm/utils/reshelper.dart';
-import 'package:uscholarcrm/views/home/pages/dashboard.dart';
+import 'package:uscholarcrm/views/home/module/counsiller/pages/dashboard.dart';
+ 
 import 'package:uscholarcrm/views/widget/container.dart';
 import 'package:uscholarcrm/views/widget/divider.dart';
 import 'package:uscholarcrm/views/widget/text.dart';
@@ -154,11 +155,19 @@ class Registreadlead extends StatelessWidget {
                                                 onPressed: () {},
                                                 icon: Icon(Icons.edit),
                                               ),
-                                              IconButton(
-                                                onPressed: () {},
-                                                icon: Icon(Icons
-                                                    .remove_red_eye_outlined),
-                                              ),
+                                              Consumer<Controller>(
+                                                builder: (context, controller,
+                                                    child) {
+                                                  return IconButton(
+                                                    onPressed: () {
+                                                      controller
+                                                          .isConformclick();
+                                                    },
+                                                    icon: Icon(Icons
+                                                        .remove_red_eye_outlined),
+                                                  );
+                                                },
+                                              )
                                             ],
                                           ),
                                         ],

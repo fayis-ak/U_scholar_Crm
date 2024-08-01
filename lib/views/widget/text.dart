@@ -34,10 +34,12 @@ class AppText extends StatelessWidget {
       '${text ?? ''}',
       maxLines: maxLines,
       overflow: overflow,
+     
       style: GoogleFonts.publicSans(
         fontWeight: weight,
         fontSize: size,
         color: color,
+        
       ),
       textAlign: align,
     );

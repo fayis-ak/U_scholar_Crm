@@ -5,7 +5,7 @@ import 'package:uscholarcrm/utils/constants.dart';
 import 'package:uscholarcrm/views/auth/loggin.dart';
 
 import 'package:provider/provider.dart';
-import 'package:uscholarcrm/views/home/homepage.dart';
+import 'package:uscholarcrm/views/home/module/homepage.dart';
 
 void main() {
   runApp(const MyApp());

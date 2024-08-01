@@ -1,16 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:uscholarcrm/utils/constants.dart';
 import 'package:uscholarcrm/utils/reshelper.dart';
-import 'package:uscholarcrm/views/home/pages/dashboard.dart';
+import 'package:uscholarcrm/views/home/module/counsiller/pages/dashboard.dart';
+ 
 import 'package:uscholarcrm/views/widget/container.dart';
 import 'package:uscholarcrm/views/widget/divider.dart';
 import 'package:uscholarcrm/views/widget/text.dart';
 import 'package:uscholarcrm/views/widget/textform.dart';
 
-class TottalLead extends StatelessWidget {
-  const TottalLead({super.key});
+class CanceledLead extends StatelessWidget {
+  const CanceledLead({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class TottalLead extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(
             horizontal: MQ.wd(context) * .030,
-            vertical: MQ.wd(context) * .020,
+            vertical: MQ.wd(context) * .030,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -48,9 +48,9 @@ class TottalLead extends StatelessWidget {
             ],
           ),
         ),
-        // SizedBox(
-        //   height: MQ.ht(context) * .010,
-        // ),
+        SizedBox(
+          height: MQ.ht(context) * .020,
+        ),
         Padding(
           padding: EdgeInsets.symmetric(
             horizontal: MQ.wd(context) * .030,
@@ -70,7 +70,6 @@ class TottalLead extends StatelessWidget {
               return Padding(
                 padding: EdgeInsets.all(8.0),
                 child: ContainerWD(
-                  borderradius: BorderRadius.circular(MQ.wd(context) * .005),
                   colors: greyshide,
                   child: ExpansionTile(
                     title: Padding(
@@ -91,7 +90,7 @@ class TottalLead extends StatelessWidget {
                                 alignment: Alignment.center,
                                 padding: EdgeInsets.all(MQ.wd(context) * .002),
                                 height: MQ.ht(context) * .04,
-                                colors: green,
+                                colors: red,
                                 borderradius: BorderRadius.circular(
                                   MQ.wd(context) * .005,
                                 ),

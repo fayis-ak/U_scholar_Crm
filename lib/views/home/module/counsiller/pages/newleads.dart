@@ -7,10 +7,10 @@ import 'package:uscholarcrm/provider/controller.dart';
 import 'package:uscholarcrm/utils/constants.dart';
 import 'package:uscholarcrm/utils/reshelper.dart';
 import 'package:uscholarcrm/views/auth/loggin.dart';
-import 'package:uscholarcrm/views/home/homepage.dart';
-import 'package:uscholarcrm/views/home/pages/dashboard.dart';
-import 'package:uscholarcrm/views/home/pages/registreadlead.dart';
+import 'package:uscholarcrm/views/home/module/counsiller/pages/dashboard.dart';
+ 
 import 'package:uscholarcrm/views/widget/container.dart';
+import 'package:uscholarcrm/views/widget/elevatedbutton.dart';
 import 'package:uscholarcrm/views/widget/text.dart';
 import 'package:uscholarcrm/views/widget/textform.dart';
 
@@ -115,10 +115,9 @@ class Newleads extends StatelessWidget {
                     SizedBox(width: MQ.wd(context) * .150),
                     Consumer<Controller>(
                       builder: (context, controller, child) {
-                        return elevatedbt(
+                        return ElevatedbuttonWd(
                           backgroudcolor: Colors.white,
                           text: 'View',
-                          context: context,
                           onpress: () {
                             controller.setSelectedIndex(5);
                           },
