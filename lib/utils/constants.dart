@@ -1,9 +1,16 @@
-import 'package:flutter/cupertino.dart';
+ 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:uscholarcrm/provider/controller.dart';
 import 'package:uscholarcrm/utils/reshelper.dart';
+import 'package:uscholarcrm/views/home/module/addlead/addlead.dart';
+import 'package:uscholarcrm/views/home/module/addlead/dashboard.dart';
+import 'package:uscholarcrm/views/home/module/addlead/viewlead.dart';
+import 'package:uscholarcrm/views/home/module/application/dashboardapplication.dart';
+import 'package:uscholarcrm/views/home/module/application/followupapplication.dart';
+import 'package:uscholarcrm/views/home/module/application/newapplication.dart';
+import 'package:uscholarcrm/views/home/module/application/tottalapplication.dart';
 import 'package:uscholarcrm/views/home/module/counsiller/pages/attendence.dart';
 import 'package:uscholarcrm/views/home/module/counsiller/pages/canceledlead.dart';
 import 'package:uscholarcrm/views/home/module/counsiller/pages/dashboard.dart';
@@ -17,6 +24,11 @@ import 'package:uscholarcrm/views/home/module/counsiller/pages/studentstatus.dar
 import 'package:uscholarcrm/views/home/module/counsiller/pages/support.dart';
 import 'package:uscholarcrm/views/home/module/counsiller/pages/tottalleads.dart';
 import 'package:uscholarcrm/views/home/module/counsiller/pages/updateform.dart';
+import 'package:uscholarcrm/views/home/module/documentation/DropedDocuments.dart';
+import 'package:uscholarcrm/views/home/module/documentation/dashboard.dart';
+import 'package:uscholarcrm/views/home/module/documentation/followupdocumnets.dart';
+import 'package:uscholarcrm/views/home/module/documentation/newdocuments.dart';
+import 'package:uscholarcrm/views/home/module/documentation/tottaldocuments.dart';
 
 const Color white = Color.fromARGB(255, 255, 255, 255);
 const Color whitegrey = Color.fromARGB(248, 248, 248, 1);
@@ -62,24 +74,43 @@ List<String> drawertext = [
   'Student Status'
 ];
 
+//counsiller screen
 final List<Widget> screen = [
-  DashBoard(),
-  Newleads(),
+ const DashBoard(),
+  const Newleads(),
   Consumer<Controller>(
     builder: (context, controller, child) =>
-        controller.isclick ? UpdateForm() : FollowupLeads(),
+        controller.isclick ? const UpdateForm() :const FollowupLeads(),
   ),
   Consumer<Controller>(
     builder: (context, controller, child) =>
-        controller.isclick ? RegistreadDetails() : Registreadlead(),
+        controller.isclick ?const RegistreadDetails() :const Registreadlead(),
   ),
-  TottalLead(),
-  LeadsForm(),
-  CanceledLead(),
-  Attendence(),
-  Report(),
-  Support(),
-  StudentStatus(),
+  const TottalLead(),
+  const LeadsForm(),
+ const CanceledLead(),
+ const Attendence(),
+ const Report(),
+ const Support(),
+ const StudentStatus(),
+];
+
+List<String> addlead = [
+  'DASHBOARD',
+  'Add Lead',
+  'View Lead',
+];
+
+const List<Icon> addleadicone = [
+  Icon(Icons.dashboard),
+  Icon(Icons.wallet),
+  Icon(Icons.view_agenda),
+];
+//addlead
+   List<Widget> addleadscreen = [
+ const DashBoardAddLead(),
+  AddLead(),
+ const ViewLead(),
 ];
 
 List<String> country = [
@@ -97,7 +128,7 @@ List<String> leadstatus = [
   'Register',
 ];
 
-List<String> Study = [
+List<String> study = [
   'SSLC',
   '+2',
   'DEGREE',
@@ -116,10 +147,17 @@ List<String> module = [
   'Documentation',
   'Application',
   'Admin',
-  ''
+  'AddLead'
 ];
 
-List<Icon> icons = [
+List<String> staffnames = [
+  'Mridula',
+  'Ayisha',
+  'Anusree',
+  'Vijisha',
+  'Reshma',
+];
+ const List<Icon> icons = [
   Icon(Icons.dashboard),
   Icon(Icons.newspaper),
   Icon(Icons.follow_the_signs),
@@ -130,7 +168,6 @@ List<Icon> icons = [
   Icon(Icons.calendar_month),
   Icon(Icons.report_gmailerrorred),
   Icon(Icons.support_agent),
-  // Icon(Icons.add_box_outlined),
   Icon(Icons.star_outline_sharp),
 ];
 
@@ -138,7 +175,7 @@ Widget logo(BuildContext context) {
   return Container(
     width: MQ.wd(context) * .050,
     height: MQ.wd(context) * .050,
-    decoration: BoxDecoration(),
+    decoration:const BoxDecoration(),
     child: SvgPicture.asset(
       'assets/image/logo.svg',
       height: 5,
@@ -192,3 +229,58 @@ class sizedwd extends StatelessWidget {
     );
   }
 }
+
+// documents
+List<String> document = [
+  'DashBoard',
+  'New Documents',
+  'Followup Documents',
+  'Total Documents',
+  'Droped Documents',
+];
+
+  List<Widget> documentscreen = [
+ const DashBoardDocuments(),
+  NewDocuments(),
+ const FollowupDocuments(),
+ const TottalDocuments(),
+ const DropedDocuments(),
+];
+
+const List<Icon> documenticone = [
+  Icon(Icons.dashboard),
+  Icon(Icons.next_week_outlined),
+  Icon(Icons.follow_the_signs),
+  Icon(Icons.all_inbox),
+  Icon(Icons.cancel_outlined),
+];
+
+//application
+
+const List<String> Application = [
+  'Dashboard',
+  'New Application',
+  'Followup Application',
+  'Total Application',
+];
+
+const List<Widget> applicationscreen = [
+  DashBoardApplication(),
+  NewApplication(),
+  FollowupApplication(),
+  TottalApplication(),
+];
+
+ const List<Icon> applicationicone = [
+  Icon(Icons.dashboard),
+  Icon(Icons.next_week_outlined),
+  Icon(Icons.follow_the_signs),
+  Icon(Icons.all_inbox),
+];
+
+List<String> documentstatus = [
+  'Document Pending',
+  'Complete Document Recived',
+  'SOP Creating',
+  'Move To Application'
+];

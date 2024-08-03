@@ -1,12 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:uscholarcrm/provider/controller.dart';
 import 'package:uscholarcrm/utils/constants.dart';
 import 'package:uscholarcrm/utils/reshelper.dart';
- 
+import 'package:uscholarcrm/views/home/module/counsiller/pages/notification.dart';
+
 import 'package:uscholarcrm/views/widget/divider.dart';
 import 'package:uscholarcrm/views/widget/text.dart';
 import 'package:uscholarcrm/views/widget/textform.dart';
@@ -34,7 +34,7 @@ class DashBoard extends StatelessWidget {
                       onPressed: () {
                         controller.scaffoldKey.currentState!.openDrawer();
                       },
-                      icon: Icon(Icons.dehaze),
+                      icon: const Icon(Icons.dehaze),
                     );
                   } else {
                     return Container();
@@ -42,7 +42,7 @@ class DashBoard extends StatelessWidget {
                 },
               ),
               logo(context),
-              Container(
+              sizedwd(
                 width: MQ.wd(context) * .20,
                 child: Row(
                   children: [
@@ -68,15 +68,15 @@ class DashBoard extends StatelessWidget {
               Consumer<Controller>(
                 builder: (context, controller, child) {
                   return Badge(
-                    label: Text('5'),
+                    label: const Text('5'),
+                    textColor: notificolor,
+                    backgroundColor: green,
                     child: IconButton(
-                      icon: Icon(Icons.notifications),
+                      icon: const Icon(Icons.notifications),
                       onPressed: () {
                         controller.isConformclick();
                       },
                     ),
-                    textColor: notificolor,
-                    backgroundColor: green,
                   );
                 },
               ),
@@ -94,20 +94,18 @@ class DashBoard extends StatelessWidget {
                   color: Colors.grey.shade200,
                   suffixicone: IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.search,
                     ),
                   ),
                   borderradius: MQ.wd(context) * .020,
                 ),
               ),
-              Container(
-                child: Row(
-                  children: [
-                    Icon(Icons.logout),
-                    AppText('Logout'),
-                  ],
-                ),
+              const Row(
+                children: [
+                  Icon(Icons.logout),
+                  AppText('Logout'),
+                ],
               )
             ],
           ),
@@ -120,7 +118,7 @@ class DashBoard extends StatelessWidget {
             horizontal: MQ.wd(context) * .030,
             vertical: MQ.wd(context) * .010,
           ),
-          child: LeadForm(context),
+          child: leadForm(context),
         ),
         divider(),
         SizedBox(
@@ -139,7 +137,8 @@ class DashBoard extends StatelessWidget {
               ],
             ),
           ),
-        if (controller.isclick == true) Expanded(child: NotificationScreen())
+        if (controller.isclick == true)
+          const Expanded(child: NotificationScreen())
       ],
     );
   }
@@ -175,7 +174,7 @@ Widget container({context, required text, required index}) {
                     Container(
                       width: MQ.wd(context) * .010,
                       height: MQ.wd(context) * .010,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         color: black,
                       ),
@@ -195,7 +194,7 @@ Widget container({context, required text, required index}) {
                   color: black,
                   size: MQ.wd(context) * 0.020,
                 ),
-                Spacer(),
+                const Spacer(),
                 Text(
                   'View Details',
                   style: AppStyles.Header(
@@ -214,7 +213,7 @@ Widget container({context, required text, required index}) {
   );
 }
 
-Widget LeadForm(BuildContext context) {
+Widget leadForm(BuildContext context) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
@@ -223,7 +222,7 @@ Widget LeadForm(BuildContext context) {
           Container(
             width: MQ.wd(context) * .050,
             height: MQ.wd(context) * .050,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
               color: black,
             ),
@@ -263,7 +262,7 @@ Widget LeadForm(BuildContext context) {
           Container(
             width: MQ.wd(context) * .050,
             height: MQ.wd(context) * .050,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
               color: black,
             ),
@@ -303,7 +302,7 @@ Widget LeadForm(BuildContext context) {
           Container(
             width: MQ.wd(context) * .050,
             height: MQ.wd(context) * .050,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
               color: black,
             ),
@@ -343,7 +342,7 @@ Widget LeadForm(BuildContext context) {
           Container(
             width: MQ.wd(context) * .050,
             height: MQ.wd(context) * .050,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
               color: black,
             ),
@@ -380,79 +379,4 @@ Widget LeadForm(BuildContext context) {
       ),
     ],
   );
-}
-
-class NotificationScreen extends StatelessWidget {
-  const NotificationScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final controller = Provider.of<Controller>(context);
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Row(
-            children: [
-              IconButton(
-                onPressed: () {
-                  controller.backbutton();
-                },
-                icon: Icon(Icons.arrow_back),
-              )
-            ],
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: MQ.wd(context) * .020,
-            ),
-            child: ListView.separated(
-              shrinkWrap: true,
-              physics: BouncingScrollPhysics(),
-              itemCount: 20,
-              itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    Row(
-                      children: [
-                        Icon(Icons.star_border),
-                        sizedwd(
-                          width: MQ.wd(context) * .020,
-                        ),
-                        AppText(
-                          'waheed',
-                          weight: FontWeight.bold,
-                        ),
-                        sizedwd(
-                          width: MQ.wd(context) * .020,
-                        ),
-                        AppText(
-                          'This Student Document IS Note Fill Please Fill The Form Then Sumbit',
-                          color: verticaldivider,
-                        ),
-                        Spacer(),
-                        AppText(
-                          '4 jan',
-                          weight: FontWeight.bold,
-                        ),
-                      ],
-                    ),
-                  ],
-                );
-              },
-              separatorBuilder: (context, index) {
-                return Column(
-                  children: [
-                    sizedwd(
-                      height: MQ.ht(context) * .030,
-                    ),
-                    divider(),
-                  ],
-                );
-              },
-            ),
-          )
-        ],
-      ),
-    );
-  }
 }

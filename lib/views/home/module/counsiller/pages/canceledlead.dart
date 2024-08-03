@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart';
+ 
 import 'package:flutter/material.dart';
 import 'package:uscholarcrm/utils/constants.dart';
 import 'package:uscholarcrm/utils/reshelper.dart';
 import 'package:uscholarcrm/views/home/module/counsiller/pages/dashboard.dart';
- 
+
 import 'package:uscholarcrm/views/widget/container.dart';
 import 'package:uscholarcrm/views/widget/divider.dart';
 import 'package:uscholarcrm/views/widget/text.dart';
@@ -38,7 +38,7 @@ class CanceledLead extends StatelessWidget {
                   color: Colors.grey.shade200,
                   suffixicone: IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.search,
                     ),
                   ),
@@ -56,7 +56,7 @@ class CanceledLead extends StatelessWidget {
             horizontal: MQ.wd(context) * .030,
             vertical: MQ.wd(context) * .010,
           ),
-          child: LeadForm(context),
+          child: leadForm(context),
         ),
         divider(),
         sizedwd(
@@ -68,12 +68,12 @@ class CanceledLead extends StatelessWidget {
             itemCount: 5,
             itemBuilder: (context, index) {
               return Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: ContainerWD(
                   colors: greyshide,
                   child: ExpansionTile(
                     title: Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -82,7 +82,7 @@ class CanceledLead extends StatelessWidget {
                               sizedwd(
                                 width: MQ.wd(context) * .050,
                               ),
-                              AppText('Waheed'),
+                              const AppText('Waheed'),
                               sizedwd(
                                 width: MQ.wd(context) * .010,
                               ),
@@ -94,7 +94,7 @@ class CanceledLead extends StatelessWidget {
                                 borderradius: BorderRadius.circular(
                                   MQ.wd(context) * .005,
                                 ),
-                                child: AppText(
+                                child: const AppText(
                                   ' Cancelled',
                                   color: white,
                                 ),
@@ -109,44 +109,44 @@ class CanceledLead extends StatelessWidget {
                               sizedwd(
                                 width: MQ.wd(context) * .010,
                               ),
-                              Icon(Icons.call),
-                              AppText('123456789'),
+                              const Icon(Icons.call),
+                              const AppText('123456789'),
                               sizedwd(
                                 width: MQ.wd(context) * .040,
                               ),
-                              Icon(Icons.location_on_outlined),
-                              AppText('Nilabur'),
+                              const Icon(Icons.location_on_outlined),
+                              const AppText('Nilabur'),
                               sizedwd(
                                 width: MQ.wd(context) * .040,
                               ),
-                              AppText('Create Date : 1/08/2024'),
+                              const AppText('Create Date : 1/08/2024'),
                               sizedwd(
                                 width: MQ.wd(context) * .040,
                               ),
                               sizedwd(
                                 width: MQ.wd(context) * .040,
                               ),
-                              AppText('Country : Singapore'),
+                              const AppText('Country : Singapore'),
                               sizedwd(
                                 width: MQ.wd(context) * .040,
                               ),
                               IconButton(
                                 onPressed: () {},
-                                icon: Icon(Icons.edit),
+                                icon: const Icon(Icons.edit),
                               ),
                               sizedwd(
                                 width: MQ.wd(context) * .010,
                               ),
                               IconButton(
                                 onPressed: () {},
-                                icon: Icon(Icons.remove_red_eye_outlined),
+                                icon: const Icon(Icons.remove_red_eye_outlined),
                               ),
                               sizedwd(
                                 width: MQ.wd(context) * .010,
                               ),
                               IconButton(
                                 onPressed: () {},
-                                icon: Icon(Icons.add_box_rounded),
+                                icon: const Icon(Icons.add_box_rounded),
                               ),
                             ],
                           ),
@@ -166,7 +166,7 @@ class CanceledLead extends StatelessWidget {
                                 borderradius: BorderRadius.circular(
                                   MQ.wd(context) * .005,
                                 ),
-                                child: AppText(
+                                child: const AppText(
                                   ' Cancelled',
                                   color: white,
                                 ),
@@ -174,7 +174,7 @@ class CanceledLead extends StatelessWidget {
                               sizedwd(
                                 width: MQ.wd(context) * .050,
                               ),
-                              AppText('Lead Source : Directly Entry')
+                              const AppText('Lead Source : Directly Entry')
                             ],
                           )
                         ],

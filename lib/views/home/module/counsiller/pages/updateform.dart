@@ -23,10 +23,10 @@ class UpdateForm extends StatelessWidget {
                   onPressed: () {
                     controller.backbutton();
                   },
-                  icon: Icon(Icons.arrow_back),
+                  icon: const Icon(Icons.arrow_back),
                 );
               },
-              icon: Icon(Icons.arrow_back)),
+              icon: const Icon(Icons.arrow_back)),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ContainerWD(
@@ -36,7 +36,7 @@ class UpdateForm extends StatelessWidget {
               ),
               child: ExpansionTile(
                 title: Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: InkWell(
                     onTap: () {
                       // controller.selectItem(index);
@@ -56,7 +56,7 @@ class UpdateForm extends StatelessWidget {
                             ContainerWD(
                               width: MQ.wd(context) * .05,
                               height: MQ.ht(context) * .08,
-                              child: CircleAvatar(
+                              child: const CircleAvatar(
                                 radius: 50,
                               ),
                             ),
@@ -85,7 +85,7 @@ class UpdateForm extends StatelessWidget {
                                       borderradius: BorderRadius.circular(
                                         MQ.wd(context) * .005,
                                       ),
-                                      child: AppText(
+                                      child: const AppText(
                                         'Lead priority Normal',
                                         color: white,
                                       ),
@@ -99,31 +99,32 @@ class UpdateForm extends StatelessWidget {
                                 Row(
                                   children: [
                                     const Icon(Icons.call),
-                                    AppText('9497504365'),
-                                    VerticalDivider(
+                                    const AppText('9497504365'),
+                                    const VerticalDivider(
                                       color: verticaldivider,
                                       thickness: 1,
                                     ),
-                                    Icon(Icons.location_on_outlined),
-                                    AppText('Nilabur'),
-                                    VerticalDivider(
+                                    const Icon(Icons.location_on_outlined),
+                                    const AppText('Nilabur'),
+                                    const VerticalDivider(
                                       color: verticaldivider,
                                       thickness: 1,
                                     ),
-                                    AppText('Create Date:01/01/2024'),
-                                    VerticalDivider(
+                                    const AppText('Create Date:01/01/2024'),
+                                    const VerticalDivider(
                                       color: verticaldivider,
                                       thickness: 1,
                                     ),
-                                    AppText(' Country :Singapore'),
+                                    const AppText(' Country :Singapore'),
                                     sizedwd(width: MQ.wd(context) * .050),
                                     IconButton(
                                       onPressed: () {},
-                                      icon: Icon(Icons.edit),
+                                      icon: const Icon(Icons.edit),
                                     ),
                                     IconButton(
                                       onPressed: () {},
-                                      icon: Icon(Icons.remove_red_eye_outlined),
+                                      icon: const Icon(
+                                          Icons.remove_red_eye_outlined),
                                     )
                                   ],
                                 ),
@@ -152,7 +153,8 @@ class UpdateForm extends StatelessWidget {
                                     sizedwd(
                                       width: MQ.wd(context) * .020,
                                     ),
-                                    AppText('Lead Source :  Directly Entry'),
+                                    const AppText(
+                                        'Lead Source :  Directly Entry'),
 
                                     // IconButton(
                                     //   onPressed: () {},
@@ -169,14 +171,12 @@ class UpdateForm extends StatelessWidget {
                         if (controller.isclick == true)
                           Stepper(
                             currentStep: 0,
-                            onStepTapped: (step) {
-                              
-                            },
+                            onStepTapped: (step) {},
                             onStepContinue: () {},
                             onStepCancel: () {
                               // controller.selectItem(index);
                             },
-                            steps: [
+                            steps: const [
                               Step(
                                 title: Text('Step 1'),
                                 content: Text('Content for Step 1'),
@@ -205,31 +205,22 @@ class UpdateForm extends StatelessWidget {
                               alignment: Alignment.center,
                               width: MQ.wd(context) * .05,
                               height: MQ.ht(context) * .05,
-                              child: AppText(Study[0]),
                               colors: whiteshide,
                               borderradius: BorderRadius.circular(
                                 MQ.wd(context) * .005,
                               ),
+                              child: AppText(study[0]),
                             ),
                             ContainerWD(
                               alignment: Alignment.center,
                               width: MQ.wd(context) * .05,
                               height: MQ.ht(context) * .05,
-                              child: AppText(Study[1]),
+
                               colors: whiteshide,
                               borderradius: BorderRadius.circular(
                                 MQ.wd(context) * .005,
                               ),
-                            ),
-                            ContainerWD(
-                              alignment: Alignment.center,
-                              width: MQ.wd(context) * .05,
-                              height: MQ.ht(context) * .05,
-                              borderradius: BorderRadius.circular(
-                                MQ.wd(context) * .005,
-                              ),
-                              child: AppText(Study[2]),
-                              colors: whiteshide,
+                                                            child: AppText(study[1]),
                             ),
                             ContainerWD(
                               alignment: Alignment.center,
@@ -238,8 +229,20 @@ class UpdateForm extends StatelessWidget {
                               borderradius: BorderRadius.circular(
                                 MQ.wd(context) * .005,
                               ),
-                              child: AppText(Study[3]),
+
                               colors: whiteshide,
+                                                            child: AppText(study[2]),
+                            ),
+                            ContainerWD(
+                              alignment: Alignment.center,
+                              width: MQ.wd(context) * .05,
+                              height: MQ.ht(context) * .05,
+                              borderradius: BorderRadius.circular(
+                                MQ.wd(context) * .005,
+                              ),
+                          
+                              colors: whiteshide,
+                                  child: AppText(study[3]),
                             ),
                           ],
                         ),
@@ -297,13 +300,13 @@ class UpdateForm extends StatelessWidget {
                               borderradius: BorderRadius.circular(
                                 MQ.wd(context) * .005,
                               ),
-                              child: AppText('Work Experience'),
                               colors: whiteshide,
+                              child:const AppText('Work Experience'),
                             ),
                             sizedwd(
                               width: MQ.wd(context) * .030,
                             ),
-                            AppText('1 Year Experience'),
+                            const AppText('1 Year Experience'),
                           ],
                         ),
                         Column(
@@ -313,28 +316,28 @@ class UpdateForm extends StatelessWidget {
                                 '\u2022',
                                 size: MQ.wd(context) * .020,
                               ),
-                              title: AppText('Plus Two Pass'),
+                              title: const AppText('Plus Two Pass'),
                             ),
                             ListTile(
                               leading: AppText(
                                 '\u2022',
                                 size: MQ.wd(context) * .020,
                               ),
-                              title: AppText('No '),
+                              title: const AppText('No '),
                             ),
                             ListTile(
                               leading: AppText(
                                 '\u2022',
                                 size: MQ.wd(context) * .020,
                               ),
-                              title: AppText('Plus Two Pass'),
+                              title: const AppText('Plus Two Pass'),
                             ),
                             ListTile(
                               leading: AppText(
                                 '\u2022',
                                 size: MQ.wd(context) * .020,
                               ),
-                              title: AppText('No '),
+                              title: const AppText('No '),
                             ),
                           ],
                         )

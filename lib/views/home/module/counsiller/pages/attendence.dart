@@ -1,17 +1,15 @@
-import 'package:flutter/cupertino.dart';
+ 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:provider/single_child_widget.dart';
+ 
+ 
 import 'package:uscholarcrm/utils/constants.dart';
 import 'package:uscholarcrm/utils/reshelper.dart';
 import 'package:uscholarcrm/views/home/module/counsiller/pages/dashboard.dart';
- 
+
 import 'package:uscholarcrm/views/widget/container.dart';
 import 'package:uscholarcrm/views/widget/divider.dart';
 import 'package:uscholarcrm/views/widget/text.dart';
 import 'package:uscholarcrm/views/widget/textform.dart';
-
- 
 
 class Attendence extends StatelessWidget {
   const Attendence({super.key});
@@ -43,7 +41,7 @@ class Attendence extends StatelessWidget {
                     color: Colors.grey.shade200,
                     suffixicone: IconButton(
                       onPressed: () {},
-                      icon: Icon(
+                      icon:const Icon(
                         Icons.search,
                       ),
                     ),
@@ -61,7 +59,7 @@ class Attendence extends StatelessWidget {
               horizontal: MQ.wd(context) * .030,
               vertical: MQ.wd(context) * .010,
             ),
-            child: LeadForm(context),
+            child: leadForm(context),
           ),
           divider(),
           sizedwd(
@@ -102,7 +100,7 @@ class Attendence extends StatelessWidget {
                         color: bluehigh,
                         size: MQ.wd(context) * .020,
                       ),
-                      AppText('LOG IN'),
+                    const  AppText('LOG IN'),
                     ],
                   ),
                 ),
@@ -134,7 +132,7 @@ class Attendence extends StatelessWidget {
                         color: greenlight,
                         size: MQ.wd(context) * .020,
                       ),
-                      AppText(' LOGOUT'),
+                    const  AppText(' LOGOUT'),
                     ],
                   ),
                 ),
@@ -166,7 +164,7 @@ class Attendence extends StatelessWidget {
                         color: orangelight,
                         size: MQ.wd(context) * .020,
                       ),
-                      AppText(' WORKING DAYS'),
+                    const  AppText(' WORKING DAYS'),
                     ],
                   ),
                 ),
@@ -198,7 +196,7 @@ class Attendence extends StatelessWidget {
                         color: red,
                         size: MQ.wd(context) * .020,
                       ),
-                      AppText('LEAVE'),
+                    const  AppText('LEAVE'),
                     ],
                   ),
                 ),
@@ -208,16 +206,17 @@ class Attendence extends StatelessWidget {
           sizedwd(
             height: MQ.ht(context) * .020,
           ),
-          PaginatedDataTable(
-              columnSpacing: MQ.wd(context) * .140,
-              columns: [
-                DataColumn(label: AppText('DATA')),
-                DataColumn(label: AppText('CHECK IN')),
-                DataColumn(label: AppText('CHECK OUT')),
-                DataColumn(label: AppText('STATUS')),
-                DataColumn(label: AppText('ACTUAL TIME')),
-              ],
-              source: MyDataTableSource())
+           PaginatedDataTable(
+            columnSpacing: MQ.wd(context) * .140,
+            columns:const [
+              DataColumn(label: AppText('DATA')),
+              DataColumn(label: AppText('CHECK IN')),
+              DataColumn(label: AppText('CHECK OUT')),
+              DataColumn(label: AppText('STATUS')),
+              DataColumn(label: AppText('ACTUAL TIME')),
+            ],
+            source: MyDataTableSource(),
+          ),
         ],
       ),
     );

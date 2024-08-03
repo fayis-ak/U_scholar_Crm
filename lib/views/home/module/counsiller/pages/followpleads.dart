@@ -1,17 +1,13 @@
-import 'dart:math';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/svg.dart';
+
 import 'package:provider/provider.dart';
 import 'package:uscholarcrm/provider/controller.dart';
 import 'package:uscholarcrm/utils/constants.dart';
 import 'package:uscholarcrm/utils/reshelper.dart';
-import 'package:uscholarcrm/views/auth/loggin.dart';
+
 import 'package:uscholarcrm/views/home/module/counsiller/pages/dashboard.dart';
 import 'package:uscholarcrm/views/home/module/counsiller/pages/updateform.dart';
- 
+
 import 'package:uscholarcrm/views/widget/container.dart';
 import 'package:uscholarcrm/views/widget/text.dart';
 import 'package:uscholarcrm/views/widget/textform.dart';
@@ -46,7 +42,7 @@ class FollowupLeads extends StatelessWidget {
                   color: Colors.grey.shade200,
                   suffixicone: IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.search,
                     ),
                   ),
@@ -64,7 +60,7 @@ class FollowupLeads extends StatelessWidget {
             horizontal: MQ.wd(context) * .030,
             vertical: MQ.wd(context) * .010,
           ),
-          child: LeadForm(context),
+          child: leadForm(context),
         ),
         SizedBox(
           height: MQ.ht(context) * .020,
@@ -78,7 +74,6 @@ class FollowupLeads extends StatelessWidget {
               'Followup Leads',
               size: MQ.wd(context) * .015,
               weight: FontWeight.bold,
-              style: TextStyle(),
             ),
             sizedwd(
               height: MQ.ht(context) * .020,
@@ -118,9 +113,6 @@ class FollowupLeads extends StatelessWidget {
 
                                   // controller.isclick = false;
                                   controller.isConformclick();
-
-                                  print(
-                                      '=====================================${controller.isclick}=================================================');
                                 },
                                 child: Column(
                                   children: [
@@ -160,7 +152,7 @@ class FollowupLeads extends StatelessWidget {
                                                       BorderRadius.circular(
                                                     MQ.wd(context) * .005,
                                                   ),
-                                                  child: AppText(
+                                                  child: const AppText(
                                                     'Lead priority Normal',
                                                     color: white,
                                                   ),
@@ -174,35 +166,36 @@ class FollowupLeads extends StatelessWidget {
                                             Row(
                                               children: [
                                                 const Icon(Icons.call),
-                                                AppText('9497504365'),
-                                                VerticalDivider(
+                                                const AppText('9497504365'),
+                                                const VerticalDivider(
                                                   color: verticaldivider,
                                                   thickness: 1,
                                                 ),
-                                                Icon(
+                                                const Icon(
                                                     Icons.location_on_outlined),
-                                                AppText('Nilabur'),
-                                                VerticalDivider(
+                                                const AppText('Nilabur'),
+                                                const VerticalDivider(
                                                   color: verticaldivider,
                                                   thickness: 1,
                                                 ),
-                                                AppText(
+                                                const AppText(
                                                     'Create Date:01/01/2024'),
-                                                VerticalDivider(
+                                                const VerticalDivider(
                                                   color: verticaldivider,
                                                   thickness: 1,
                                                 ),
-                                                AppText(' Country :Singapore'),
+                                                const AppText(
+                                                    ' Country :Singapore'),
                                                 sizedwd(
                                                   width: MQ.wd(context) * .050,
                                                 ),
                                                 IconButton(
                                                   onPressed: () {},
-                                                  icon: Icon(Icons.edit),
+                                                  icon: const Icon(Icons.edit),
                                                 ),
                                                 IconButton(
                                                   onPressed: () {},
-                                                  icon: Icon(Icons
+                                                  icon: const Icon(Icons
                                                       .remove_red_eye_outlined),
                                                 )
                                               ],
@@ -234,7 +227,7 @@ class FollowupLeads extends StatelessWidget {
                                                 sizedwd(
                                                   width: MQ.wd(context) * .020,
                                                 ),
-                                                AppText(
+                                                const AppText(
                                                     'Lead Source :  Directly Entry'),
 
                                                 // IconButton(
@@ -257,7 +250,7 @@ class FollowupLeads extends StatelessWidget {
                                         onStepCancel: () {
                                           controller.selectItem(index);
                                         },
-                                        steps: [
+                                        steps: const [
                                           Step(
                                             title: Text('Step 1'),
                                             content: Text('Content for Step 1'),
@@ -287,31 +280,21 @@ class FollowupLeads extends StatelessWidget {
                                           alignment: Alignment.center,
                                           width: MQ.wd(context) * .05,
                                           height: MQ.ht(context) * .05,
-                                          child: AppText(Study[0]),
                                           colors: whiteshide,
                                           borderradius: BorderRadius.circular(
                                             MQ.wd(context) * .005,
                                           ),
+                                          child: AppText(study[0]),
                                         ),
                                         ContainerWD(
                                           alignment: Alignment.center,
                                           width: MQ.wd(context) * .05,
                                           height: MQ.ht(context) * .05,
-                                          child: AppText(Study[1]),
                                           colors: whiteshide,
                                           borderradius: BorderRadius.circular(
                                             MQ.wd(context) * .005,
                                           ),
-                                        ),
-                                        ContainerWD(
-                                          alignment: Alignment.center,
-                                          width: MQ.wd(context) * .05,
-                                          height: MQ.ht(context) * .05,
-                                          borderradius: BorderRadius.circular(
-                                            MQ.wd(context) * .005,
-                                          ),
-                                          child: AppText(Study[2]),
-                                          colors: whiteshide,
+                                          child: AppText(study[1]),
                                         ),
                                         ContainerWD(
                                           alignment: Alignment.center,
@@ -320,8 +303,18 @@ class FollowupLeads extends StatelessWidget {
                                           borderradius: BorderRadius.circular(
                                             MQ.wd(context) * .005,
                                           ),
-                                          child: AppText(Study[3]),
                                           colors: whiteshide,
+                                          child: AppText(study[2]),
+                                        ),
+                                        ContainerWD(
+                                          alignment: Alignment.center,
+                                          width: MQ.wd(context) * .05,
+                                          height: MQ.ht(context) * .05,
+                                          borderradius: BorderRadius.circular(
+                                            MQ.wd(context) * .005,
+                                          ),
+                                          colors: whiteshide,
+                                          child: AppText(study[3]),
                                         ),
                                       ],
                                     ),
@@ -381,13 +374,14 @@ class FollowupLeads extends StatelessWidget {
                                           borderradius: BorderRadius.circular(
                                             MQ.wd(context) * .005,
                                           ),
-                                          child: AppText('Work Experience'),
                                           colors: whiteshide,
+                                          child:
+                                              const AppText('Work Experience'),
                                         ),
                                         sizedwd(
                                           width: MQ.wd(context) * .030,
                                         ),
-                                        AppText('1 Year Experience'),
+                                        const AppText('1 Year Experience'),
                                       ],
                                     ),
                                     Column(
@@ -397,14 +391,14 @@ class FollowupLeads extends StatelessWidget {
                                             '\u2022',
                                             size: MQ.wd(context) * .020,
                                           ),
-                                          title: AppText('Plus Two Pass'),
+                                          title: const AppText('Plus Two Pass'),
                                         ),
                                         ListTile(
                                           leading: AppText(
                                             '\u2022',
                                             size: MQ.wd(context) * .020,
                                           ),
-                                          title: AppText('No '),
+                                          title: const AppText('No '),
                                         )
                                       ],
                                     )
@@ -426,7 +420,7 @@ class FollowupLeads extends StatelessWidget {
               },
             ),
           ),
-        if (controller.isclick == true) Expanded(child: UpdateForm())
+        if (controller.isclick == true) const Expanded(child: UpdateForm())
       ],
     );
   }

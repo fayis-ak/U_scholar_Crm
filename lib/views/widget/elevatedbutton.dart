@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
+ 
 import 'package:flutter/material.dart';
-import 'package:uscholarcrm/utils/reshelper.dart';
+ 
 import 'package:uscholarcrm/views/widget/text.dart';
 
 class ElevatedbuttonWd extends StatelessWidget {
@@ -9,6 +9,8 @@ class ElevatedbuttonWd extends StatelessWidget {
   final Color? textcolor;
   final Color? backgroudcolor;
   final VoidCallback? onpress;
+  final double borderradius;
+  final double? textsize;
   const ElevatedbuttonWd({
     this.backgroudcolor,
     this.btcolor = Colors.white,
@@ -16,6 +18,8 @@ class ElevatedbuttonWd extends StatelessWidget {
     this.text,
     this.textcolor,
     super.key,
+    this.borderradius = 0,
+    required this.textsize,
   });
 
   @override
@@ -26,7 +30,7 @@ class ElevatedbuttonWd extends StatelessWidget {
         backgroundColor: backgroudcolor,
         shape: ContinuousRectangleBorder(
           borderRadius: BorderRadius.circular(
-            MQ.wd(context) * .005,
+            borderradius,
           ),
         ),
       ),
@@ -34,7 +38,7 @@ class ElevatedbuttonWd extends StatelessWidget {
       child: AppText(
         text,
         color: textcolor,
-        size: MQ.wd(context) * .015,
+        size: textsize,
         weight: FontWeight.bold,
       ),
     );

@@ -1,24 +1,17 @@
 import 'package:flutter/material.dart';
-
 import 'package:provider/provider.dart';
 import 'package:uscholarcrm/provider/controller.dart';
 import 'package:uscholarcrm/utils/constants.dart';
 import 'package:uscholarcrm/utils/reshelper.dart';
 import 'package:uscholarcrm/views/home/module/counsiller/pages/dashboard.dart';
-
 import 'package:uscholarcrm/views/widget/container.dart';
 import 'package:uscholarcrm/views/widget/divider.dart';
 import 'package:uscholarcrm/views/widget/text.dart';
 import 'package:uscholarcrm/views/widget/textform.dart';
 
-class RegistreadDetails extends StatefulWidget {
-  const RegistreadDetails({super.key});
-
-  @override
-  State<RegistreadDetails> createState() => _RegistreadDetailsState();
-}
-
-class _RegistreadDetailsState extends State<RegistreadDetails> {
+class NewDocuments extends StatelessWidget {
+  NewDocuments({super.key});
+  String? selectedstatus;
   @override
   Widget build(BuildContext context) {
     final controller = Provider.of<Controller>(context);
@@ -217,7 +210,7 @@ class _RegistreadDetailsState extends State<RegistreadDetails> {
                 children: [
                   Padding(
                     padding: EdgeInsets.all(
-                      MQ.wd(context) * .050,
+                      MQ.wd(context) * .040,
                     ),
                     child: Column(
                       children: [
@@ -228,23 +221,22 @@ class _RegistreadDetailsState extends State<RegistreadDetails> {
                               alignment: Alignment.center,
                               width: MQ.wd(context) * .05,
                               height: MQ.ht(context) * .05,
+                              colors: whiteshide,
+                              borderradius: BorderRadius.circular(
+                                MQ.wd(context) * .005,
+                              ),
+                              child: AppText(study[0]),
+                            ),
+                            ContainerWD(
+                              alignment: Alignment.center,
+                              width: MQ.wd(context) * .05,
+                              height: MQ.ht(context) * .05,
                              
                               colors: whiteshide,
                               borderradius: BorderRadius.circular(
                                 MQ.wd(context) * .005,
                               ),
-                               child: AppText(study[0]),
-                            ),
-                            ContainerWD(
-                              alignment: Alignment.center,
-                              width: MQ.wd(context) * .05,
-                              height: MQ.ht(context) * .05,
-                           
-                              colors: whiteshide,
-                              borderradius: BorderRadius.circular(
-                                MQ.wd(context) * .005,
-                              ),
-                                 child: AppText(study[1]),
+                               child: AppText(study[1]),
                             ),
                             ContainerWD(
                               alignment: Alignment.center,
@@ -253,9 +245,9 @@ class _RegistreadDetailsState extends State<RegistreadDetails> {
                               borderradius: BorderRadius.circular(
                                 MQ.wd(context) * .005,
                               ),
-                           
+                              
                               colors: whiteshide,
-                                 child: AppText(study[2]),
+                              child: AppText(study[2]),
                             ),
                             ContainerWD(
                               alignment: Alignment.center,
@@ -264,9 +256,9 @@ class _RegistreadDetailsState extends State<RegistreadDetails> {
                               borderradius: BorderRadius.circular(
                                 MQ.wd(context) * .005,
                               ),
-                  
+                              
                               colors: whiteshide,
-                                          child: AppText(study[3]),
+                              child: AppText(study[3]),
                             ),
                           ],
                         ),
@@ -324,8 +316,9 @@ class _RegistreadDetailsState extends State<RegistreadDetails> {
                               borderradius: BorderRadius.circular(
                                 MQ.wd(context) * .005,
                               ),
+                            
                               colors: whiteshide,
-                              child:const AppText('Work Experience'),
+                                child:const AppText('Work Experience'),
                             ),
                             sizedwd(
                               width: MQ.wd(context) * .030,
@@ -348,71 +341,6 @@ class _RegistreadDetailsState extends State<RegistreadDetails> {
                                 size: MQ.wd(context) * .020,
                               ),
                               title: const AppText('No '),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Consumer<Controller>(
-                                  builder: (context, controller, child) {
-                                    return Checkbox(
-                                      value: controller.isconform,
-                                      onChanged: (value) {
-                                        controller.isconformclick();
-                                      },
-                                    );
-                                  },
-                                ),
-                                const AppText(
-                                  'Documents Not Submitted',
-                                  color: red,
-                                )
-                              ],
-                            ),
-                            sizedwd(
-                              height: MQ.ht(context) * .030,
-                            ),
-                            Row(
-                              children: [
-                                Consumer<Controller>(
-                                  builder: (context, controller, child) {
-                                    return Checkbox(
-                                      value: controller.isconform,
-                                      onChanged: (value) {
-                                        controller.isconformclick();
-                                      },
-                                    );
-                                  },
-                                ),
-                                const AppText(
-                                  'Documents Almost Submitted',
-                                  color: blue,
-                                )
-                              ],
-                            ),
-                            sizedwd(
-                              height: MQ.ht(context) * .030,
-                            ),
-                            Row(
-                              children: [
-                                Consumer<Controller>(
-                                  builder: (context, controller, child) {
-                                    return Checkbox(
-                                      value: controller.isconform,
-                                      onChanged: (value) {
-                                        controller.isconformclick();
-                                      },
-                                    );
-                                  },
-                                ),
-                                const AppText(
-                                  'Documents Submitted',
-                                  color: green,
-                                )
-                              ],
                             ),
                           ],
                         ),
@@ -446,6 +374,93 @@ class _RegistreadDetailsState extends State<RegistreadDetails> {
                         ),
                         sizedwd(
                           height: MQ.ht(context) * .030,
+                        ),
+                        Row(
+                          children: [
+                            Checkbox(
+                              value: controller.isfolowcheck,
+                              onChanged: (value) {},
+                            ),
+                          ],
+                        ),
+                        sizedwd(
+                          height: MQ.ht(context) * .030,
+                        ),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                AppText(
+                                  'Remark',
+                                  color: textgrey,
+                                  size: MQ.wd(context) * .010,
+                                ),
+                                sizedwd(
+                                  height: MQ.ht(context) * .008,
+                                ),
+                                sizedwd(
+                                  width: MQ.wd(context) * .40,
+                                  child: Textformwidget(
+                                    borderSide: const BorderSide(
+                                      color: textgrey,
+                                    ),
+                                    leftpadding: MQ.wd(context) * .008,
+                                    toppadding: MQ.wd(context) * .008,
+                                    color: white,
+                                    maxlines: 7,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            sizedwd(
+                              width: MQ.wd(context) * .020,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                AppText(
+                                  'Status',
+                                  color: textgrey,
+                                  size: MQ.wd(context) * .010,
+                                ),
+                                sizedwd(
+                                  height: MQ.ht(context) * .008,
+                                ),
+                                sizedwd(
+                                  width: MQ.wd(context) * .30,
+                                  child: DropdownButtonFormField(
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(
+                                        borderSide: const BorderSide(
+                                          color: textgrey,
+                                        ),
+                                        borderRadius: BorderRadius.circular(
+                                          MQ.wd(context) * .005,
+                                        ),
+                                      ),
+                                    ),
+                                    value: selectedstatus,
+                                    items: documentstatus
+                                        .map(
+                                          (e) => DropdownMenuItem(
+                                            value: e,
+                                            child: AppText(e.toString()),
+                                          ),
+                                        )
+                                        .toList(),
+                                    onChanged: (value) {
+                                      selectedstatus = value as String;
+                                    },
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                        sizedwd(
+                          height: MQ.ht(context) * .050,
                         ),
                         Row(
                           children: [
@@ -510,10 +525,10 @@ class DocAddWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(MQ.wd(context) * .030),
-      child: Container(
+      child: ContainerWD(
         width: MQ.wd(context) * .20,
         height: MQ.ht(context) * .20,
-        color: greyshide,
+        colors: greyshide,
         child: Column(
           children: [
             Row(

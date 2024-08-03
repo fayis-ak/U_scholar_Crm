@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
+ 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:uscholarcrm/utils/constants.dart';
-import 'package:uscholarcrm/utils/reshelper.dart';
+ 
 
 class Textformwidget extends StatelessWidget {
   final double borderradius;
@@ -21,6 +20,8 @@ class Textformwidget extends StatelessWidget {
   final TextInputType? keyboardtype;
   final double? hintsize;
   final double leftpadding;
+  final double toppadding;
+
   final Color? hintcolor;
   final bool readonly;
 
@@ -41,6 +42,7 @@ class Textformwidget extends StatelessWidget {
     this.keyboardtype,
     this.hintsize,
     this.leftpadding = 0,
+    this.toppadding = 0,
     this.hintcolor,
     this.readonly = false,
   });
@@ -51,16 +53,19 @@ class Textformwidget extends StatelessWidget {
       inputFormatters: [
         LengthLimitingTextInputFormatter(maxlenght),
       ],
+      
       keyboardType: keyboardtype,
       textAlign: TextAlign.start,
       autovalidateMode: autovalidateMode,
       controller: controller,
       decoration: InputDecoration(
+        
         fillColor: color,
         filled: true,
         hintText: hint,
         contentPadding: EdgeInsets.only(
           left: leftpadding,
+          top: toppadding,
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(borderradius),
@@ -75,6 +80,7 @@ class Textformwidget extends StatelessWidget {
           fontSize: hintsize,
         ),
         border: OutlineInputBorder(
+          
           borderRadius: BorderRadius.circular(
             borderradius,
           ),

@@ -1,21 +1,20 @@
 import 'dart:developer';
 
 import 'package:dropdown_button2/dropdown_button2.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:provider/provider.dart';
 import 'package:uscholarcrm/provider/controller.dart';
 
 import 'package:uscholarcrm/utils/constants.dart';
 import 'package:uscholarcrm/utils/reshelper.dart';
 import 'package:uscholarcrm/views/home/module/counsiller/pages/dashboard.dart';
- 
+
 import 'package:uscholarcrm/views/widget/container.dart';
 import 'package:uscholarcrm/views/widget/divider.dart';
 import 'package:uscholarcrm/views/widget/text.dart';
 import 'package:uscholarcrm/views/widget/textform.dart';
- 
 
 class LeadsForm extends StatefulWidget {
   const LeadsForm({super.key});
@@ -36,10 +35,8 @@ class _LeadsFormState extends State<LeadsForm> {
     void initState() {
       //notesController.text = widget.healthEvent['text'];
       notesController.addListener(() {
-        print('___${notesController.text}');
         String note = notesController.text;
         if (note.isNotEmpty && note.substring(note.length - 1) == '\u2022') {
-          print('newline');
           // setState(() {
           //   newLine = true;
           // });
@@ -77,7 +74,7 @@ class _LeadsFormState extends State<LeadsForm> {
                     color: Colors.grey.shade200,
                     suffixicone: IconButton(
                       onPressed: () {},
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.search,
                       ),
                     ),
@@ -95,7 +92,7 @@ class _LeadsFormState extends State<LeadsForm> {
               horizontal: MQ.wd(context) * .030,
               vertical: MQ.wd(context) * .010,
             ),
-            child: LeadForm(context),
+            child: leadForm(context),
           ),
           divider(),
           sizedwd(
@@ -130,7 +127,7 @@ class _LeadsFormState extends State<LeadsForm> {
                       children: [
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(8.0),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -144,7 +141,7 @@ class _LeadsFormState extends State<LeadsForm> {
                                   hintcolor: black,
                                   leftpadding: MQ.wd(context) * .020,
                                   color: white,
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: textgrey,
                                   ),
                                 ),
@@ -178,7 +175,7 @@ class _LeadsFormState extends State<LeadsForm> {
                                       items: country
                                           .toSet()
                                           .map((item) => DropdownMenuItem(
-                                                    value: item,
+                                                value: item,
                                                 child: Text(
                                                   item,
                                                   style: const TextStyle(
@@ -269,7 +266,7 @@ class _LeadsFormState extends State<LeadsForm> {
                                   hintcolor: black,
                                   leftpadding: MQ.wd(context) * .020,
                                   color: white,
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: textgrey,
                                   ),
                                 ),
@@ -287,7 +284,7 @@ class _LeadsFormState extends State<LeadsForm> {
                                   hintcolor: black,
                                   leftpadding: MQ.wd(context) * .020,
                                   color: white,
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: textgrey,
                                   ),
                                 ),
@@ -306,7 +303,8 @@ class _LeadsFormState extends State<LeadsForm> {
                                         maxlenght: 3,
                                         leftpadding: MQ.wd(context) * .010,
                                         color: white,
-                                        borderSide: BorderSide(color: textgrey),
+                                        borderSide:
+                                            const BorderSide(color: textgrey),
                                         hint: '10th',
                                         suffixicone: Icon(
                                           Icons.percent,
@@ -321,7 +319,8 @@ class _LeadsFormState extends State<LeadsForm> {
                                         maxlenght: 3,
                                         leftpadding: MQ.wd(context) * .010,
                                         color: white,
-                                        borderSide: BorderSide(color: textgrey),
+                                        borderSide:
+                                            const BorderSide(color: textgrey),
                                         hint: '12th',
                                         suffixicone: Icon(
                                           Icons.percent,
@@ -337,7 +336,8 @@ class _LeadsFormState extends State<LeadsForm> {
                                         maxlenght: 3,
                                         leftpadding: MQ.wd(context) * .010,
                                         color: white,
-                                        borderSide: BorderSide(color: textgrey),
+                                        borderSide:
+                                            const BorderSide(color: textgrey),
                                         hint: 'Degree',
                                         hintsize: MQ.wd(context) * .008,
                                         suffixicone: Icon(
@@ -353,7 +353,8 @@ class _LeadsFormState extends State<LeadsForm> {
                                         maxlenght: 3,
                                         leftpadding: MQ.wd(context) * .010,
                                         color: white,
-                                        borderSide: BorderSide(color: textgrey),
+                                        borderSide:
+                                            const BorderSide(color: textgrey),
                                         hint: 'Pg',
                                         suffixicone: Icon(
                                           Icons.percent,
@@ -368,7 +369,8 @@ class _LeadsFormState extends State<LeadsForm> {
                                         maxlenght: 3,
                                         leftpadding: MQ.wd(context) * .010,
                                         color: white,
-                                        borderSide: BorderSide(color: textgrey),
+                                        borderSide:
+                                            const BorderSide(color: textgrey),
                                         hint: 'ielts',
                                         suffixicone: Icon(
                                           Icons.percent,
@@ -382,7 +384,7 @@ class _LeadsFormState extends State<LeadsForm> {
                             ),
                           ),
                         ),
-                        sizedwd(width: 50),
+                        const sizedwd(width: 50),
 
                         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                         Expanded(
@@ -400,7 +402,7 @@ class _LeadsFormState extends State<LeadsForm> {
                                 leftpadding: MQ.wd(context) * .020,
                                 maxlenght: 10,
                                 keyboardtype: TextInputType.number,
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: textgrey,
                                 ),
                                 color: white,
@@ -424,22 +426,22 @@ class _LeadsFormState extends State<LeadsForm> {
                                 width: MQ.wd(context) * .5,
                                 child: DropdownButtonFormField(
                                   value: selectedValue,
-                                  decoration: InputDecoration(
+                                  decoration: const InputDecoration(
                                     border: InputBorder.none,
                                   ),
                                   items: leadstatus
                                       .map(
                                         (e) => DropdownMenuItem(
+                                          value: e,
                                           child: Text(
                                             e.toString(),
                                           ),
-                                          value: e,
                                         ),
                                       )
                                       .toList(),
                                   onChanged: (value) {
                                     setState(() {
-                                      selectedValue = value as String?;
+                                      selectedValue = value;
 
                                       log(selectedValue.toString());
                                     });
@@ -503,7 +505,7 @@ class _LeadsFormState extends State<LeadsForm> {
                                 hintcolor: black,
                                 leftpadding: MQ.wd(context) * .020,
                                 color: white,
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: textgrey,
                                 ),
                               ),
@@ -520,7 +522,8 @@ class _LeadsFormState extends State<LeadsForm> {
                                       maxlenght: 3,
                                       leftpadding: MQ.wd(context) * .010,
                                       color: white,
-                                      borderSide: BorderSide(color: textgrey),
+                                      borderSide:
+                                          const BorderSide(color: textgrey),
                                       hint: '1 year',
                                     ),
                                   ),
@@ -531,7 +534,8 @@ class _LeadsFormState extends State<LeadsForm> {
                                       maxlenght: 3,
                                       leftpadding: MQ.wd(context) * .010,
                                       color: white,
-                                      borderSide: BorderSide(color: textgrey),
+                                      borderSide:
+                                          const BorderSide(color: textgrey),
                                       hint:
                                           'Ex : Software Developer in Company',
                                     ),
@@ -548,177 +552,172 @@ class _LeadsFormState extends State<LeadsForm> {
                     ),
                     if (selectedValue != 'Cancel' &&
                         selectedValue != 'Register')
-                      Container(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Consumer<Controller>(
+                                builder: (context, controller, child) {
+                                  return Checkbox(
+                                    value: controller.isfolowcheck,
+                                    onChanged: (value) {
+                                      controller.followClick();
+                                    },
+                                  );
+                                },
+                              ),
+                              sizedwd(
+                                width: MQ.wd(context) * .005,
+                              ),
+                              AppText(
+                                'Follow up',
+                                size: MQ.wd(context) * .02,
+                                weight: FontWeight.bold,
+                              ),
+                            ],
+                          ),
+                          sizedwd(
+                            height: MQ.ht(context) * .030,
+                          ),
+                          sizedwd(
+                            width: MQ.wd(context) * .360,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Consumer<Controller>(
-                                  builder: (context, controller, child) {
-                                    return Checkbox(
-                                      value: controller.isfolowcheck,
-                                      onChanged: (value) {
-                                        controller.followClick();
-                                      },
-                                    );
-                                  },
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    AppText(
+                                      'Called Date',
+                                      color: textgrey,
+                                      size: MQ.wd(context) * .012,
+                                    ),
+                                    sizedwd(
+                                      height: MQ.ht(context) * .010,
+                                    ),
+                                    SizedBox(
+                                      width: MQ.wd(context) * .150,
+                                      child: Textformwidget(
+                                        leftpadding: MQ.wd(context) * .010,
+                                        color: white,
+                                        borderSide:
+                                            const BorderSide(color: textgrey),
+                                        readonly: true,
+                                        controller: callingdate,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                                 sizedwd(
-                                  width: MQ.wd(context) * .005,
+                                  width: MQ.wd(context) * .010,
                                 ),
-                                AppText(
-                                  'Follow up',
-                                  size: MQ.wd(context) * .02,
-                                  weight: FontWeight.bold,
+                                Column(
+                                  children: [
+                                    AppText(
+                                      'Next Follow up Date',
+                                      color: textgrey,
+                                      size: MQ.wd(context) * .012,
+                                    ),
+                                    sizedwd(
+                                      height: MQ.ht(context) * .010,
+                                    ),
+                                    SizedBox(
+                                      width: MQ.wd(context) * .150,
+                                      child: const Textformwidget(
+                                        color: white,
+                                        borderSide: BorderSide(color: textgrey),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
-                            sizedwd(
-                              height: MQ.ht(context) * .030,
-                            ),
-                            sizedwd(
-                              width: MQ.wd(context) * .360,
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                          ),
+                          sizedwd(
+                            height: MQ.ht(context) * .030,
+                          ),
+                          AppText(
+                            'Priority',
+                            color: textgrey,
+                            size: MQ.wd(context) * .012,
+                          ),
+                          sizedwd(
+                            height: MQ.ht(context) * .030,
+                          ),
+                          Consumer<Controller>(
+                            builder: (context, controller, child) {
+                              return Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: List.generate(
+                                  4,
+                                  (index) => GestureDetector(
+                                    onTap: () {
+                                      controller.selectedPriority = index;
+                                    },
+                                    child: Padding(
+                                      padding: EdgeInsets.only(
+                                        // left: MQ.wd(context) * .030,
+                                        right: MQ.wd(context) * .030,
+                                      ),
+                                      child: ContainerWD(
+                                        alignment: Alignment.center,
+                                        border: Border.all(
+                                          color: textgrey,
+                                        ),
+                                        borderradius: BorderRadius.circular(
+                                          MQ.wd(context) * .005,
+                                        ),
+                                        width: MQ.wd(context) * .060,
+                                        height: MQ.wd(context) * .030,
+                                        colors:
+                                            controller.selectedPriority == index
+                                                ? Colors.green
+                                                : Colors.white,
+                                        child: AppText(leadpirority[index]),
+                                      ),
+                                    ),
+                                  ),
+                                ).toList(),
+                              );
+                            },
+                          ),
+                          sizedwd(
+                            height: MQ.ht(context) * .030,
+                          ),
+                          Consumer<Controller>(
+                            builder: (context, controller, child) {
+                              return Row(
                                 children: [
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      AppText(
-                                        'Called Date',
-                                        color: textgrey,
-                                        size: MQ.wd(context) * .012,
-                                      ),
-                                      sizedwd(
-                                        height: MQ.ht(context) * .010,
-                                      ),
-                                      SizedBox(
-                                        width: MQ.wd(context) * .150,
-                                        child: Textformwidget(
-                                          leftpadding: MQ.wd(context) * .010,
-                                          color: white,
-                                          borderSide:
-                                              BorderSide(color: textgrey),
-                                          readonly: true,
-                                          controller: callingdate,
-                                        ),
-                                      ),
-                                    ],
+                                  Checkbox(
+                                    value: controller.isconform,
+                                    onChanged: (value) {
+                                      controller.isconformclick();
+                                    },
                                   ),
-                                  sizedwd(
-                                    width: MQ.wd(context) * .010,
-                                  ),
-                                  Column(
-                                    children: [
-                                      AppText(
-                                        'Next Follow up Date',
-                                        color: textgrey,
-                                        size: MQ.wd(context) * .012,
-                                      ),
-                                      sizedwd(
-                                        height: MQ.ht(context) * .010,
-                                      ),
-                                      SizedBox(
-                                        width: MQ.wd(context) * .150,
-                                        child: Textformwidget(
-                                          color: white,
-                                          borderSide:
-                                              BorderSide(color: textgrey),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                  const AppText('Are You Conform   This Form')
                                 ],
-                              ),
+                              );
+                            },
+                          ),
+                          sizedwd(
+                            height: MQ.ht(context) * .050,
+                          ),
+                          ContainerWD(
+                            alignment: Alignment.center,
+                            onclick: () {},
+                            width: MQ.wd(context) * .180,
+                            height: MQ.ht(context) * .060,
+                            colors: black,
+                            borderradius:
+                                BorderRadius.circular(MQ.wd(context) * .005),
+                            child: AppText(
+                              'SUBMIT',
+                              color: white,
+                              size: MQ.wd(context) * .015,
                             ),
-                            sizedwd(
-                              height: MQ.ht(context) * .030,
-                            ),
-                            AppText(
-                              'Priority',
-                              color: textgrey,
-                              size: MQ.wd(context) * .012,
-                            ),
-                            sizedwd(
-                              height: MQ.ht(context) * .030,
-                            ),
-                            Consumer<Controller>(
-                              builder: (context, controller, child) {
-                                return Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: List.generate(
-                                    4,
-                                    (index) => GestureDetector(
-                                      onTap: () {
-                                        controller.selectedPriority = index;
-                                      },
-                                      child: Padding(
-                                        padding: EdgeInsets.only(
-                                          // left: MQ.wd(context) * .030,
-                                          right: MQ.wd(context) * .030,
-                                        ),
-                                        child: ContainerWD(
-                                          alignment: Alignment.center,
-                                          border: Border.all(
-                                            color: textgrey,
-                                          ),
-                                          borderradius: BorderRadius.circular(
-                                            MQ.wd(context) * .005,
-                                          ),
-                                          width: MQ.wd(context) * .060,
-                                          height: MQ.wd(context) * .030,
-                                          colors: controller.selectedPriority ==
-                                                  index
-                                              ? Colors.green
-                                              : Colors.white,
-                                          child: AppText(leadpirority[index]),
-                                        ),
-                                      ),
-                                    ),
-                                  ).toList(),
-                                );
-                              },
-                            ),
-                            sizedwd(
-                              height: MQ.ht(context) * .030,
-                            ),
-                            Consumer<Controller>(
-                              builder: (context, controller, child) {
-                                return Row(
-                                  children: [
-                                    Checkbox(
-                                      value: controller.isconform,
-                                      onChanged: (value) {
-                                        controller.isconformclick();
-                                      },
-                                    ),
-                                    AppText('Are You Conform   This Form')
-                                  ],
-                                );
-                              },
-                            ),
-                            sizedwd(
-                              height: MQ.ht(context) * .050,
-                            ),
-                            ContainerWD(
-                              alignment: Alignment.center,
-                              onclick: () {},
-                              width: MQ.wd(context) * .180,
-                              height: MQ.ht(context) * .060,
-                              colors: black,
-                              borderradius:
-                                  BorderRadius.circular(MQ.wd(context) * .005),
-                              child: AppText(
-                                'SUBMIT',
-                                color: white,
-                                size: MQ.wd(context) * .015,
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                   ],
                 ),

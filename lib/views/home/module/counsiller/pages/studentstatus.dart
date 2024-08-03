@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
+ 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+ 
 import 'package:flutter_svg/svg.dart';
 import 'package:uscholarcrm/utils/constants.dart';
 import 'package:uscholarcrm/utils/reshelper.dart';
@@ -43,7 +43,7 @@ class StudentStatus extends StatelessWidget {
                   color: Colors.grey.shade200,
                   suffixicone: IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon:const Icon(
                       Icons.search,
                     ),
                   ),
@@ -61,7 +61,7 @@ class StudentStatus extends StatelessWidget {
             horizontal: MQ.wd(context) * .030,
             vertical: MQ.wd(context) * .010,
           ),
-          child: LeadForm(context),
+          child: leadForm(context),
         ),
         divider(),
         sizedwd(
@@ -83,14 +83,14 @@ class StudentStatus extends StatelessWidget {
                   colors: greyshide,
                   borderradius: BorderRadius.circular(MQ.wd(context) * .005),
                   child: Padding(
-                    padding: EdgeInsets.all(20),
+                    padding:const EdgeInsets.all(20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
                           width: MQ.wd(context) * .020,
                           height: MQ.wd(context) * .020,
-                          decoration: BoxDecoration(
+                          decoration:const BoxDecoration(
                             shape: BoxShape.circle,
                             color: black,
                           ),
@@ -106,20 +106,20 @@ class StudentStatus extends StatelessWidget {
                           weight: FontWeight.bold,
                           size: MQ.wd(context) * .010,
                         ),
-                        Row(
+                       const Row(
                           children: [
                             Icon(Icons.call),
-                            AppText('******506589'),
+                             AppText('******506589'),
                           ],
                         ),
-                        AppText('Country : Singapore'),
+                     const   AppText('Country : Singapore'),
                         ContainerWD(
                           height: MQ.ht(context) * .03,
                           // width: MQ.wd(context) * .04,
                           colors: green,
                           borderradius:
                               BorderRadius.circular(MQ.wd(context) * .002),
-                          child: AppText(
+                          child:const AppText(
                             'Visa Processing',
                             color: white,
                           ),

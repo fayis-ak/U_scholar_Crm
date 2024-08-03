@@ -1,14 +1,14 @@
-import 'package:flutter/cupertino.dart';
+ 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/svg.dart';
+ 
+ 
 import 'package:provider/provider.dart';
 import 'package:uscholarcrm/provider/controller.dart';
 import 'package:uscholarcrm/utils/constants.dart';
 import 'package:uscholarcrm/utils/reshelper.dart';
-import 'package:uscholarcrm/views/auth/loggin.dart';
-import 'package:uscholarcrm/views/home/module/counsiller/pages/dashboard.dart';
  
+import 'package:uscholarcrm/views/home/module/counsiller/pages/dashboard.dart';
+
 import 'package:uscholarcrm/views/widget/container.dart';
 import 'package:uscholarcrm/views/widget/elevatedbutton.dart';
 import 'package:uscholarcrm/views/widget/text.dart';
@@ -43,7 +43,7 @@ class Newleads extends StatelessWidget {
                   color: Colors.grey.shade200,
                   suffixicone: IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon:const Icon(
                       Icons.search,
                     ),
                   ),
@@ -61,7 +61,7 @@ class Newleads extends StatelessWidget {
               horizontal: MQ.wd(context) * .030,
               vertical: MQ.wd(context) * .010,
             ),
-            child: LeadForm(context)),
+            child: leadForm(context)),
         SizedBox(
           height: MQ.ht(context) * .050,
         ),
@@ -102,22 +102,24 @@ class Newleads extends StatelessWidget {
                 child: Row(
                   children: [
                     SizedBox(width: MQ.wd(context) * .020),
-                    Container(
+                    sizedwd(
                       width: 30,
                       child: Text('${index + 1}'),
                     ),
                     SizedBox(width: MQ.wd(context) * .120),
-                    Expanded(child: AppText('Waheed ')),
+                   const Expanded(child: AppText('Waheed ')),
                     SizedBox(width: MQ.wd(context) * .050),
-                    Expanded(child: AppText('*****50435')),
+                 const   Expanded(child: AppText('*****50435')),
                     SizedBox(width: MQ.wd(context) * .050),
-                    Expanded(child: AppText('Kazakhstan')),
+                 const   Expanded(child: AppText('Kazakhstan')),
                     SizedBox(width: MQ.wd(context) * .150),
                     Consumer<Controller>(
                       builder: (context, controller, child) {
                         return ElevatedbuttonWd(
                           backgroudcolor: Colors.white,
+                          borderradius: MQ.wd(context) * .005,
                           text: 'View',
+                          textsize:  MQ.wd(context) * .015,
                           onpress: () {
                             controller.setSelectedIndex(5);
                           },

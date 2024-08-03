@@ -1,19 +1,22 @@
-import 'dart:developer';
+ 
 
-import 'package:flutter/cupertino.dart';
+ 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+ 
 import 'package:flutter_svg/svg.dart';
 import 'package:uscholarcrm/utils/constants.dart';
 
 import 'package:uscholarcrm/utils/reshelper.dart';
+import 'package:uscholarcrm/views/home/module/addlead/homepage_addlead.dart';
+import 'package:uscholarcrm/views/home/module/application/homepage_application.dart';
 
-import 'package:uscholarcrm/views/home/module/homepage.dart';
+import 'package:uscholarcrm/views/home/module/counsiller/pages/homepagecounsiller.dart';
+import 'package:uscholarcrm/views/home/module/documentation/home_document.dart';
 import 'package:uscholarcrm/views/widget/elevatedbutton.dart';
 import 'package:uscholarcrm/views/widget/text.dart';
 
 class LogginScreen extends StatelessWidget {
-  FocusNode myFocusNode = new FocusNode();
+ 
   LogginScreen({super.key});
 
   @override
@@ -28,7 +31,7 @@ class LogginScreen extends StatelessWidget {
           ),
           child: Row(
             children: [
-              Container(
+              sizedwd(
                   width: MQ.wd(context) * .4,
                   height: MQ.ht(context) * .6,
                   // color: Colors.red,
@@ -38,7 +41,7 @@ class LogginScreen extends StatelessWidget {
               SizedBox(
                 width: MQ.wd(context) * .080,
               ),
-              Container(
+              sizedwd(
                 width: MQ.wd(context) * .300,
                 height: MQ.ht(context) * .7,
                 // color: Colors.blue,
@@ -65,22 +68,24 @@ class LogginScreen extends StatelessWidget {
                               child: Align(
                                 alignment: Alignment.topRight,
                                 child: sizedwd(
-                                  width: MQ.wd(context) * .110,
+                                  width: MQ.wd(context) * .30,
                                   child: DropdownButtonFormField<String>(
-                                    icon: Icon(Icons.grid_view_rounded),
+                                    icon:const Icon(Icons.grid_view_rounded),
                                     dropdownColor: black,
-                                    style: TextStyle(color: white),
-                                    decoration: InputDecoration(
+                                    style:const TextStyle(color: white),
+                                    decoration:const InputDecoration(
                                       border: InputBorder.none,
+                                      // border: OutlineInputBorder(),
                                     ),
                                     value: selectedvalue,
                                     items: module
                                         .map(
                                           (e) => DropdownMenuItem(
-                                            child: AppText(
+                                           
+                                            value: e,
+                                             child: AppText(
                                               e.toString(),
                                             ),
-                                            value: e,
                                           ),
                                         )
                                         .toList(),
@@ -99,7 +104,7 @@ class LogginScreen extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            Text(
+                          const  Text(
                               'Log in to your account',
                               style: TextStyle(
                                 color: white,
@@ -113,7 +118,7 @@ class LogginScreen extends StatelessWidget {
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
+                                   const Text(
                                       'Email',
                                       style: TextStyle(
                                         color: white,
@@ -136,7 +141,7 @@ class LogginScreen extends StatelessWidget {
                                       ),
                                     ),
                                     SizedBox(height: MQ.ht(context) * .020),
-                                    Text(
+                                  const  Text(
                                       'Password',
                                       style: TextStyle(
                                         color: white,
@@ -156,7 +161,7 @@ class LogginScreen extends StatelessWidget {
                                           obscure: true,
                                           icon: IconButton(
                                             onPressed: () {},
-                                            icon: Icon(
+                                            icon: const Icon(
                                               Icons.visibility_off,
                                             ),
                                           ),
@@ -173,23 +178,47 @@ class LogginScreen extends StatelessWidget {
                               width: double.infinity,
                               height: MQ.ht(context) * .060,
                               child: ElevatedbuttonWd(
+                                borderradius: MQ.wd(context) * .005,
                                 textcolor: black,
                                 text: 'Login Now',
+                                textsize: MQ.wd(context) * .015,
                                 onpress: () {
-                                  if (selectedvalue == 'Counsiller') {
-                                    Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => HomePage(),
-                                      ),
-                                    );
-                                  } else if (selectedvalue == 'Documentation') {
-                                    Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => Document(),
-                                      ),
-                                    );
+                                  switch (selectedvalue) {
+                                    case 'Counsiller':
+                                      Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                            const  HomePageCounsiller(),
+                                        ),
+                                      );
+                                      break;
+                                    case 'Documentation':
+                                      Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                               const HomePageDocument()),
+                                      );
+                                      break;
+                                    case 'AddLead':
+                                      Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                               const HomePageAddLead()),
+                                      );
+                                      break;
+                                    case 'Application':
+                                      Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                              const  HomePageApplication()),
+                                      );
+                                      break;
+                                    default:
+                                      break;
                                   }
                                 },
                               ),
@@ -218,7 +247,7 @@ Widget textForm({
   return TextFormField(
     keyboardType: TextInputType.emailAddress,
     decoration: InputDecoration(
-      labelStyle: TextStyle(
+      labelStyle:const TextStyle(
         color: Colors.red,
       ),
       enabledBorder: OutlineInputBorder(
@@ -236,24 +265,11 @@ Widget textForm({
       fillColor: white,
       filled: true,
       hintText: hint,
-      hintStyle: TextStyle(
+      hintStyle:const TextStyle(
         color: black,
       ),
     ),
     obscureText: obscure,
     obscuringCharacter: '*',
   );
-}
-
-class Document extends StatelessWidget {
-  const Document({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        AppText('document '),
-      ],
-    );
-  }
 }

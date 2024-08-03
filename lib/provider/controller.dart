@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:uscholarcrm/views/home/module/counsiller/pages/registreddetails.dart';
 
 class Controller with ChangeNotifier {
-  final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> scaffoldKey =   GlobalKey<ScaffoldState>();
 
   // side bar screen change
   int selectedindex = 0;
@@ -70,8 +70,35 @@ class Controller with ChangeNotifier {
   void addDoc() {
     docadd.add(DocAddWidget(
       docname: 'ff',
-      Doc: docadd,
+      doc: docadd,
     ));
     notifyListeners();
   }
+
+  // document check
+
+  bool? cv = false;
+  bool? passport = false;
+  bool? passportphoto = false;
+  bool? sslc = false;
+  bool? plustwo = false;
+  bool? digree = false;
+  bool? consolidate = false;
+  bool? proviional = false;
+  bool? transicript = false;
+  bool? lor = false;
+  bool? moi = false;
+  bool? ielts = false;
+
+
+
+
+
+
+
+
+
+
+
+
 }
