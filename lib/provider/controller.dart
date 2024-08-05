@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:uscholarcrm/views/home/module/counsiller/pages/registreddetails.dart';
 
 class Controller with ChangeNotifier {
-  final GlobalKey<ScaffoldState> scaffoldKey =   GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   // side bar screen change
   int selectedindex = 0;
@@ -60,6 +60,18 @@ class Controller with ChangeNotifier {
     notifyListeners();
   }
 
+  bool? viewclick = false;
+
+  void viewclic() {
+    viewclick = true;
+    notifyListeners();
+  }
+
+  void viewunclik() {
+    viewclick = false;
+    notifyListeners();
+  }
+
   // navigation rail
 
   int selectedrailindex = 0;
@@ -89,16 +101,4 @@ class Controller with ChangeNotifier {
   bool? lor = false;
   bool? moi = false;
   bool? ielts = false;
-
-
-
-
-
-
-
-
-
-
-
-
 }

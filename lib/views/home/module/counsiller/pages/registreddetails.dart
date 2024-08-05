@@ -44,7 +44,7 @@ class _RegistreadDetailsState extends State<RegistreadDetails> {
                     hintcolor: black,
                     leftpadding: MQ.wd(context) * .020,
                     hint: 'Search here',
-                    color: Colors.grey.shade200,
+                    fillcolor: Colors.grey.shade200,
                     suffixicone: IconButton(
                       onPressed: () {},
                       icon: const Icon(

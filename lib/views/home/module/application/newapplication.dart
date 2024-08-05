@@ -37,7 +37,7 @@ class NewApplication extends StatelessWidget {
                   hintcolor: black,
                   leftpadding: MQ.wd(context) * .020,
                   hint: 'Search here',
-                  color: Colors.grey.shade200,
+                  fillcolor: Colors.grey.shade200,
                   suffixicone: IconButton(
                     onPressed: () {},
                     icon: const Icon(
@@ -62,78 +62,70 @@ class NewApplication extends StatelessWidget {
         SizedBox(
           height: MQ.ht(context) * .050,
         ),
-        ContainerWD(
-          width: MQ.wd(context) * 6,
-          height: MQ.ht(context) * .050,
-          colors: black,
-          child: Row(
-            children: [
-              SizedBox(width: MQ.wd(context) * .15),
-              AppText(
-                'Student Name',
-                size: MQ.wd(context) * .010,
-                color: white,
-              ),
-              SizedBox(width: MQ.wd(context) * .100),
-              AppText(
-                'Mobile Number',
-                size: MQ.wd(context) * .010,
-                color: white,
-              ),
-              SizedBox(width: MQ.wd(context) * .110),
-              AppText(
-                'Country',
-                size: MQ.wd(context) * .010,
-                color: white,
-              ),
-            ],
-          ),
-        ),
         if (controller.isclick == false)
           Expanded(
-            child: ListView.separated(
-              shrinkWrap: true,
-              itemCount: 100,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      SizedBox(width: MQ.wd(context) * .020),
-                      sizedwd(
-                        width: 30,
-                        child: Text('${index + 1}'),
-                      ),
-                      SizedBox(width: MQ.wd(context) * .120),
-                      const Expanded(child: AppText('Waheed ')),
-                      SizedBox(width: MQ.wd(context) * .050),
-                      const Expanded(child: AppText('*****50435')),
-                      SizedBox(width: MQ.wd(context) * .050),
-                      const Expanded(child: AppText('Kazakhstan')),
-                      SizedBox(width: MQ.wd(context) * .150),
-                      Consumer<Controller>(
-                        builder: (context, controller, child) {
-                          return ElevatedbuttonWd(
-                            backgroudcolor: selectedindex,
-                            borderradius: MQ.wd(context) * .005,
-                            text: 'View',
-                            textsize: MQ.wd(context) * .015,
-                            onpress: () {
-                              controller.isConformclick();
-                            },
-                            textcolor: bttextcolor,
-                          );
-                        },
-                      ),
+            child: sizedwd(
+              width: double.infinity,
+              child: SingleChildScrollView(
+                child: DataTable(
+                    headingRowColor:const MaterialStatePropertyAll(black),
+                    columnSpacing: MQ.wd(context) * .080,
+                    columns: const [
+                      DataColumn(
+                          label: AppText(
+                        ' ',
+                        color: white,
+                      )),
+                      DataColumn(
+                          label: AppText(
+                        'Student Name',
+                        color: white,
+                      )),
+                      DataColumn(
+                          label: AppText(
+                        'Mobile Number',
+                        color: white,
+                      )),
+                      DataColumn(
+                          label: AppText(
+                        'Country',
+                        color: white,
+                      )),
+                      DataColumn(
+                          label: AppText(
+                        ' ',
+                        color: white,
+                      )),
                     ],
-                  ),
-                );
-              },
-              separatorBuilder: (context, index) {
-                return SizedBox(
-                  height: MQ.ht(context) * .050,
-                );
-              },
+                    rows: List.generate(
+                      10,
+                      (index) => DataRow(
+                        color: MaterialStateProperty.all(white),
+                        cells: [
+                          DataCell(AppText('${index + 1}')),
+                        const  DataCell(AppText('waheed')),
+                         const DataCell(AppText('******5043')),
+                        const  DataCell(AppText('india')),
+                          DataCell(
+                            Consumer<Controller>(
+                              builder: (context, controller, child) {
+                                return ElevatedbuttonWd(
+                                  backgroudcolor: btcolor,
+                                  borderradius: MQ.wd(context) * .008,
+                                  text: 'View',
+                                  textsize: MQ.wd(context) * .010,
+                                  onpress: () {
+                                    controller.isConformclick();
+                                  },
+                                  textcolor: greenmedium,
+                                );
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    )),
+              ),
             ),
           ),
         if (controller.isclick == true)
@@ -153,6 +145,16 @@ class NewApplication extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
                           children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                IconButton(
+                                    onPressed: () {
+                                      controller.backbutton();
+                                    },
+                                    icon:const Icon(Icons.arrow_back)),
+                              ],
+                            ),
                             Row(
                               children: [
                                 ContainerWD(
@@ -312,12 +314,11 @@ class NewApplication extends StatelessWidget {
                                     alignment: Alignment.center,
                                     width: MQ.wd(context) * .05,
                                     height: MQ.ht(context) * .05,
-                                   
                                     colors: whiteshide,
                                     borderradius: BorderRadius.circular(
                                       MQ.wd(context) * .005,
                                     ),
-                                     child: AppText(study[1]),
+                                    child: AppText(study[1]),
                                   ),
                                   ContainerWD(
                                     alignment: Alignment.center,
@@ -326,9 +327,8 @@ class NewApplication extends StatelessWidget {
                                     borderradius: BorderRadius.circular(
                                       MQ.wd(context) * .005,
                                     ),
-                                   
                                     colors: whiteshide,
-                                     child: AppText(study[2]),
+                                    child: AppText(study[2]),
                                   ),
                                   ContainerWD(
                                     alignment: Alignment.center,
@@ -337,7 +337,6 @@ class NewApplication extends StatelessWidget {
                                     borderradius: BorderRadius.circular(
                                       MQ.wd(context) * .005,
                                     ),
-                                    
                                     colors: whiteshide,
                                     child: AppText(study[3]),
                                   ),

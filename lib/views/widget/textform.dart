@@ -1,12 +1,9 @@
- 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
- 
 
 class Textformwidget extends StatelessWidget {
   final double borderradius;
-
-  final Color? color;
+  final Color? fillcolor;
   final Widget? suffixicone;
   final BorderSide? borderSide;
   final String? hint;
@@ -15,20 +12,20 @@ class Textformwidget extends StatelessWidget {
   final int? maxlines;
   final AutovalidateMode? autovalidateMode;
   final TextEditingController? controller;
-  final TextAlign? textalign;
+  final TextAlign textalign;
   final int? maxlenght;
   final TextInputType? keyboardtype;
   final double? hintsize;
   final double leftpadding;
   final double toppadding;
-
   final Color? hintcolor;
   final bool readonly;
+  final String? Function(String?)? validator;
 
   const Textformwidget({
     super.key,
     this.borderradius = 10,
-    this.color,
+    this.fillcolor,
     this.suffixicone,
     this.borderSide,
     this.hint,
@@ -37,7 +34,7 @@ class Textformwidget extends StatelessWidget {
     this.maxlines = 1,
     this.autovalidateMode,
     this.controller,
-    this.textalign,
+    this.textalign = TextAlign.start,
     this.maxlenght,
     this.keyboardtype,
     this.hintsize,
@@ -45,6 +42,7 @@ class Textformwidget extends StatelessWidget {
     this.toppadding = 0,
     this.hintcolor,
     this.readonly = false,
+    this.validator,
   });
 
   @override
@@ -53,14 +51,12 @@ class Textformwidget extends StatelessWidget {
       inputFormatters: [
         LengthLimitingTextInputFormatter(maxlenght),
       ],
-      
       keyboardType: keyboardtype,
-      textAlign: TextAlign.start,
+      textAlign: textalign,
       autovalidateMode: autovalidateMode,
       controller: controller,
       decoration: InputDecoration(
-        
-        fillColor: color,
+        fillColor: fillcolor,
         filled: true,
         hintText: hint,
         contentPadding: EdgeInsets.only(
@@ -80,7 +76,6 @@ class Textformwidget extends StatelessWidget {
           fontSize: hintsize,
         ),
         border: OutlineInputBorder(
-          
           borderRadius: BorderRadius.circular(
             borderradius,
           ),
@@ -90,8 +85,8 @@ class Textformwidget extends StatelessWidget {
       ),
       maxLines: maxlines,
       onChanged: onchanged,
-      // initialValue: '10/25/2002',
       readOnly: readonly,
+      validator: validator,
     );
   }
 }

@@ -58,7 +58,7 @@ class AddLead extends StatelessWidget {
                     hintcolor: black,
                     leftpadding: MQ.wd(context) * .020,
                     hint: 'Search here',
-                    color: Colors.grey.shade200,
+                    fillcolor: Colors.grey.shade200,
                     suffixicone: IconButton(
                       onPressed: () {},
                       icon: const Icon(
@@ -112,7 +112,7 @@ class AddLead extends StatelessWidget {
                     sizedwd(
                       width: MQ.wd(context) * .3,
                       child: Textformwidget(
-                        color: white,
+                        fillcolor: white,
                         borderSide: const BorderSide(color: textgrey),
                         leftpadding: MQ.wd(context) * .010,
                       ),
@@ -131,7 +131,7 @@ class AddLead extends StatelessWidget {
                     sizedwd(
                       width: MQ.wd(context) * .3,
                       child: Textformwidget(
-                        color: white,
+                        fillcolor: white,
                         borderSide: const BorderSide(color: textgrey),
                         leftpadding: MQ.wd(context) * .010,
                       ),

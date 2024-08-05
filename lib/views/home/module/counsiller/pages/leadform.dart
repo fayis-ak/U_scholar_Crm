@@ -71,7 +71,7 @@ class _LeadsFormState extends State<LeadsForm> {
                     hintcolor: black,
                     leftpadding: MQ.wd(context) * .020,
                     hint: 'Search here',
-                    color: Colors.grey.shade200,
+                    fillcolor: Colors.grey.shade200,
                     suffixicone: IconButton(
                       onPressed: () {},
                       icon: const Icon(
@@ -140,7 +140,7 @@ class _LeadsFormState extends State<LeadsForm> {
                                 Textformwidget(
                                   hintcolor: black,
                                   leftpadding: MQ.wd(context) * .020,
-                                  color: white,
+                                  fillcolor: white,
                                   borderSide: const BorderSide(
                                     color: textgrey,
                                   ),
@@ -265,7 +265,7 @@ class _LeadsFormState extends State<LeadsForm> {
                                 Textformwidget(
                                   hintcolor: black,
                                   leftpadding: MQ.wd(context) * .020,
-                                  color: white,
+                                  fillcolor: white,
                                   borderSide: const BorderSide(
                                     color: textgrey,
                                   ),
@@ -283,7 +283,7 @@ class _LeadsFormState extends State<LeadsForm> {
                                 Textformwidget(
                                   hintcolor: black,
                                   leftpadding: MQ.wd(context) * .020,
-                                  color: white,
+                                  fillcolor: white,
                                   borderSide: const BorderSide(
                                     color: textgrey,
                                   ),
@@ -302,7 +302,7 @@ class _LeadsFormState extends State<LeadsForm> {
                                         hintcolor: black,
                                         maxlenght: 3,
                                         leftpadding: MQ.wd(context) * .010,
-                                        color: white,
+                                        fillcolor: white,
                                         borderSide:
                                             const BorderSide(color: textgrey),
                                         hint: '10th',
@@ -318,7 +318,7 @@ class _LeadsFormState extends State<LeadsForm> {
                                         hintcolor: black,
                                         maxlenght: 3,
                                         leftpadding: MQ.wd(context) * .010,
-                                        color: white,
+                                        fillcolor: white,
                                         borderSide:
                                             const BorderSide(color: textgrey),
                                         hint: '12th',
@@ -335,7 +335,7 @@ class _LeadsFormState extends State<LeadsForm> {
                                         hintcolor: black,
                                         maxlenght: 3,
                                         leftpadding: MQ.wd(context) * .010,
-                                        color: white,
+                                        fillcolor: white,
                                         borderSide:
                                             const BorderSide(color: textgrey),
                                         hint: 'Degree',
@@ -352,7 +352,7 @@ class _LeadsFormState extends State<LeadsForm> {
                                         hintcolor: black,
                                         maxlenght: 3,
                                         leftpadding: MQ.wd(context) * .010,
-                                        color: white,
+                                        fillcolor: white,
                                         borderSide:
                                             const BorderSide(color: textgrey),
                                         hint: 'Pg',
@@ -368,7 +368,7 @@ class _LeadsFormState extends State<LeadsForm> {
                                         hintcolor: black,
                                         maxlenght: 3,
                                         leftpadding: MQ.wd(context) * .010,
-                                        color: white,
+                                        fillcolor: white,
                                         borderSide:
                                             const BorderSide(color: textgrey),
                                         hint: 'ielts',
@@ -405,7 +405,7 @@ class _LeadsFormState extends State<LeadsForm> {
                                 borderSide: const BorderSide(
                                   color: textgrey,
                                 ),
-                                color: white,
+                                fillcolor: white,
                               ),
                               sizedwd(height: MQ.ht(context) * .030),
                               AppText(
@@ -458,7 +458,7 @@ class _LeadsFormState extends State<LeadsForm> {
                               Textformwidget(
                                 hintcolor: black,
                                 leftpadding: MQ.wd(context) * .020,
-                                color: white,
+                                fillcolor: white,
                                 maxlines: 2,
                                 autovalidateMode: AutovalidateMode.always,
                                 controller: notesController,
@@ -504,7 +504,7 @@ class _LeadsFormState extends State<LeadsForm> {
                               Textformwidget(
                                 hintcolor: black,
                                 leftpadding: MQ.wd(context) * .020,
-                                color: white,
+                                fillcolor: white,
                                 borderSide: const BorderSide(
                                   color: textgrey,
                                 ),
@@ -521,7 +521,7 @@ class _LeadsFormState extends State<LeadsForm> {
                                       hintcolor: black,
                                       maxlenght: 3,
                                       leftpadding: MQ.wd(context) * .010,
-                                      color: white,
+                                      fillcolor: white,
                                       borderSide:
                                           const BorderSide(color: textgrey),
                                       hint: '1 year',
@@ -533,7 +533,7 @@ class _LeadsFormState extends State<LeadsForm> {
                                       hintcolor: textgrey,
                                       maxlenght: 3,
                                       leftpadding: MQ.wd(context) * .010,
-                                      color: white,
+                                      fillcolor: white,
                                       borderSide:
                                           const BorderSide(color: textgrey),
                                       hint:
@@ -600,7 +600,7 @@ class _LeadsFormState extends State<LeadsForm> {
                                       width: MQ.wd(context) * .150,
                                       child: Textformwidget(
                                         leftpadding: MQ.wd(context) * .010,
-                                        color: white,
+                                        fillcolor: white,
                                         borderSide:
                                             const BorderSide(color: textgrey),
                                         readonly: true,
@@ -625,7 +625,7 @@ class _LeadsFormState extends State<LeadsForm> {
                                     SizedBox(
                                       width: MQ.wd(context) * .150,
                                       child: const Textformwidget(
-                                        color: white,
+                                        fillcolor: white,
                                         borderSide: BorderSide(color: textgrey),
                                       ),
                                     ),

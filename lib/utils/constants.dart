@@ -1,4 +1,3 @@
- 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
@@ -8,8 +7,10 @@ import 'package:uscholarcrm/views/home/module/addlead/addlead.dart';
 import 'package:uscholarcrm/views/home/module/addlead/dashboard.dart';
 import 'package:uscholarcrm/views/home/module/addlead/viewlead.dart';
 import 'package:uscholarcrm/views/home/module/application/dashboardapplication.dart';
+import 'package:uscholarcrm/views/home/module/application/dropapplication.dart';
 import 'package:uscholarcrm/views/home/module/application/followupapplication.dart';
 import 'package:uscholarcrm/views/home/module/application/newapplication.dart';
+import 'package:uscholarcrm/views/home/module/application/submitapplication.dart';
 import 'package:uscholarcrm/views/home/module/application/tottalapplication.dart';
 import 'package:uscholarcrm/views/home/module/counsiller/pages/attendence.dart';
 import 'package:uscholarcrm/views/home/module/counsiller/pages/canceledlead.dart';
@@ -28,6 +29,7 @@ import 'package:uscholarcrm/views/home/module/documentation/DropedDocuments.dart
 import 'package:uscholarcrm/views/home/module/documentation/dashboard.dart';
 import 'package:uscholarcrm/views/home/module/documentation/followupdocumnets.dart';
 import 'package:uscholarcrm/views/home/module/documentation/newdocuments.dart';
+import 'package:uscholarcrm/views/home/module/documentation/submitdocumnet.dart';
 import 'package:uscholarcrm/views/home/module/documentation/tottaldocuments.dart';
 
 const Color white = Color.fromARGB(255, 255, 255, 255);
@@ -43,16 +45,13 @@ const Color bttextcolor = Color(0xff00B087);
 const Color bluehigh = Color(0xff379BFD);
 const Color blueshide = Color(0xffF4FCFD);
 const Color vluemidium = Color(0xffFE6F4FF);
-
+const Color greenmedium = Color(0xff008767);
 const Color selectedindex = Color(0xff00EBD5);
 const Color orangelight = Color(0xffFAC78A);
 const Color greyshide = Color(0xffF3F3F3);
-
 const Color textgrey = Color(0xff9197B3);
-
 const Color red = Color(0xffFF0202);
 const Color redshide = Color(0xffF1ECFF);
-
 const Color verticaldivider = Color(0xff8D8181);
 const Color blue = Color(0xff3E4DD1);
 
@@ -76,23 +75,23 @@ List<String> drawertext = [
 
 //counsiller screen
 final List<Widget> screen = [
- const DashBoard(),
+  const DashBoard(),
   const Newleads(),
   Consumer<Controller>(
     builder: (context, controller, child) =>
-        controller.isclick ? const UpdateForm() :const FollowupLeads(),
+        controller.isclick ? const UpdateForm() : const FollowupLeads(),
   ),
   Consumer<Controller>(
     builder: (context, controller, child) =>
-        controller.isclick ?const RegistreadDetails() :const Registreadlead(),
+        controller.isclick ? const RegistreadDetails() : const Registreadlead(),
   ),
   const TottalLead(),
   const LeadsForm(),
- const CanceledLead(),
- const Attendence(),
- const Report(),
- const Support(),
- const StudentStatus(),
+  const CanceledLead(),
+  const Attendence(),
+  const Report(),
+  const Support(),
+  const StudentStatus(),
 ];
 
 List<String> addlead = [
@@ -107,10 +106,10 @@ const List<Icon> addleadicone = [
   Icon(Icons.view_agenda),
 ];
 //addlead
-   List<Widget> addleadscreen = [
- const DashBoardAddLead(),
+List<Widget> addleadscreen = [
+  const DashBoardAddLead(),
   AddLead(),
- const ViewLead(),
+  const ViewLead(),
 ];
 
 List<String> country = [
@@ -157,7 +156,7 @@ List<String> staffnames = [
   'Vijisha',
   'Reshma',
 ];
- const List<Icon> icons = [
+const List<Icon> icons = [
   Icon(Icons.dashboard),
   Icon(Icons.newspaper),
   Icon(Icons.follow_the_signs),
@@ -175,7 +174,7 @@ Widget logo(BuildContext context) {
   return Container(
     width: MQ.wd(context) * .050,
     height: MQ.wd(context) * .050,
-    decoration:const BoxDecoration(),
+    decoration: const BoxDecoration(),
     child: SvgPicture.asset(
       'assets/image/logo.svg',
       height: 5,
@@ -237,14 +236,16 @@ List<String> document = [
   'Followup Documents',
   'Total Documents',
   'Droped Documents',
+  'Sumbit Documents',
 ];
 
-  List<Widget> documentscreen = [
- const DashBoardDocuments(),
+List<Widget> documentscreen = [
+  const DashBoardDocuments(),
   NewDocuments(),
- const FollowupDocuments(),
- const TottalDocuments(),
- const DropedDocuments(),
+  const FollowupDocuments(),
+  const TottalDocuments(),
+  const DropedDocuments(),
+  const SubmitDocument(),
 ];
 
 const List<Icon> documenticone = [
@@ -253,6 +254,7 @@ const List<Icon> documenticone = [
   Icon(Icons.follow_the_signs),
   Icon(Icons.all_inbox),
   Icon(Icons.cancel_outlined),
+  Icon(Icons.done_all_outlined),
 ];
 
 //application
@@ -262,6 +264,8 @@ const List<String> Application = [
   'New Application',
   'Followup Application',
   'Total Application',
+  'Drop Application',
+  'Submit Application',
 ];
 
 const List<Widget> applicationscreen = [
@@ -269,13 +273,17 @@ const List<Widget> applicationscreen = [
   NewApplication(),
   FollowupApplication(),
   TottalApplication(),
+  DropApplication(),
+  SubmitApplication(),
 ];
 
- const List<Icon> applicationicone = [
+const List<Icon> applicationicone = [
   Icon(Icons.dashboard),
   Icon(Icons.next_week_outlined),
   Icon(Icons.follow_the_signs),
   Icon(Icons.all_inbox),
+  Icon(Icons.cancel_presentation),
+  Icon(Icons.done_all),
 ];
 
 List<String> documentstatus = [

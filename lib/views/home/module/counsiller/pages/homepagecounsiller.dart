@@ -1,7 +1,5 @@
- 
 import 'package:flutter/material.dart';
- 
- 
+
 import 'package:provider/provider.dart';
 import 'package:uscholarcrm/provider/controller.dart';
 import 'package:uscholarcrm/utils/constants.dart';
@@ -32,19 +30,19 @@ class HomePageCounsiller extends StatelessWidget {
                     child: Column(
                       children: [
                         ListTile(
-                          leading:const CircleAvatar(),
+                          leading: const CircleAvatar(),
                           title: AppText(
                             'WAHEED',
                             color: white,
                             size: MQ.wd(context) * .01,
                           ),
-                          subtitle:const AppText(
+                          subtitle: const AppText(
                             'staff',
                             color: white,
                           ),
                           trailing: IconButton(
                             onPressed: () {},
-                            icon:const Icon(Icons.more_vert_rounded),
+                            icon: const Icon(Icons.more_vert_rounded),
                           ),
                         ),
                         SizedBox(
@@ -107,19 +105,19 @@ Widget drawer() {
     builder: (context, constraints) {
       if (MediaQuery.of(context).size.width < 768) {
         return Container(
-          width: MQ.wd(context) * .50,
+          width: MQ.wd(context) * .40,
           color: black,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
                 ListTile(
-                  leading:const CircleAvatar(),
-                  title:const AppText(
+                  leading: const CircleAvatar(),
+                  title: const AppText(
                     'WAHEED',
                     color: white,
                   ),
-                  subtitle:const AppText(
+                  subtitle: const AppText(
                     'staff',
                     color: white,
                   ),
@@ -142,7 +140,7 @@ Widget drawer() {
                       child: ListTile(
                         leading: icons[index],
                         title: AppText(drawertext[index]),
-                        titleTextStyle:const TextStyle(
+                        titleTextStyle: const TextStyle(
                           color: white,
                         ),
                         tileColor: white,

@@ -21,15 +21,15 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-          title: 'CRM',
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: white),
-            useMaterial3: true,
-            fontFamily: 'PublicSans',
-          ),
-          debugShowCheckedModeBanner: false,
-          home: LogginScreen(),
-          ),
+        title: 'CRM',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: white),
+          useMaterial3: true,
+          fontFamily: 'PublicSans',
+        ),
+        debugShowCheckedModeBanner: false,
+        home: LogginScreen(),
+      ),
     );
   }
 }
